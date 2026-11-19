@@ -4,66 +4,68 @@
 {% block title %}Бронирование создано | РК «Strike & Pocket»{% endblock %}
 
 {% block content %}
-<div class="container py-5">
-  <div class="row justify-content-center">
-    <div class="col-lg-7 text-center">
-      <div class="d-inline-flex align-items-center justify-content-center bg-cyan text-dark rounded-circle mb-3" style="width: 72px; height: 72px;">
-        <i class="fa-solid fa-check fa-3x"></i>
-      </div>
-      <h2 class="fw-bold text-light mb-2">Бронирование успешно создано!</h2>
-      <p class="text-muted mb-4">Номер вашей заявки: <strong class="text-cyan fs-5">#{{ booking.booking_number }}</strong></p>
-
-      <div class="card card-custom p-4 text-start mb-4">
-        <h5 class="fw-bold text-light mb-3 border-bottom border-secondary border-opacity-25 pb-2">
-          <i class="fa-solid fa-calendar-day text-cyan me-2"></i>Параметры игры
-        </h5>
-        <div class="row g-2 small mb-3">
-          <div class="col-6 text-muted">Игровой ресурс:</div>
-          <div class="col-6 text-end text-light fw-bold">{{ booking.resource.title }}</div>
-
-          <div class="col-6 text-muted">Категория зала:</div>
-          <div class="col-6 text-end text-light">{{ booking.resource.category.name }}</div>
-
-          <div class="col-6 text-muted">Дата игры:</div>
-          <div class="col-6 text-end text-cyan fw-bold">{{ booking.booking_date|date:"d.m.Y" }}</div>
-
-          <div class="col-6 text-muted">Время сеанса:</div>
-          <div class="col-6 text-end text-cyan fw-bold">{{ booking.time_start|time:"H:i" }} — {{ booking.time_end|time:"H:i" }} ({{ booking.duration_hours }} ч.)</div>
-
-          <div class="col-6 text-muted">Количество гостей:</div>
-          <div class="col-6 text-end text-light">{{ booking.players_count }} чел.</div>
-
-          <div class="col-6 text-muted">Гость:</div>
-          <div class="col-6 text-end text-light">{{ booking.client.last_name }} {{ booking.client.first_name }}</div>
-
-          <div class="col-6 text-muted">Итоговая стоимость:</div>
-          <div class="col-6 text-end text-light fw-bold fs-6">{{ booking.total_cost }} ₽</div>
-
-          <div class="col-6 text-muted">Обязательный депозит 50%:</div>
-          <div class="col-6 text-end text-amber fw-bold fs-6">{{ booking.deposit_amount }} ₽</div>
+<section class="py-5" aria-labelledby="success-heading">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7 text-center">
+        <div class="icon-circle-lg bg-cyan text-dark mb-3">
+          <i class="fa-solid fa-check fa-3x" aria-hidden="true"></i>
         </div>
+        <h1 id="success-heading" class="h2 fw-bold text-light mb-2">Бронирование успешно создано!</h1>
+        <p class="text-muted mb-4">Номер вашей заявки: <strong class="text-cyan fs-5">#{{ booking.booking_number }}</strong></p>
 
-        {% if bar_orders %}
-          <div class="border-top border-secondary border-opacity-25 pt-2 small">
-            <span class="text-muted fw-bold">Предзаказ кухни/бара:</span>
-            <ul class="list-unstyled mt-1 mb-0 ps-2">
-              {% for o in bar_orders %}
-                <li class="text-light">&bull; {{ o.bar_item.name }} &times; {{ o.quantity }} шт. ({{ o.total_item_cost }} ₽)</li>
-              {% endfor %}
-            </ul>
+        <article class="card-custom text-start mb-4">
+          <h2 class="h5 fw-bold text-light mb-3 border-bottom border-secondary pb-2">
+            <i class="fa-solid fa-calendar-day text-cyan me-2" aria-hidden="true"></i>Параметры сеанса
+          </h2>
+          <div class="row g-2 small mb-3">
+            <div class="col-6 text-muted">Игровой ресурс:</div>
+            <div class="col-6 text-end text-light fw-bold">{{ booking.resource.title }}</div>
+
+            <div class="col-6 text-muted">Категория зала:</div>
+            <div class="col-6 text-end text-light">{{ booking.resource.category.name }}</div>
+
+            <div class="col-6 text-muted">Дата игры:</div>
+            <div class="col-6 text-end text-cyan fw-bold">{{ booking.booking_date|date:"d.m.Y" }}</div>
+
+            <div class="col-6 text-muted">Время сеанса:</div>
+            <div class="col-6 text-end text-cyan fw-bold">{{ booking.time_start|time:"H:i" }} — {{ booking.time_end|time:"H:i" }} ({{ booking.duration_hours }} ч.)</div>
+
+            <div class="col-6 text-muted">Количество гостей:</div>
+            <div class="col-6 text-end text-light">{{ booking.players_count }} чел.</div>
+
+            <div class="col-6 text-muted">Гость:</div>
+            <div class="col-6 text-end text-light">{{ booking.client.last_name }} {{ booking.client.first_name }}</div>
+
+            <div class="col-6 text-muted">Итоговая стоимость:</div>
+            <div class="col-6 text-end text-light fw-bold fs-6">{{ booking.total_cost|floatformat:2 }} ₽</div>
+
+            <div class="col-6 text-muted">Обязательный депозит 50%:</div>
+            <div class="col-6 text-end text-amber fw-bold fs-6">{{ booking.deposit_amount|floatformat:2 }} ₽</div>
           </div>
-        {% endif %}
-      </div>
 
-      <div class="d-flex flex-wrap gap-2 justify-content-center">
-        <a href="{% url 'payment_process' booking_id=booking.id %}" class="btn btn-cyan btn-lg px-4 fw-bold">
-          <i class="fa-solid fa-credit-card me-2"></i> Оплатить депозит онлайн
-        </a>
-        <a href="{% url 'my_bookings' %}?q={{ booking.booking_number }}" class="btn btn-outline-custom btn-lg px-4">
-          <i class="fa-solid fa-magnifying-glass me-2"></i> Детали бронирования
-        </a>
+          {% if bar_orders %}
+            <div class="border-top border-secondary pt-2 small">
+              <span class="text-muted fw-bold">Предзаказ кухни/бара:</span>
+              <ul class="list-unstyled mt-1 mb-0 ps-2">
+                {% for o in bar_orders %}
+                  <li class="text-light">&bull; {{ o.bar_item.name }} &times; {{ o.quantity }} шт. ({{ o.total_item_cost|floatformat:2 }} ₽)</li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+        </article>
+
+        <div class="d-flex flex-wrap gap-2 justify-content-center">
+          <a href="{% url 'payment_process' booking_id=booking.id %}" class="btn btn-cyan btn-lg px-4">
+            <i class="fa-solid fa-credit-card me-2" aria-hidden="true"></i> Оплатить депозит онлайн
+          </a>
+          <a href="{% url 'check_booking' %}?q={{ booking.booking_number }}" class="btn btn-outline-custom btn-lg px-4">
+            <i class="fa-solid fa-magnifying-glass me-2" aria-hidden="true"></i> Проверить бронь
+          </a>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 {% endblock %}

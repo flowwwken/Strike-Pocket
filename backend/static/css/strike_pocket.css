@@ -501,10 +501,51 @@ p {
   background: radial-gradient(circle at center, rgba(0, 229, 255, 0.15) 0%, var(--bg-dark) 80%);
 }
 
-.text-max-650 {
-  max-width: 650px;
-  margin-left: auto;
-  margin-right: auto;
+.font-heading {
+  font-family: var(--font-family-heading) !important;
+}
+
+.icon-circle-lg {
+  width: 72px;
+  height: 72px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+}
+
+.qr-box-lg {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+}
+
+.map-lane, .map-table {
+  cursor: pointer;
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.map-lane:hover, .map-table:hover {
+  filter: drop-shadow(0 0 6px var(--color-primary-cyan));
+}
+
+.sticky-panel-top {
+  position: sticky;
+  top: 5rem;
+}
+
+.hall-map-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-cyan);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.hall-map-svg {
+  width: 100%;
+  min-width: 820px;
+  background: #080d16;
+  border-radius: var(--radius-sm);
 }
 
 .hero-img-wrapper {

@@ -7,10 +7,10 @@
 <div class="container-fluid px-lg-4 py-4">
   <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-3">
     <div>
-      <h1 class="h3 fw-bold text-light mb-1" style="font-family: 'Montserrat', sans-serif;">
+      <h1 class="h3 fw-bold text-light mb-1" class="font-heading">
         <i class="fa-solid fa-map-location-dot text-cyan me-2"></i>ИНТЕРАКТИВНАЯ КАРТА ЗАЛОВ КЛУБА (FR-04)
       </h1>
-      <p class="small mb-0" style="color: #cbd5e1;">Нажмите на любую дорожку или стол для просмотра подробных параметров и перехода к бронированию</p>
+      <p class="small mb-0" class="text-muted">Нажмите на любую дорожку или стол для просмотра подробных параметров и перехода к бронированию</p>
     </div>
     <div class="d-flex gap-2 align-items-center">
       <span class="badge badge-status badge-available px-3 py-2 fs-6">
@@ -25,9 +25,9 @@
   <div class="row g-4">
     <!-- SVG КАРТА ЗАЛОВ -->
     <div class="col-lg-9">
-      <div class="card card-custom p-3 overflow-hidden shadow-lg" style="background: #090e18; border: 1px solid rgba(0, 229, 255, 0.25);">
+      <div class="card card-custom p-3 overflow-hidden shadow-lg" class="card-custom border-cyan">
         <div class="table-responsive">
-          <svg viewBox="0 0 1140 680" class="w-100" style="min-width: 820px; background: #080d16; border-radius: 8px;">
+          <svg viewBox="0 0 1140 680" class="w-100" class="hall-map-svg">
             <defs>
               <linearGradient id="bowlingGrad" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" stop-color="#0284c7" stop-opacity="0.3"/>
@@ -64,7 +64,7 @@
 
             <!-- 12 дорожек: ширина каждой 34px, шаг 41.5px (от x=44 до x=535 < 555) -->
             <!-- Дорожка 1 -->
-            <g class="map-lane" style="cursor: pointer;" onclick="selectResourceById(1)">
+            <g class="map-lane" onclick="selectResourceById(1)">
               <rect id="lane-rect-1" x="44" y="85" width="34" height="350" rx="5" fill="#0369a1" stroke="#00e5ff" stroke-width="1" opacity="0.9"/>
               <circle cx="61" cy="98" r="3" fill="#ffffff"/><circle cx="56" cy="107" r="2.5" fill="#ffffff"/><circle cx="66" cy="107" r="2.5" fill="#ffffff"/>
               <line x1="47" y1="365" x2="75" y2="365" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2"/>
@@ -73,7 +73,7 @@
             </g>
 
             <!-- Дорожка 2 -->
-            <g class="map-lane" style="cursor: pointer;" onclick="selectResourceById(2)">
+            <g class="map-lane" onclick="selectResourceById(2)">
               <rect id="lane-rect-2" x="85.5" y="85" width="34" height="350" rx="5" fill="#0369a1" stroke="#00e5ff" stroke-width="1" opacity="0.9"/>
               <circle cx="102.5" cy="98" r="3" fill="#ffffff"/><circle cx="97.5" cy="107" r="2.5" fill="#ffffff"/><circle cx="107.5" cy="107" r="2.5" fill="#ffffff"/>
               <line x1="88.5" y1="365" x2="116.5" y2="365" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2"/>
@@ -82,7 +82,7 @@
             </g>
 
             <!-- Дорожка 3 -->
-            <g class="map-lane" style="cursor: pointer;" onclick="selectResourceById(3)">
+            <g class="map-lane" onclick="selectResourceById(3)">
               <rect id="lane-rect-3" x="127" y="85" width="34" height="350" rx="5" fill="#0369a1" stroke="#00e5ff" stroke-width="1" opacity="0.9"/>
               <circle cx="144" cy="98" r="3" fill="#ffffff"/><circle cx="139" cy="107" r="2.5" fill="#ffffff"/><circle cx="149" cy="107" r="2.5" fill="#ffffff"/>
               <line x1="130" y1="365" x2="158" y2="365" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2"/>
@@ -91,7 +91,7 @@
             </g>
 
             <!-- Дорожка 4 -->
-            <g class="map-lane" style="cursor: pointer;" onclick="selectResourceById(4)">
+            <g class="map-lane" onclick="selectResourceById(4)">
               <rect id="lane-rect-4" x="168.5" y="85" width="34" height="350" rx="5" fill="#0369a1" stroke="#00e5ff" stroke-width="1" opacity="0.9"/>
               <circle cx="185.5" cy="98" r="3" fill="#ffffff"/><circle cx="180.5" cy="107" r="2.5" fill="#ffffff"/><circle cx="190.5" cy="107" r="2.5" fill="#ffffff"/>
               <line x1="171.5" y1="365" x2="199.5" y2="365" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2"/>
@@ -100,7 +100,7 @@
             </g>
 
             <!-- Дорожка 5 -->
-            <g class="map-lane" style="cursor: pointer;" onclick="selectResourceById(5)">
+            <g class="map-lane" onclick="selectResourceById(5)">
               <rect id="lane-rect-5" x="210" y="85" width="34" height="350" rx="5" fill="#0369a1" stroke="#00e5ff" stroke-width="1" opacity="0.9"/>
               <circle cx="227" cy="98" r="3" fill="#ffffff"/><circle cx="222" cy="107" r="2.5" fill="#ffffff"/><circle cx="232" cy="107" r="2.5" fill="#ffffff"/>
               <line x1="213" y1="365" x2="241" y2="365" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2"/>
@@ -109,7 +109,7 @@
             </g>
 
             <!-- Дорожка 6 -->
-            <g class="map-lane" style="cursor: pointer;" onclick="selectResourceById(6)">
+            <g class="map-lane" onclick="selectResourceById(6)">
               <rect id="lane-rect-6" x="251.5" y="85" width="34" height="350" rx="5" fill="#0369a1" stroke="#00e5ff" stroke-width="1" opacity="0.9"/>
               <circle cx="268.5" cy="98" r="3" fill="#ffffff"/><circle cx="263.5" cy="107" r="2.5" fill="#ffffff"/><circle cx="273.5" cy="107" r="2.5" fill="#ffffff"/>
               <line x1="254.5" y1="365" x2="282.5" y2="365" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2"/>
@@ -118,7 +118,7 @@
             </g>
 
             <!-- Дорожка 7 -->
-            <g class="map-lane" style="cursor: pointer;" onclick="selectResourceById(7)">
+            <g class="map-lane" onclick="selectResourceById(7)">
               <rect id="lane-rect-7" x="293" y="85" width="34" height="350" rx="5" fill="#0369a1" stroke="#00e5ff" stroke-width="1" opacity="0.9"/>
               <circle cx="310" cy="98" r="3" fill="#ffffff"/><circle cx="305" cy="107" r="2.5" fill="#ffffff"/><circle cx="315" cy="107" r="2.5" fill="#ffffff"/>
               <line x1="296" y1="365" x2="324" y2="365" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2"/>
@@ -127,7 +127,7 @@
             </g>
 
             <!-- Дорожка 8 -->
-            <g class="map-lane" style="cursor: pointer;" onclick="selectResourceById(8)">
+            <g class="map-lane" onclick="selectResourceById(8)">
               <rect id="lane-rect-8" x="334.5" y="85" width="34" height="350" rx="5" fill="#0369a1" stroke="#00e5ff" stroke-width="1" opacity="0.9"/>
               <circle cx="351.5" cy="98" r="3" fill="#ffffff"/><circle cx="346.5" cy="107" r="2.5" fill="#ffffff"/><circle cx="356.5" cy="107" r="2.5" fill="#ffffff"/>
               <line x1="337.5" y1="365" x2="365.5" y2="365" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2"/>
@@ -136,7 +136,7 @@
             </g>
 
             <!-- Дорожка 9 -->
-            <g class="map-lane" style="cursor: pointer;" onclick="selectResourceById(9)">
+            <g class="map-lane" onclick="selectResourceById(9)">
               <rect id="lane-rect-9" x="376" y="85" width="34" height="350" rx="5" fill="#0369a1" stroke="#00e5ff" stroke-width="1" opacity="0.9"/>
               <circle cx="393" cy="98" r="3" fill="#ffffff"/><circle cx="388" cy="107" r="2.5" fill="#ffffff"/><circle cx="398" cy="107" r="2.5" fill="#ffffff"/>
               <line x1="379" y1="365" x2="407" y2="365" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2"/>
@@ -145,7 +145,7 @@
             </g>
 
             <!-- Дорожка 10 -->
-            <g class="map-lane" style="cursor: pointer;" onclick="selectResourceById(10)">
+            <g class="map-lane" onclick="selectResourceById(10)">
               <rect id="lane-rect-10" x="417.5" y="85" width="34" height="350" rx="5" fill="#0369a1" stroke="#00e5ff" stroke-width="1" opacity="0.9"/>
               <circle cx="434.5" cy="98" r="3" fill="#ffffff"/><circle cx="429.5" cy="107" r="2.5" fill="#ffffff"/><circle cx="439.5" cy="107" r="2.5" fill="#ffffff"/>
               <line x1="420.5" y1="365" x2="448.5" y2="365" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2"/>
@@ -154,7 +154,7 @@
             </g>
 
             <!-- Дорожка 11 -->
-            <g class="map-lane" style="cursor: pointer;" onclick="selectResourceById(11)">
+            <g class="map-lane" onclick="selectResourceById(11)">
               <rect id="lane-rect-11" x="459" y="85" width="34" height="350" rx="5" fill="#0369a1" stroke="#00e5ff" stroke-width="1" opacity="0.9"/>
               <circle cx="476" cy="98" r="3" fill="#ffffff"/><circle cx="471" cy="107" r="2.5" fill="#ffffff"/><circle cx="481" cy="107" r="2.5" fill="#ffffff"/>
               <line x1="462" y1="365" x2="490" y2="365" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2"/>
@@ -163,7 +163,7 @@
             </g>
 
             <!-- Дорожка 12 -->
-            <g class="map-lane" style="cursor: pointer;" onclick="selectResourceById(12)">
+            <g class="map-lane" onclick="selectResourceById(12)">
               <rect id="lane-rect-12" x="500.5" y="85" width="34" height="350" rx="5" fill="#0369a1" stroke="#00e5ff" stroke-width="1" opacity="0.9"/>
               <circle cx="517.5" cy="98" r="3" fill="#ffffff"/><circle cx="512.5" cy="107" r="2.5" fill="#ffffff"/><circle cx="522.5" cy="107" r="2.5" fill="#ffffff"/>
               <line x1="503.5" y1="365" x2="531.5" y2="365" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2"/>
@@ -201,7 +201,7 @@
 
             <!-- Ряд 1: Столы 1, 2, 3 (y=85, высота 95) -->
             <!-- Стол №01 (id=13) -->
-            <g class="map-table" style="cursor: pointer;" onclick="selectResourceById(13)">
+            <g class="map-table" onclick="selectResourceById(13)">
               <rect id="table-rect-13" x="595" y="85" width="155" height="95" rx="6" fill="#047857" stroke="#34d399" stroke-width="1.8"/>
               <!-- Лузы -->
               <circle cx="602" cy="92" r="4.5" fill="#1e293b" stroke="#e2e8f0" stroke-width="1"/>
@@ -218,7 +218,7 @@
             </g>
 
             <!-- Стол №02 (id=14) -->
-            <g class="map-table" style="cursor: pointer;" onclick="selectResourceById(14)">
+            <g class="map-table" onclick="selectResourceById(14)">
               <rect id="table-rect-14" x="768" y="85" width="155" height="95" rx="6" fill="#047857" stroke="#34d399" stroke-width="1.8"/>
               <circle cx="775" cy="92" r="4.5" fill="#1e293b" stroke="#e2e8f0" stroke-width="1"/>
               <circle cx="916" cy="92" r="4.5" fill="#1e293b" stroke="#e2e8f0" stroke-width="1"/>
@@ -233,7 +233,7 @@
             </g>
 
             <!-- Стол №03 (id=15) -->
-            <g class="map-table" style="cursor: pointer;" onclick="selectResourceById(15)">
+            <g class="map-table" onclick="selectResourceById(15)">
               <rect id="table-rect-15" x="941" y="85" width="155" height="95" rx="6" fill="#047857" stroke="#34d399" stroke-width="1.8"/>
               <circle cx="948" cy="92" r="4.5" fill="#1e293b" stroke="#e2e8f0" stroke-width="1"/>
               <circle cx="1089" cy="92" r="4.5" fill="#1e293b" stroke="#e2e8f0" stroke-width="1"/>
@@ -249,7 +249,7 @@
 
             <!-- Ряд 2: Столы 4, 5, 6 (y=205, высота 95) -->
             <!-- Стол №04 (id=16) -->
-            <g class="map-table" style="cursor: pointer;" onclick="selectResourceById(16)">
+            <g class="map-table" onclick="selectResourceById(16)">
               <rect id="table-rect-16" x="595" y="205" width="155" height="95" rx="6" fill="#047857" stroke="#34d399" stroke-width="1.8"/>
               <circle cx="602" cy="212" r="4.5" fill="#1e293b" stroke="#e2e8f0" stroke-width="1"/>
               <circle cx="743" cy="212" r="4.5" fill="#1e293b" stroke="#e2e8f0" stroke-width="1"/>
@@ -264,7 +264,7 @@
             </g>
 
             <!-- Стол №05 (id=17) -->
-            <g class="map-table" style="cursor: pointer;" onclick="selectResourceById(17)">
+            <g class="map-table" onclick="selectResourceById(17)">
               <rect id="table-rect-17" x="768" y="205" width="155" height="95" rx="6" fill="#047857" stroke="#34d399" stroke-width="1.8"/>
               <circle cx="775" cy="212" r="4.5" fill="#1e293b" stroke="#e2e8f0" stroke-width="1"/>
               <circle cx="916" cy="212" r="4.5" fill="#1e293b" stroke="#e2e8f0" stroke-width="1"/>
@@ -279,7 +279,7 @@
             </g>
 
             <!-- Стол №06 (id=18) -->
-            <g class="map-table" style="cursor: pointer;" onclick="selectResourceById(18)">
+            <g class="map-table" onclick="selectResourceById(18)">
               <rect id="table-rect-18" x="941" y="205" width="155" height="95" rx="6" fill="#047857" stroke="#34d399" stroke-width="1.8"/>
               <circle cx="948" cy="212" r="4.5" fill="#1e293b" stroke="#e2e8f0" stroke-width="1"/>
               <circle cx="1089" cy="212" r="4.5" fill="#1e293b" stroke="#e2e8f0" stroke-width="1"/>
@@ -302,7 +302,7 @@
             <text x="595" y="380" fill="#94a3b8" font-size="10.5">Европейский стандарт EPBF • Сукно Simonis 860</text>
 
             <!-- Стол №07 (id=19) -->
-            <g class="map-table" style="cursor: pointer;" onclick="selectResourceById(19)">
+            <g class="map-table" onclick="selectResourceById(19)">
               <rect id="table-rect-19" x="595" y="398" width="145" height="95" rx="6" fill="#b45309" stroke="#fbbf24" stroke-width="1.8"/>
               <circle cx="602" cy="405" r="4" fill="#1e293b"/>
               <circle cx="733" cy="405" r="4" fill="#1e293b"/>
@@ -315,7 +315,7 @@
             </g>
 
             <!-- Стол №08 (id=20) -->
-            <g class="map-table" style="cursor: pointer;" onclick="selectResourceById(20)">
+            <g class="map-table" onclick="selectResourceById(20)">
               <rect id="table-rect-20" x="762" y="398" width="145" height="95" rx="6" fill="#b45309" stroke="#fbbf24" stroke-width="1.8"/>
               <circle cx="769" cy="405" r="4" fill="#1e293b"/>
               <circle cx="900" cy="405" r="4" fill="#1e293b"/>
@@ -328,7 +328,7 @@
             </g>
 
             <!-- Стол №09 (id=21) -->
-            <g class="map-table" style="cursor: pointer;" onclick="selectResourceById(21)">
+            <g class="map-table" onclick="selectResourceById(21)">
               <rect id="table-rect-21" x="678" y="515" width="145" height="95" rx="6" fill="#b45309" stroke="#fbbf24" stroke-width="1.8"/>
               <circle cx="685" cy="522" r="4" fill="#1e293b"/>
               <circle cx="816" cy="522" r="4" fill="#1e293b"/>
@@ -349,7 +349,7 @@
             <text x="955" y="380" fill="#94a3b8" font-size="10">Riley Aristocrat Match</text>
 
             <!-- Стол №10 VIP (id=22) -->
-            <g class="map-table" style="cursor: pointer;" onclick="selectResourceById(22)">
+            <g class="map-table" onclick="selectResourceById(22)">
               <rect id="table-rect-22" x="955" y="420" width="145" height="150" rx="6" fill="#581c87" stroke="#c084fc" stroke-width="2"/>
               <!-- Лузы снукера -->
               <circle cx="963" cy="428" r="4" fill="#1e293b" stroke="#e9d5ff" stroke-width="1"/>
@@ -374,69 +374,69 @@
 
     <!-- БОКОВАЯ ИНФО-ПАНЕЛЬ ВЫБРАННОГО РЕСУРСА (Высококонтрастная и информативная) -->
     <div class="col-lg-3">
-      <div class="card card-custom p-4 h-100 shadow-lg" id="resourceDetailBox" style="background: #111827; border: 1px solid rgba(0, 229, 255, 0.3);">
+      <div class="card-custom h-100 card-highlight-cyan" id="resourceDetailBox">
         <!-- Заглушка, когда ресурс еще не выбран -->
         <div class="text-center py-4" id="placeholderPrompt">
           <div class="mb-3">
-            <i class="fa-solid fa-hand-pointer fa-3x text-cyan"></i>
+            <i class="fa-solid fa-hand-pointer fa-3x text-cyan" aria-hidden="true"></i>
           </div>
-          <h4 class="text-white fw-bold mb-2">Выберите слот на схеме</h4>
-          <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.5;">
+          <h2 class="h5 text-light fw-bold mb-2">Выберите слот на схеме</h2>
+          <p class="text-muted small">
             Нажмите на любую дорожку боулинга или стол бильярда, чтобы просмотреть характеристики оборудования, лимит игроков и мгновенно перейти к бронированию.
           </p>
           <div class="d-flex flex-wrap gap-2 justify-content-center mt-3">
-            <span class="badge" style="background: rgba(0, 229, 255, 0.15); color: #00e5ff; border: 1px solid rgba(0, 229, 255, 0.3);">12 дорожек</span>
-            <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);">6 пирамид</span>
-            <span class="badge" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);">3 пула</span>
-            <span class="badge" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);">1 снукер</span>
+            <span class="badge-tag badge-cyan">12 дорожек</span>
+            <span class="badge-tag badge-green">6 пирамид</span>
+            <span class="badge-tag badge-amber">3 пула</span>
+            <span class="badge-tag badge-purple">1 снукер</span>
           </div>
         </div>
 
         <!-- Подробная карточка выбранного ресурса -->
         <div id="resourceInfoContent" class="d-none">
-          <span class="badge px-3 py-2 fs-6 fw-bold mb-2" id="resCategoryBadge" style="background: #00e5ff; color: #0b0f19;">
+          <span class="badge-tag badge-cyan mb-2" id="resCategoryBadge">
             Категория
           </span>
-          <h3 class="fw-bold text-white mb-1" id="resTitle">Стол №01 (Пирамида 12ft)</h3>
-          <div class="mb-3" id="resBrand" style="color: #cbd5e1; font-size: 0.95rem;">
-            <i class="fa-solid fa-screwdriver-wrench me-1 text-cyan"></i> Оборудование
+          <h2 class="h5 fw-bold text-light mb-1" id="resTitle">Стол №01 (Пирамида 12ft)</h2>
+          <div class="mb-3 text-muted small" id="resBrand">
+            <i class="fa-solid fa-screwdriver-wrench me-1 text-cyan" aria-hidden="true"></i> Оборудование
           </div>
 
-          <!-- Блок характеристик с четким разделением -->
-          <div class="p-3 rounded mb-3" style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(0, 229, 255, 0.25);">
+          <!-- Блок характеристик -->
+          <div class="card-custom bg-surface-card p-3 mb-3">
             <div class="d-flex justify-content-between align-items-center mb-2">
-              <span style="color: #cbd5e1; font-weight: 500;">
-                <i class="fa-solid fa-users text-cyan me-1"></i> Вместимость:
+              <span class="text-muted">
+                <i class="fa-solid fa-users text-cyan me-1" aria-hidden="true"></i> Вместимость:
               </span>
-              <span class="fw-bold fs-6" id="resCapacity" style="color: #00e5ff;">до 4 игроков</span>
+              <span class="fw-bold fs-6 text-cyan" id="resCapacity">до 4 игроков</span>
             </div>
             <div class="d-flex justify-content-between align-items-center mb-2">
-              <span style="color: #cbd5e1; font-weight: 500;">
-                <i class="fa-solid fa-circle-dot text-success me-1"></i> Статус:
+              <span class="text-muted">
+                <i class="fa-solid fa-circle-dot text-green me-1" aria-hidden="true"></i> Статус:
               </span>
-              <span class="fw-bold" id="resStatus" style="color: #10b981;">Доступен</span>
+              <span class="fw-bold text-green" id="resStatus">Доступен</span>
             </div>
             <div class="d-flex justify-content-between align-items-center">
-              <span style="color: #cbd5e1; font-weight: 500;">
-                <i class="fa-solid fa-tag text-amber me-1"></i> Тариф от:
+              <span class="text-muted">
+                <i class="fa-solid fa-tag text-amber me-1" aria-hidden="true"></i> Тариф от:
               </span>
-              <span class="fw-bold" id="resPrice" style="color: #ffb300;">750 ₽/час</span>
+              <span class="fw-bold text-amber" id="resPrice">750 ₽/час</span>
             </div>
           </div>
 
           <!-- Особенности выбранной зоны -->
           <div class="mb-4">
-            <h6 class="fw-bold mb-2" style="color: #f8fafc;">
-              <i class="fa-solid fa-star text-amber me-1"></i> Особенности зоны:
-            </h6>
-            <ul class="list-unstyled ps-0 mb-0" id="resFeatures" style="color: #e2e8f0; font-size: 0.92rem;">
+            <h3 class="h6 fw-bold mb-2 text-light">
+              <i class="fa-solid fa-star text-amber me-1" aria-hidden="true"></i> Особенности зоны:
+            </h3>
+            <ul class="list-unstyled ps-0 mb-0 small text-muted" id="resFeatures">
               <!-- Заполняется динамически через JS -->
             </ul>
           </div>
 
           <!-- Кнопка перехода к бронированию -->
-          <a href="#" id="resBookingBtn" class="btn btn-cyan w-100 fw-bold py-2 fs-6 shadow-glow-cyan">
-            <i class="fa-solid fa-calendar-check me-2"></i> Перейти к бронированию
+          <a href="{% url 'booking_wizard' %}" id="resBookingBtn" class="btn btn-cyan w-100 fw-bold py-2 fs-6">
+            <i class="fa-solid fa-calendar-check me-2" aria-hidden="true"></i> Забронировать этот слот
           </a>
         </div>
       </div>

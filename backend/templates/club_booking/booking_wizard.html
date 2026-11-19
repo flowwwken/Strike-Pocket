@@ -4,213 +4,234 @@
 {% block title %}Онлайн-бронирование дорожек и столов | РК «Strike & Pocket»{% endblock %}
 
 {% block content %}
-<div class="container py-5">
-  <div class="mb-4 text-center">
-    <h1 class="h2 fw-bold text-light mb-1" style="font-family: 'Montserrat', sans-serif;">
-      <i class="fa-solid fa-calendar-check text-cyan me-2"></i>ОНЛАЙН-БРОНИРОВАНИЕ СЕАНСА
-    </h1>
-    <p class="small" style="color: #cbd5e1;">Выберите дату, интервал времени, примените клубную карту и добавьте предзаказ из меню бара</p>
-  </div>
+<section class="py-5" aria-labelledby="wizard-main-heading">
+  <div class="container">
+    <div class="mb-4 text-center">
+      <div class="badge-tag badge-cyan mb-2">Онлайн-сервис</div>
+      <h1 id="wizard-main-heading" class="h2 fw-bold text-light mb-1">
+        <i class="fa-solid fa-calendar-check text-cyan me-2" aria-hidden="true"></i>ОНЛАЙН-БРОНИРОВАНИЕ СЕАНСА
+      </h1>
+      <p class="small text-muted text-max-650">
+        Выберите дату, интервал времени, примените клубную карту и добавьте предзаказ из меню бара
+      </p>
+    </div>
 
-  <form method="POST" action="{% url 'booking_wizard' %}" id="bookingWizardForm">
-    {% csrf_token %}
-    <input type="hidden" name="bar_items_json" id="barItemsJson" value="[]">
+    <form method="POST" action="{% url 'booking_wizard' %}" id="bookingWizardForm" novalidate>
+      {% csrf_token %}
+      <input type="hidden" name="bar_items_json" id="barItemsJson" value="[]">
 
-    <div class="row g-4">
-      <!-- ЛЕВАЯ КОЛОНКА: ШАГИ 1-3 И ПРЕДЗАКАЗ БАРА -->
-      <div class="col-lg-8">
-        <!-- ШАГ 1: ВЫБОР РЕСУРСА И ВРЕМЕНИ -->
-        <div class="card card-custom p-4 mb-4" style="background: #111827; border: 1px solid rgba(0, 229, 255, 0.25);">
-          <h5 class="fw-bold text-white mb-3">
-            <span class="wizard-step-badge">1</span>Выбор оборудования и интервала времени
-          </h5>
-
-          <div class="row g-3">
-            <div class="col-md-6">
-              <label class="form-label small fw-semibold" style="color: #cbd5e1;">Игровой ресурс (дорожка / стол)</label>
-              <select name="resource_id" id="resourceSelect" class="form-select bg-dark text-light border-secondary" required>
-                {% for r in resources %}
-                  <option value="{{ r.id }}" data-category="{{ r.category.code }}" data-capacity="{{ r.max_capacity }}"
-                          {% if selected_resource and selected_resource.id == r.id %}selected{% endif %}>
-                    {{ r.title }} [{{ r.category.name }}] (вместимость: до {{ r.max_capacity }} чел.)
-                  </option>
-                {% endfor %}
-              </select>
+      <div class="row g-4">
+        <!-- ЛЕВАЯ КОЛОНКА: ШАГИ 1-3 И ПРЕДЗАКАЗ БАРА -->
+        <div class="col-lg-8">
+          <!-- ШАГ 1: ВЫБОР РЕСУРСА И ВРЕМЕНИ -->
+          <article class="card-custom mb-4">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <span class="badge-tag badge-cyan">Шаг 1</span>
+              <h2 class="h5 fw-bold text-light mb-0">Выбор оборудования и интервала времени</h2>
             </div>
 
-            <div class="col-md-6">
-              <label class="form-label small fw-semibold" style="color: #cbd5e1;">Дата проведения сеанса</label>
-              <input type="date" name="booking_date" id="dateInput" class="form-control bg-dark text-light border-secondary" value="{{ default_date }}" required>
+            <div class="row g-3">
+              <div class="col-md-6 form-group">
+                <label for="resourceSelect" class="form-label">Игровой ресурс (дорожка / стол) *</label>
+                <select name="resource_id" id="resourceSelect" class="form-select-custom" required>
+                  {% for r in resources %}
+                    <option value="{{ r.id }}" data-category="{{ r.category.code }}" data-capacity="{{ r.max_capacity }}"
+                            {% if selected_resource and selected_resource.id == r.id %}selected{% endif %}>
+                      {{ r.title }} [{{ r.category.name }}] (вместимость: до {{ r.max_capacity }} чел.)
+                    </option>
+                  {% endfor %}
+                </select>
+                <span class="form-error-feedback d-none" id="error-resource_id"></span>
+              </div>
+
+              <div class="col-md-6 form-group">
+                <label for="dateInput" class="form-label">Дата проведения сеанса *</label>
+                <input type="date" name="booking_date" id="dateInput" class="form-control-custom" value="{{ default_date }}" required>
+                <span class="form-error-feedback d-none" id="error-booking_date"></span>
+              </div>
+
+              <div class="col-md-4 form-group">
+                <label for="startTimeInput" class="form-label">Время начала игры *</label>
+                <select name="time_start" id="startTimeInput" class="form-select-custom" required>
+                  <option value="12:00">12:00 (Дневной тариф)</option>
+                  <option value="13:00">13:00</option>
+                  <option value="14:00">14:00</option>
+                  <option value="15:00">15:00</option>
+                  <option value="16:00">16:00</option>
+                  <option value="17:00" selected>17:00 (Граница 18:00)</option>
+                  <option value="18:00">18:00 (Вечерний тариф)</option>
+                  <option value="19:00">19:00</option>
+                  <option value="20:00">20:00</option>
+                  <option value="21:00">21:00</option>
+                  <option value="22:00">22:00</option>
+                  <option value="23:00">23:00</option>
+                </select>
+                <span class="form-error-feedback d-none" id="error-time_start"></span>
+              </div>
+
+              <div class="col-md-4 form-group">
+                <label for="endTimeInput" class="form-label">Время окончания игры *</label>
+                <select name="time_end" id="endTimeInput" class="form-select-custom" required>
+                  <option value="13:00">13:00 (1 час)</option>
+                  <option value="14:00">14:00 (2 часа)</option>
+                  <option value="15:00">15:00 (3 часа)</option>
+                  <option value="16:00">16:00</option>
+                  <option value="17:00">17:00</option>
+                  <option value="18:00">18:00</option>
+                  <option value="19:00" selected>19:00 (2 часа)</option>
+                  <option value="20:00">20:00 (3 часа)</option>
+                  <option value="21:00">21:00</option>
+                  <option value="22:00">22:00</option>
+                  <option value="23:00">23:00</option>
+                  <option value="00:00">00:00</option>
+                </select>
+                <span class="form-error-feedback d-none" id="error-time_end"></span>
+              </div>
+
+              <div class="col-md-4 form-group">
+                <label for="playersInput" class="form-label">Количество гостей (макс. 6) *</label>
+                <input type="number" name="players_count" id="playersInput" class="form-control-custom" min="1" max="12" value="4" required>
+                <span class="form-error-feedback d-none" id="error-players_count"></span>
+              </div>
             </div>
 
-            <div class="col-md-4">
-              <label class="form-label small fw-semibold" style="color: #cbd5e1;">Время начала игры</label>
-              <select name="time_start" id="startTimeInput" class="form-select bg-dark text-light border-secondary" required>
-                <option value="12:00">12:00 (Дневной тариф)</option>
-                <option value="13:00">13:00</option>
-                <option value="14:00">14:00</option>
-                <option value="15:00">15:00</option>
-                <option value="16:00">16:00</option>
-                <option value="17:00" selected>17:00 (Граница 18:00)</option>
-                <option value="18:00">18:00 (Вечерний тариф)</option>
-                <option value="19:00">19:00</option>
-                <option value="20:00">20:00</option>
-                <option value="21:00">21:00</option>
-                <option value="22:00">22:00</option>
-                <option value="23:00">23:00</option>
-              </select>
+            <!-- Баннер контроля лимита игроков (FR-05) -->
+            <div id="capacityAlert" class="mt-3 d-none"></div>
+          </article>
+
+          <!-- ШАГ 2: ПРЕДЗАКАЗ КУХНИ И БАРА (FR-08) -->
+          <article class="card-custom mb-4 card-highlight-amber">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <span class="badge-tag badge-amber">Шаг 2</span>
+              <h2 class="h5 fw-bold text-light mb-0">Предзаказ ресторанного меню на дорожку</h2>
             </div>
+            <p class="small text-muted mb-3">Блюда и напитки будут приготовлены и поданы строго к началу сеанса игры.</p>
 
-            <div class="col-md-4">
-              <label class="form-label small fw-semibold" style="color: #cbd5e1;">Время окончания игры</label>
-              <select name="time_end" id="endTimeInput" class="form-select bg-dark text-light border-secondary" required>
-                <option value="13:00">13:00 (1 час)</option>
-                <option value="14:00">14:00 (2 часа)</option>
-                <option value="15:00">15:00 (3 часа)</option>
-                <option value="16:00">16:00</option>
-                <option value="17:00">17:00</option>
-                <option value="18:00">18:00</option>
-                <option value="19:00" selected>19:00 (2 часа)</option>
-                <option value="20:00">20:00 (3 часа)</option>
-                <option value="21:00">21:00</option>
-                <option value="22:00">22:00</option>
-                <option value="23:00">23:00</option>
-                <option value="00:00">00:00</option>
-              </select>
-            </div>
+            <ul class="nav nav-pills mb-3 gap-2" id="barTabs" role="tablist">
+              {% for cat in bar_categories %}
+                <li class="nav-item">
+                  <button class="nav-link btn-outline-custom {% if forloop.first %}active{% endif %} btn-sm" 
+                          id="cat-tab-{{ cat.id }}" 
+                          data-bs-toggle="pill" 
+                          data-bs-target="#cat-content-{{ cat.id }}" 
+                          type="button">
+                    {{ cat.name }}
+                  </button>
+                </li>
+              {% endfor %}
+            </ul>
 
-            <div class="col-md-4">
-              <label class="form-label small fw-semibold" style="color: #cbd5e1;">Количество игроков</label>
-              <input type="number" name="players_count" id="playersInput" class="form-control bg-dark text-light border-secondary" min="1" max="12" value="4" required>
-            </div>
-          </div>
-
-          <!-- Баннер контроля лимита игроков (FR-05) -->
-          <div id="capacityAlert" class="mt-3 d-none"></div>
-        </div>
-
-        <!-- ШАГ 2: ПРЕДЗАКАЗ КУХНИ И БАРА (FR-08) -->
-        <div class="card card-custom p-4 mb-4" style="background: #111827; border: 1px solid rgba(255, 179, 0, 0.25);">
-          <h5 class="fw-bold text-white mb-2">
-            <span class="wizard-step-badge">2</span>Предзаказ ресторанного меню на дорожку (FR-08)
-          </h5>
-          <p class="small mb-3" style="color: #cbd5e1;">Блюда и напитки будут приготовлены и поданы строго к началу сеанса игры.</p>
-
-          <ul class="nav nav-pills mb-3 gap-2" id="barTabs" role="tablist">
-            {% for cat in bar_categories %}
-              <li class="nav-item">
-                <button class="nav-link btn-outline-custom {% if forloop.first %}active{% endif %}" id="cat-tab-{{ cat.id }}" data-bs-toggle="pill" data-bs-target="#cat-content-{{ cat.id }}" type="button">
-                  {{ cat.name }}
-                </button>
-              </li>
-            {% endfor %}
-          </ul>
-
-          <div class="tab-content" id="barTabsContent">
-            {% for cat in bar_categories %}
-              <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="cat-content-{{ cat.id }}">
-                <div class="row g-2">
-                  {% for item in cat.items.all %}
-                    <div class="col-md-6">
-                      <div class="p-2 rounded d-flex justify-content-between align-items-center" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);">
-                        <div>
-                          <div class="text-white fw-bold small">{{ item.name }}</div>
-                          <div style="font-size: 0.8rem; color: #cbd5e1;">{{ item.portion_size }} &bull; <span class="text-amber fw-bold">{{ item.price }} ₽</span></div>
-                        </div>
-                        <div class="d-flex align-items-center gap-2">
-                          <button type="button" class="btn btn-sm btn-outline-secondary px-2 py-0 text-white" onclick="changeBarQty({{ item.id }}, -1, '{{ item.name|escapejs }}', {{ item.price }})">-</button>
-                          <span class="fw-bold text-cyan" id="barQty_{{ item.id }}">0</span>
-                          <button type="button" class="btn btn-sm btn-outline-cyan px-2 py-0" onclick="changeBarQty({{ item.id }}, 1, '{{ item.name|escapejs }}', {{ item.price }})">+</button>
+            <div class="tab-content" id="barTabsContent">
+              {% for cat in bar_categories %}
+                <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="cat-content-{{ cat.id }}">
+                  <div class="row g-2">
+                    {% for item in cat.items.all %}
+                      <div class="col-md-6">
+                        <div class="p-2 card-custom bg-surface-card d-flex justify-content-between align-items-center">
+                          <div>
+                            <div class="text-light fw-bold small">{{ item.name }}</div>
+                            <div class="small text-muted">{{ item.portion_size }} &bull; <span class="text-amber fw-bold">{{ item.price }} ₽</span></div>
+                          </div>
+                          <div class="d-flex align-items-center gap-2">
+                            <button type="button" class="btn btn-sm btn-outline-custom px-2 py-0" onclick="changeBarQty({{ item.id }}, -1, '{{ item.name|escapejs }}', {{ item.price }})" aria-label="Уменьшить количество">-</button>
+                            <span class="fw-bold text-cyan" id="barQty_{{ item.id }}">0</span>
+                            <button type="button" class="btn btn-sm btn-cyan px-2 py-0" onclick="changeBarQty({{ item.id }}, 1, '{{ item.name|escapejs }}', {{ item.price }})" aria-label="Увеличить количество">+</button>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  {% endfor %}
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </article>
+
+          <!-- ШАГ 3: ДАННЫЕ ГОСТЯ -->
+          <article class="card-custom">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <span class="badge-tag badge-cyan">Шаг 3</span>
+              <h2 class="h5 fw-bold text-light mb-0">Контактные данные клиента (для чека 54-ФЗ)</h2>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-md-4 form-group">
+                <label for="id_last_name" class="form-label">Фамилия *</label>
+                <input type="text" name="last_name" id="id_last_name" class="form-control-custom" placeholder="Иванов" required>
+                <span class="form-error-feedback d-none" id="error-last_name"></span>
+              </div>
+              <div class="col-md-4 form-group">
+                <label for="id_first_name" class="form-label">Имя *</label>
+                <input type="text" name="first_name" id="id_first_name" class="form-control-custom" placeholder="Иван" required>
+                <span class="form-error-feedback d-none" id="error-first_name"></span>
+              </div>
+              <div class="col-md-4 form-group">
+                <label for="id_patronymic" class="form-label">Отчество</label>
+                <input type="text" name="patronymic" id="id_patronymic" class="form-control-custom" placeholder="Иванович">
+              </div>
+
+              <div class="col-md-6 form-group">
+                <label for="id_phone" class="form-label">Телефон (+7 XXX XXX-XX-XX) *</label>
+                <input type="tel" name="phone" id="id_phone" class="form-control-custom" placeholder="+7 (927) 800-00-00" required>
+                <span class="form-error-feedback d-none" id="error-phone"></span>
+              </div>
+              <div class="col-md-6 form-group">
+                <label for="id_email" class="form-label">Электронная почта (E-mail) *</label>
+                <input type="email" name="email" id="id_email" class="form-control-custom" placeholder="guest@mail.ru" required>
+                <span class="form-error-feedback d-none" id="error-email"></span>
+              </div>
+
+              <div class="col-12 form-group">
+                <label for="id_notes" class="form-label">Пожелания к сеансу</label>
+                <textarea name="notes" id="id_notes" rows="2" class="form-control-custom" placeholder="Поднять детские бортики, обувь 42 размера..."></textarea>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- ПРАВАЯ КОЛОНКА: СМЕТА И ОПЛАТА -->
+        <div class="col-lg-4">
+          <div class="sticky-top pt-2">
+            <!-- КАРТА ЛОЯЛЬНОСТИ -->
+            <article class="card-custom p-3 mb-3 card-highlight-amber">
+              <h2 class="h6 text-light fw-bold mb-2">
+                <i class="fa-solid fa-credit-card text-amber me-2" aria-hidden="true"></i>Клубная карта лояльности
+              </h2>
+              <div class="input-group mb-2">
+                <input type="text" id="cardInput" name="club_card_number" class="form-control-custom" placeholder="SP-GLD-00201" aria-label="Номер клубной карты">
+                <button class="btn btn-amber fw-bold" type="button" id="applyCardBtn">Применить</button>
+              </div>
+              <div id="cardStatus">
+                <span class="small text-muted">Пример: <code>SP-SLV-00101</code> (5%), <code>SP-GLD-00201</code> (10%)</span>
+              </div>
+            </article>
+
+            <!-- СМЕТА ЗАКАЗА -->
+            <article class="card-custom p-3 mb-3 card-highlight-cyan">
+              <h2 class="h6 text-light fw-bold mb-3 border-bottom border-secondary pb-2">
+                <i class="fa-solid fa-receipt text-cyan me-2" aria-hidden="true"></i>Смета сеанса (FR-06, FR-07)
+              </h2>
+              
+              <div id="priceBreakdown">
+                <div class="text-center py-3 text-muted">
+                  <div class="ajax-spinner text-cyan me-1" role="status"></div>
+                  Идет расчет стоимости сеанса...
                 </div>
               </div>
-            {% endfor %}
-          </div>
-        </div>
+            </article>
 
-        <!-- ШАГ 3: ДАННЫЕ ГОСТЯ (FR-10) -->
-        <div class="card card-custom p-4" style="background: #111827; border: 1px solid rgba(0, 229, 255, 0.25);">
-          <h5 class="fw-bold text-white mb-3">
-            <span class="wizard-step-badge">3</span>Контактные данные клиента (FR-10)
-          </h5>
-
-          <div class="row g-3">
-            <div class="col-md-4">
-              <label class="form-label small fw-semibold" style="color: #cbd5e1;">Фамилия *</label>
-              <input type="text" name="last_name" class="form-control bg-dark text-light border-secondary" placeholder="Иванов" required>
-            </div>
-            <div class="col-md-4">
-              <label class="form-label small fw-semibold" style="color: #cbd5e1;">Имя *</label>
-              <input type="text" name="first_name" class="form-control bg-dark text-light border-secondary" placeholder="Иван" required>
-            </div>
-            <div class="col-md-4">
-              <label class="form-label small fw-semibold" style="color: #cbd5e1;">Отчество</label>
-              <input type="text" name="patronymic" class="form-control bg-dark text-light border-secondary" placeholder="Иванович">
-            </div>
-
-            <div class="col-md-6">
-              <label class="form-label small fw-semibold" style="color: #cbd5e1;">Телефон (формат РФ) *</label>
-              <input type="tel" name="phone" class="form-control bg-dark text-light border-secondary" placeholder="+79278000000" required>
-            </div>
-            <div class="col-md-6">
-              <label class="form-label small fw-semibold" style="color: #cbd5e1;">E-mail (для чека по 54-ФЗ) *</label>
-              <input type="email" name="email" class="form-control bg-dark text-light border-secondary" placeholder="guest@mail.ru" required>
-            </div>
-
-            <div class="col-12">
-              <label class="form-label small fw-semibold" style="color: #cbd5e1;">Особые пожелания к игре</label>
-              <textarea name="notes" rows="2" class="form-control bg-dark text-light border-secondary" placeholder="Поднять детские бортики, подготовить обувь 42 размера, заказать маркер..."></textarea>
+            <!-- КНОПКА ПОДТВЕРЖДЕНИЯ -->
+            <button type="submit" class="btn btn-cyan btn-lg w-100 fw-bold py-3">
+              <i class="fa-solid fa-arrow-right me-2" aria-hidden="true"></i> Перейти к оплате депозита
+            </button>
+            <div class="text-center small mt-2 text-muted">
+              <i class="fa-solid fa-shield-halved me-1 text-green" aria-hidden="true"></i> Гарантия бронирования и чек по 54-ФЗ
             </div>
           </div>
         </div>
       </div>
-
-      <!-- ПРАВАЯ КОЛОНКА: СМЕТА И ОПЛАТА -->
-      <div class="col-lg-4">
-        <div class="sticky-top" style="top: 5rem;">
-          <!-- КАРТА ЛОЯЛЬНОСТИ -->
-          <div class="card card-custom p-3 mb-3" style="background: #111827; border: 1px solid rgba(255, 179, 0, 0.3);">
-            <h6 class="text-white fw-bold mb-2">
-              <i class="fa-solid fa-credit-card text-amber me-2"></i>Клубная карта (FR-17)
-            </h6>
-            <div class="input-group mb-2">
-              <input type="text" id="cardInput" class="form-control bg-dark text-light border-secondary" placeholder="SP-GLD-00201">
-              <button class="btn btn-amber fw-bold" type="button" id="applyCardBtn">Применить</button>
-            </div>
-            <div id="cardStatus">
-              <span class="small" style="color: #cbd5e1;">Пример: <code>SP-SLV-00101</code> (5%), <code>SP-GLD-00201</code> (10%)</span>
-            </div>
-          </div>
-
-          <!-- СМЕТА ЗАКАЗА -->
-          <div class="price-summary-box mb-3 shadow-lg" style="background: #111827; border: 1px solid rgba(0, 229, 255, 0.35);">
-            <h5 class="text-white fw-bold mb-3 border-bottom border-secondary border-opacity-25 pb-2">
-              <i class="fa-solid fa-receipt text-cyan me-2"></i>Смета сеанса (FR-06, FR-07)
-            </h5>
-            
-            <div id="priceBreakdown">
-              <div class="text-center py-3" style="color: #cbd5e1;">
-                <div class="spinner-border spinner-border-sm text-cyan me-1"></div>
-                Идет расчет стоимости...
-              </div>
-            </div>
-          </div>
-
-          <!-- КНОПКА ПОДТВЕРЖДЕНИЯ -->
-          <button type="submit" class="btn btn-cyan btn-lg w-100 fw-bold py-3 shadow-glow-cyan">
-            <i class="fa-solid fa-arrow-right me-2"></i> Перейти к оплате депозита
-          </button>
-          <div class="text-center small mt-2" style="color: #cbd5e1;">
-            <i class="fa-solid fa-shield-halved me-1 text-success"></i> Атомарная фиксация брони в БД (FR-11)
-          </div>
-        </div>
-      </div>
-    </div>
-  </form>
-</div>
+    </form>
+  </div>
+</section>
 {% endblock %}
 
 {% block extra_scripts %}

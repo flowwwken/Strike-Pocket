@@ -8,14 +8,14 @@
   <div class="row justify-content-center">
     <div class="col-lg-10">
       <div class="text-center mb-4">
-        <h1 class="h2 fw-bold text-light mb-1" style="font-family: 'Montserrat', sans-serif;">
+        <h1 class="h2 fw-bold text-light mb-1" class="font-heading">
           <i class="fa-solid fa-magnifying-glass text-cyan me-2"></i>ПРОВЕРКА БРОНИРОВАНИЯ (FR-14)
         </h1>
-        <p class="small" style="color: #cbd5e1;">Введите номер вашей брони (например, SP-20261108-0033) или контактный номер телефона</p>
+        <p class="small" class="text-muted">Введите номер вашей брони (например, SP-20261108-0033) или контактный номер телефона</p>
       </div>
 
       <!-- ФОРМА ПОИСКА -->
-      <div class="card card-custom p-3 mb-4" style="background: #111827; border: 1px solid rgba(0, 229, 255, 0.25);">
+      <div class="card card-custom p-3 mb-4" class="card-custom border-cyan">
         <form method="GET" action="{% url 'my_bookings' %}" class="row g-2">
           <div class="col-md-9">
             <div class="input-group">
@@ -36,12 +36,12 @@
         {% if bookings %}
           <div class="d-flex justify-content-between align-items-center mb-3">
             <h5 class="text-white fw-bold mb-0">Найдено бронирований: {{ bookings|length }}</h5>
-            <span class="small" style="color: #cbd5e1;">По запросу: <code>{{ query }}</code></span>
+            <span class="small" class="text-muted">По запросу: <code>{{ query }}</code></span>
           </div>
 
           <div class="d-flex flex-column gap-3">
             {% for b in bookings %}
-              <div class="card card-custom p-4 shadow-sm" style="background: #111827; border: 1px solid rgba(255, 255, 255, 0.1);">
+              <div class="card card-custom p-4 shadow-sm" class="card-custom">
                 <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3 border-bottom border-secondary border-opacity-25 pb-3">
                   <div>
                     <span class="text-cyan fw-bold fs-5 me-2">#{{ b.booking_number }}</span>
@@ -49,33 +49,33 @@
                       {{ b.get_status_display }}
                     </span>
                   </div>
-                  <div class="small" style="color: #cbd5e1;">
+                  <div class="small" class="text-muted">
                     Оформлена: {{ b.created_at|date:"d.m.Y H:i" }}
                   </div>
                 </div>
 
                 <div class="row g-3 small">
                   <div class="col-md-4">
-                    <span style="color: #cbd5e1;">Ресурс:</span><br>
+                    <span class="text-muted">Ресурс:</span><br>
                     <strong class="text-white fs-6">{{ b.resource.title }}</strong><br>
-                    <span style="color: #94a3b8;">{{ b.resource.category.name }}</span>
+                    <span class="text-dimmed">{{ b.resource.category.name }}</span>
                   </div>
                   <div class="col-md-4">
-                    <span style="color: #cbd5e1;">Дата и слот игры:</span><br>
+                    <span class="text-muted">Дата и слот игры:</span><br>
                     <strong class="text-cyan fs-6">{{ b.booking_date|date:"d.m.Y" }}</strong><br>
                     <span class="text-white">{{ b.time_start|time:"H:i" }} — {{ b.time_end|time:"H:i" }} ({{ b.duration_hours }} ч.)</span>
                   </div>
                   <div class="col-md-4">
-                    <span style="color: #cbd5e1;">Гость:</span><br>
+                    <span class="text-muted">Гость:</span><br>
                     <span class="text-white fw-medium">{{ b.client.last_name }} {{ b.client.first_name }}</span><br>
-                    <span style="color: #94a3b8;">{{ b.client.phone }}</span>
+                    <span class="text-dimmed">{{ b.client.phone }}</span>
                   </div>
                 </div>
 
                 <!-- Состав бара если есть -->
                 {% if b.bar_orders.exists %}
-                  <div class="mt-3 p-2 rounded small" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
-                    <span class="fw-bold" style="color: #cbd5e1;">Предзаказ кухни/бара ({{ b.bar_orders.count }} поз.):</span>
+                  <div class="mt-3 p-2 rounded small" class="card-custom bg-surface-card">
+                    <span class="fw-bold" class="text-muted">Предзаказ кухни/бара ({{ b.bar_orders.count }} поз.):</span>
                     <div class="mt-1">
                       {% for bo in b.bar_orders.all %}
                         <span class="badge bg-secondary me-1">{{ bo.bar_item.name }} &times; {{ bo.quantity }} шт.</span>
@@ -87,9 +87,9 @@
                 <!-- Финансовые итоги и кнопки действий -->
                 <div class="d-flex flex-wrap justify-content-between align-items-center mt-3 pt-3 border-top border-secondary border-opacity-25 gap-3">
                   <div>
-                    <span class="small" style="color: #cbd5e1;">Итого:</span>
+                    <span class="small" class="text-muted">Итого:</span>
                     <strong class="text-white fs-5 ms-1">{{ b.total_cost }} ₽</strong>
-                    <span class="small ms-2" style="color: #cbd5e1;">(Депозит: <strong class="text-cyan">{{ b.deposit_amount }} ₽</strong>)</span>
+                    <span class="small ms-2" class="text-muted">(Депозит: <strong class="text-cyan">{{ b.deposit_amount }} ₽</strong>)</span>
                   </div>
 
                   <div class="d-flex gap-2">
@@ -108,10 +108,10 @@
             {% endfor %}
           </div>
         {% else %}
-          <div class="text-center py-5 card card-custom p-4" style="background: #111827;">
+          <div class="text-center py-5 card card-custom p-4" class="card-custom">
             <i class="fa-solid fa-calendar-xmark fa-3x text-amber mb-3"></i>
             <h5 class="text-white">Бронирование не найдено</h5>
-            <p style="color: #cbd5e1;">Проверьте правильность введенного номера или оформите новый сеанс.</p>
+            <p class="text-muted">Проверьте правильность введенного номера или оформите новый сеанс.</p>
             <a href="{% url 'booking_wizard' %}" class="btn btn-cyan">Забронировать сейчас</a>
           </div>
         {% endif %}

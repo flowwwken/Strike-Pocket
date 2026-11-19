@@ -4,102 +4,110 @@
 {% block title %}Меню кухни и бара | РК «Strike & Pocket»{% endblock %}
 
 {% block content %}
-<div class="container py-5">
-  <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
-    <div>
-      <h1 class="h2 fw-bold text-light mb-1" style="font-family: 'Montserrat', sans-serif;">
-        <i class="fa-solid fa-utensils text-amber me-2"></i>МЕНЮ КУХНИ И БАРА (FR-08)
-      </h1>
-      <p class="small mb-0" style="color: #cbd5e1;">Авторская пицца из дровяной печи, крафтовые бургеры, закуски для компаний и напитки</p>
+<section class="py-5" aria-labelledby="bar-menu-main-heading">
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+      <div>
+        <h1 id="bar-menu-main-heading" class="h2 fw-bold text-light mb-1">
+          <i class="fa-solid fa-utensils text-amber me-2" aria-hidden="true"></i>МЕНЮ КУХНИ И ЛАУНДЖ-БАРА
+        </h1>
+        <p class="small text-muted mb-0">
+          Авторская пицца, крафтовые бургеры, закуски для больших компаний и безалкогольные напитки с подачей к дорожке
+        </p>
+      </div>
+      <a href="{% url 'booking_wizard' %}" class="btn btn-cyan">
+        <i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i> Забронировать с предзаказом
+      </a>
     </div>
-    <a href="{% url 'booking_wizard' %}" class="btn btn-cyan fw-bold shadow-glow-cyan">
-      <i class="fa-solid fa-calendar-check me-1"></i> Забронировать с предзаказом
-    </a>
-  </div>
 
-  <!-- КАТЕГОРИИ МЕНЮ -->
-  <ul class="nav nav-pills mb-4 gap-2" id="menuTabs" role="tablist">
-    <li class="nav-item">
-      <button class="nav-link btn-outline-custom active" id="all-tab" data-bs-toggle="pill" data-bs-target="#tab-all" type="button">
-        Все меню
-      </button>
-    </li>
-    {% for cat in categories %}
-      <li class="nav-item">
-        <button class="nav-link btn-outline-custom" id="tab-btn-{{ cat.id }}" data-bs-toggle="pill" data-bs-target="#tab-cat-{{ cat.id }}" type="button">
-          {{ cat.name }} ({{ cat.items.count }})
-        </button>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <!-- СОДЕРЖИМОЕ ТАБОВ -->
-  <div class="tab-content" id="menuTabsContent">
-    <!-- Все меню -->
-    <div class="tab-pane fade show active" id="tab-all">
+    <!-- ФИЛЬТР ПО КАТЕГОРИЯМ БАРА (FLEXBOX) -->
+    <nav class="d-flex flex-wrap gap-2 mb-4" aria-label="Категории меню бара">
+      <a href="{% url 'bar_menu' %}" class="btn {% if not selected_category %}btn-cyan{% else %}btn-outline-custom{% endif %} btn-sm">
+        Все позиции
+      </a>
       {% for cat in categories %}
-        <div class="mb-5">
-          <h4 class="text-cyan fw-bold mb-3 border-bottom border-secondary border-opacity-25 pb-2">
-            <i class="fa-solid fa-utensils me-2"></i>{{ cat.name }}
-          </h4>
-          <div class="row g-3">
-            {% for item in cat.items.all %}
-              <div class="col-lg-3 col-md-4 col-6">
-                <div class="card card-custom h-100 p-3 d-flex flex-column shadow-sm" style="background: #111827; border: 1px solid rgba(255, 255, 255, 0.08);">
-                  <div class="d-flex justify-content-between align-items-start mb-2">
-                    <span class="badge bg-secondary small">{{ item.portion_size }}</span>
-                    <span class="text-amber fw-bold fs-6">{{ item.price }} ₽</span>
-                  </div>
-                  <h6 class="fw-bold text-white mb-1">{{ item.name }}</h6>
-                  <div class="mt-auto pt-2 d-flex justify-content-between align-items-center">
-                    <span class="badge badge-status badge-available small">Доступно</span>
-                    <a href="{% url 'booking_wizard' %}" class="btn btn-sm btn-outline-custom" title="Предзаказ в бронь">
-                      <i class="fa-solid fa-plus"></i>
-                    </a>
-                  </div>
-                </div>
+        <a href="{% url 'bar_menu' %}?category={{ cat.id }}" class="btn {% if selected_category == cat.id|stringformat:'s' %}btn-cyan{% else %}btn-outline-custom{% endif %} btn-sm">
+          {{ cat.name }} ({{ cat.items.count }})
+        </a>
+      {% endfor %}
+    </nav>
+
+    <!-- СЕТКА ПОЗИЦИЙ МЕНЮ ИЗ БАЗЫ ДАННЫХ -->
+    <div class="row g-4 mb-5">
+      {% for item in items %}
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <article class="card-custom h-100 p-3 d-flex flex-column justify-content-between">
+            <div>
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <span class="badge-tag badge-cyan">{{ item.category.name }}</span>
+                <span class="text-dimmed small font-monospace">{{ item.portion_size }}</span>
               </div>
-            {% endfor %}
+              <h2 class="h6 fw-bold text-light mb-2">{{ item.name }}</h2>
+              {% if item.description %}
+                <p class="small text-muted mb-3">{{ item.description|truncatechars:60 }}</p>
+              {% endif %}
+            </div>
+
+            <div class="pt-3 border-top border-secondary d-flex justify-content-between align-items-center">
+              <span class="h5 fw-bold text-amber mb-0">{{ item.price|floatformat:2 }} ₽</span>
+              <a href="{% url 'booking_wizard' %}" class="btn btn-sm btn-outline-custom" title="Добавить в предзаказ брони" aria-label="Добавить {{ item.name }} в бронь">
+                <i class="fa-solid fa-plus me-1" aria-hidden="true"></i> В бронь
+              </a>
+            </div>
+          </article>
+        </div>
+      {% empty %}
+        <div class="col-12 text-center py-5">
+          <div class="card-custom p-5">
+            <h2 class="h4 text-light">В данной категории пока нет доступных позиций</h2>
+            <p class="text-muted">Попробуйте выбрать другую категорию</p>
+            <a href="{% url 'bar_menu' %}" class="btn btn-cyan mt-2">Показать все позиции</a>
           </div>
         </div>
       {% endfor %}
     </div>
 
-    <!-- Вкладки по отдельным категориям -->
-    {% for cat in categories %}
-      <div class="tab-pane fade" id="tab-cat-{{ cat.id }}">
-        <div class="row g-3">
-          {% for item in cat.items.all %}
-            <div class="col-lg-3 col-md-4 col-6">
-              <div class="card card-custom h-100 p-3 d-flex flex-column shadow-sm" style="background: #111827; border: 1px solid rgba(255, 255, 255, 0.08);">
-                <div class="d-flex justify-content-between align-items-start mb-2">
-                  <span class="badge bg-secondary small">{{ item.portion_size }}</span>
-                  <span class="text-amber fw-bold fs-6">{{ item.price }} ₽</span>
-                </div>
-                <h6 class="fw-bold text-white mb-1">{{ item.name }}</h6>
-                <div class="mt-auto pt-2 d-flex justify-content-between align-items-center">
-                  <span class="badge badge-status badge-available small">Доступно</span>
-                  <a href="{% url 'booking_wizard' %}" class="btn btn-sm btn-outline-custom">
-                    <i class="fa-solid fa-plus me-1"></i> В бронь
-                  </a>
-                </div>
-              </div>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-    {% endfor %}
-  </div>
+    <!-- ПАГИНАЦИЯ ПО 20 ЗАПИСЕЙ -->
+    {% if page_obj.has_other_pages %}
+      <nav aria-label="Навигация по страницам меню бара" class="mt-4">
+        <ul class="pagination-custom">
+          {% if page_obj.has_previous %}
+            <li class="page-item-custom">
+              <a href="?page={{ page_obj.previous_page_number }}{% if selected_category %}&amp;category={{ selected_category }}{% endif %}" aria-label="Предыдущая">&laquo;</a>
+            </li>
+          {% endif %}
 
-  <!-- БАННЕР ПРЕДЗАКАЗА -->
-  <div class="card card-custom p-4 mt-4 text-center border-glow shadow-lg" style="background: #111827;">
-    <h4 class="fw-bold text-white mb-2">Хотите заказать блюда прямо к началу игры?</h4>
-    <p class="small mb-3" style="color: #cbd5e1;">Выберите удобную дорожку или стол, укажите количество гостей и добавьте любые позиции ресторанного меню на шаге оформления заказа.</p>
-    <div>
-      <a href="{% url 'booking_wizard' %}" class="btn btn-cyan btn-lg px-4 fw-bold shadow-glow-cyan">
-        <i class="fa-solid fa-calendar-plus me-2"></i> Перейти к бронированию с предзаказом
-      </a>
+          {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+              <li class="page-item-custom active"><span aria-current="page">{{ num }}</span></li>
+            {% else %}
+              <li class="page-item-custom">
+                <a href="?page={{ num }}{% if selected_category %}&amp;category={{ selected_category }}{% endif %}">{{ num }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+
+          {% if page_obj.has_next %}
+            <li class="page-item-custom">
+              <a href="?page={{ page_obj.next_page_number }}{% if selected_category %}&amp;category={{ selected_category }}{% endif %}" aria-label="Следующая">&raquo;</a>
+            </li>
+          {% endif %}
+        </ul>
+      </nav>
+    {% endif %}
+
+    <!-- БАННЕР ПРЕДЗАКАЗА -->
+    <div class="card-custom p-4 text-center mt-5 card-highlight-amber">
+      <h2 class="h4 fw-bold text-light mb-2">Хотите заказать блюда прямо к началу игры?</h2>
+      <p class="small text-muted text-max-650 mb-3">
+        Выберите удобную дорожку или стол, укажите количество гостей и добавьте любые позиции ресторанного меню на шаге онлайн-бронирования.
+      </p>
+      <div>
+        <a href="{% url 'booking_wizard' %}" class="btn btn-amber btn-lg px-4">
+          <i class="fa-solid fa-calendar-plus me-2" aria-hidden="true"></i> Перейти к бронированию с предзаказом
+        </a>
+      </div>
     </div>
   </div>
-</div>
+</section>
 {% endblock %}

@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Проверка статуса бронирования | РК «Strike & Pocket»{% endblock %}
+
+{% block content %}
+<section class="py-5" aria-labelledby="check-booking-heading">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="badge-tag badge-cyan mb-2">Клиентский сервис</div>
+      <h1 id="check-booking-heading" class="h2 fw-bold text-light mb-2">
+        <i class="fa-solid fa-magnifying-glass text-cyan me-2" aria-hidden="true"></i>ПРОВЕРКА СТАТУСА БРОНИРОВАНИЯ
+      </h1>
+      <p class="lead text-max-650">
+        Введите номер бронирования (например, SP-10001) или контактный телефон, указанный при оформлении
+      </p>
+    </div>
+
+    <!-- ФОРМА ПОИСКА -->
+    <div class="card-custom p-4 mb-4 text-max-650">
+      <form method="GET" action="{% url 'check_booking' %}" role="search" aria-label="Поиск бронирования">
+        <div class="input-group">
+          <input type="text" 
+                 name="q" 
+                 class="form-control-custom" 
+                 placeholder="Номер брони (SP-...) или телефон (+7...)" 
+                 value="{{ query }}" 
+                 required 
+                 aria-label="Номер бронирования или телефон">
+          <button type="submit" class="btn btn-cyan px-4">
+            <i class="fa-solid fa-magnifying-glass me-2" aria-hidden="true"></i> Найти бронь
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- РЕЗУЛЬТАТЫ ПОИСКА -->
+    {% if query %}
+      {% if booking %}
+        <div class="card-custom p-4 text-max-650 border-cyan">
+          <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 border-bottom border-secondary pb-3 gap-2">
+            <div>
+              <span class="badge-tag badge-cyan me-2">Бронь #{{ booking.booking_number }}</span>
+              <span class="text-dimmed small">от {{ booking.created_at|date:"d.m.Y H:i" }}</span>
+            </div>
+            <div>
+              {% if booking.status == 'CONFIRMED' %}
+                <span class="badge-tag badge-green"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Подтверждена</span>
+              {% elif booking.status == 'NEW' %}
+                <span class="badge-tag badge-amber"><i class="fa-solid fa-hourglass-half" aria-hidden="true"></i> Ожидает оплаты</span>
+              {% elif booking.status == 'CANCELLED' %}
+                <span class="badge-tag badge-red"><i class="fa-solid fa-ban" aria-hidden="true"></i> Отменена</span>
+              {% elif booking.status == 'COMPLETED' %}
+                <span class="badge-tag badge-purple"><i class="fa-solid fa-flag-checkered" aria-hidden="true"></i> Завершена</span>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="row g-3 mb-4">
+            <div class="col-sm-6">
+              <div class="small text-dimmed">Игровая зона:</div>
+              <div class="fw-bold text-light fs-6">
+                <i class="fa-solid fa-bowling-ball text-cyan me-1" aria-hidden="true"></i>{{ booking.resource.title }}
+              </div>
+              <div class="small text-muted">{{ booking.resource.category.name }}</div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="small text-dimmed">Дата и время сеанса:</div>
+              <div class="fw-bold text-light fs-6">
+                <i class="fa-solid fa-calendar-day text-amber me-1" aria-hidden="true"></i>{{ booking.booking_date|date:"d E Y" }}
+              </div>
+              <div class="small text-muted">{{ booking.time_start|time:"H:i" }} — {{ booking.time_end|time:"H:i" }}</div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="small text-dimmed">Гость:</div>
+              <div class="fw-bold text-light">
+                {{ booking.client.last_name }} {{ booking.client.first_name }}
+              </div>
+              <div class="small text-muted">{{ booking.client.phone }}</div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="small text-dimmed">Количество игроков:</div>
+              <div class="fw-bold text-light">
+                <i class="fa-solid fa-users text-cyan me-1" aria-hidden="true"></i>{{ booking.players_count }} человек
+              </div>
+              <div class="small text-muted">
+                {% if booking.players_count <= 6 %}
+                  В пределах лимита (до 6 чел)
+                {% else %}
+                  Требуется доп. дорожка
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+          <!-- Предзаказ бара -->
+          {% if booking.bar_orders.all %}
+            <div class="card-custom bg-surface-card p-3 mb-4">
+              <h2 class="h6 fw-bold text-amber mb-2">
+                <i class="fa-solid fa-utensils me-2" aria-hidden="true"></i>Предзаказ кухни и бара к дорожке:
+              </h2>
+              <ul class="list-unstyled small text-muted mb-0">
+                {% for order in booking.bar_orders.all %}
+                  <li class="d-flex justify-content-between py-1 border-bottom border-secondary">
+                    <span>{{ order.bar_item.name }} &times; {{ order.quantity }}</span>
+                    <span class="text-light fw-bold">{{ order.total_price|floatformat:2 }} ₽</span>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+
+          <!-- Финансовый итог -->
+          <div class="d-flex justify-content-between align-items-center card-custom bg-surface-card p-3 mb-4">
+            <div>
+              <div class="small text-dimmed">Итого к оплате:</div>
+              <div class="h4 fw-bold text-cyan mb-0">{{ booking.final_cost|floatformat:2 }} ₽</div>
+            </div>
+            <div>
+              {% if booking.status == 'CONFIRMED' %}
+                <span class="badge-tag badge-green"><i class="fa-solid fa-receipt me-1" aria-hidden="true"></i> Оплачено 100% (54-ФЗ)</span>
+              {% else %}
+                <span class="badge-tag badge-amber">К оплате на стойке</span>
+              {% endif %}
+            </div>
+          </div>
+
+          <!-- УПРАВЛЕНИЕ ОТМЕНОЙ (ПРАВИЛО 2 ЧАСОВ) -->
+          {% if booking.status == 'NEW' or booking.status == 'CONFIRMED' %}
+            {% if can_cancel %}
+              <div class="alert alert-success d-flex align-items-center mb-3" role="status">
+                <i class="fa-solid fa-circle-check me-2" aria-hidden="true"></i>
+                <div class="small">
+                  До игры осталось более 2 часов ({{ time_diff_hours|floatformat:1 }} ч). Доступна бесплатная отмена с возвратом средств.
+                </div>
+              </div>
+              <form method="POST" onsubmit="return confirm('Вы действительно хотите отменить бронирование?');">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="cancel">
+                <button type="submit" class="btn btn-danger-custom w-100">
+                  <i class="fa-solid fa-ban me-2" aria-hidden="true"></i> Отменить бронирование
+                </button>
+              </form>
+            {% else %}
+              <div class="alert alert-warning d-flex align-items-center" role="status">
+                <i class="fa-solid fa-triangle-exclamation me-2" aria-hidden="true"></i>
+                <div class="small">
+                  <strong>Внимание:</strong> До начала игры осталось менее 2 часов. Автоматическая отмена онлайн заблокирована. Для переноса сеанса свяжитесь с оператором: <strong>+7 (8422) 55-40-40</strong>.
+                </div>
+              </div>
+            {% endif %}
+          {% endif %}
+        </div>
+      {% else %}
+        <!-- Ничего не найдено -->
+        <div class="card-custom p-5 text-center text-max-650">
+          <i class="fa-solid fa-circle-question fa-3x text-amber mb-3" aria-hidden="true"></i>
+          <h2 class="h4 text-light mb-2">Бронирование не найдено</h2>
+          <p class="text-muted mb-4">
+            По запросу «{{ query }}» активных бронирований не обнаружено. Проверьте правильность введенного номера или телефона.
+          </p>
+          <a href="{% url 'booking_wizard' %}" class="btn btn-cyan">
+            <i class="fa-solid fa-calendar-plus me-1" aria-hidden="true"></i> Создать новое бронирование
+          </a>
+        </div>
+      {% endif %}
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

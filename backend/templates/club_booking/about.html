@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}О клубе и правила | РК «Strike & Pocket»{% endblock %}
+
+{% block content %}
+<section class="py-5" aria-labelledby="about-main-heading">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="badge-tag badge-cyan mb-2">О комплексе</div>
+      <h1 id="about-main-heading" class="display-5 fw-bold text-light mb-3">
+        ПРЕМИАЛЬНЫЙ СПОРТИВНО-РАЗВЛЕКАТЕЛЬНЫЙ КОМПЛЕКС
+      </h1>
+      <p class="lead text-max-650">
+        «Strike &amp; Pocket» — флагманский центр активного отдыха в центре Ульяновска, объединяющий профессиональный боулинг, бильярдный клуб мирового уровня и ресторан европейской кухни.
+      </p>
+    </div>
+
+    <!-- 1. ИНФРАСТРУКТУРА КЛУБА -->
+    <div class="row g-4 align-items-center mb-5">
+      <div class="col-lg-6">
+        <div class="hero-img-wrapper">
+          <img src="{% static 'img/bowling-hero.svg' %}" 
+               alt="Игровой зал боулинга комплекса Strike and Pocket" 
+               width="800" 
+               height="500" 
+               class="img-fluid rounded">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="badge-tag badge-amber mb-2">Мировые стандарты</div>
+        <h2 class="h3 fw-bold text-light mb-3">ОБОРУДОВАНИЕ ПРЕМИУМ-КЛАССА</h2>
+        <p class="text-muted">
+          Каждая зона комплекса оснащена инвентарем, сертифицированным международными спортивными федерациями:
+        </p>
+        <ul class="list-unstyled text-muted">
+          <li class="mb-2">
+            <strong class="text-cyan"><i class="fa-solid fa-bowling-ball me-2" aria-hidden="true"></i>Боулинг Brunswick GS-X:</strong> 12 профессиональных дорожек с синтетическим покрытием Anvilane, сертифицированным USBC. Автоматические детские бортики поднимаются за секунду для юных игроков.
+          </li>
+          <li class="mb-2">
+            <strong class="text-green"><i class="fa-solid fa-circle me-2" aria-hidden="true"></i>Русская пирамида 12ft:</strong> 6 столов фабрики «РуптуР» (модель «Магнат») на цельной плите натурального сланца Ardesia толщиной 45 мм с сукном Iwan Simonis 760.
+          </li>
+          <li class="mb-2">
+            <strong class="text-amber"><i class="fa-solid fa-bullseye me-2" aria-hidden="true"></i>Американский пул 9ft:</strong> 3 стола Dynamic III — официальные столы Чемпионатов Европы EPBF.
+          </li>
+          <li class="mb-2">
+            <strong class="text-purple"><i class="fa-solid fa-crown me-2" aria-hidden="true"></i>VIP Снукер 12ft:</strong> Отдельная VIP-комната с турнирным снукерным столом Wiraka M-1 и сукном Strachan 6811.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 2. ОФИЦИАЛЬНЫЕ ПРАВИЛА И ОСОБЫЕ ТРЕБОВАНИЯ -->
+    <div class="card-custom mb-5">
+      <h2 class="h3 fw-bold text-cyan mb-4"><i class="fa-solid fa-clipboard-check me-2" aria-hidden="true"></i>ПРАВИЛА БРОНИРОВАНИЯ И ПОСЕЩЕНИЯ</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <article class="p-3 card-custom bg-surface-card h-100">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <i class="fa-solid fa-users fa-lg text-amber" aria-hidden="true"></i>
+              <h3 class="h6 mb-0 text-light">Лимит гостей (FR-05)</h3>
+            </div>
+            <p class="small text-muted mb-0">
+              На одну дорожку боулинга допускается компания <strong>не более 6 человек</strong>. При превышении этого числа система бронирования требует добавить в заказ вторую дорожку.
+            </p>
+          </article>
+        </div>
+
+        <div class="col-md-4">
+          <article class="p-3 card-custom bg-surface-card h-100">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <i class="fa-solid fa-clock fa-lg text-cyan" aria-hidden="true"></i>
+              <h3 class="h6 mb-0 text-light">Смена тарифов в 18:00 (FR-07)</h3>
+            </div>
+            <p class="small text-muted mb-0">
+              С 12:00 до 18:00 действует дневной тариф, после 18:00 — вечерний. Если бронь захватывает стык тарифов (например 17:00–19:00), каждый час пересчитывается автоматически.
+            </p>
+          </article>
+        </div>
+
+        <div class="col-md-4">
+          <article class="p-3 card-custom bg-surface-card h-100">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <i class="fa-solid fa-shield-halved fa-lg text-green" aria-hidden="true"></i>
+              <h3 class="h6 mb-0 text-light">Отмена бронирования</h3>
+            </div>
+            <p class="small text-muted mb-0">
+              Бесплатная отмена с полным 100% возвратом депозита доступна онлайн <strong>не менее чем за 2 часа</strong> до назначенного сеанса через раздел «Проверить бронь».
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. ТАРИФНАЯ СЕТКА (ДАННЫЕ ИЗ БАЗЫ TARIFF) -->
+    <div class="card-custom mb-5">
+      <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+        <h2 class="h3 fw-bold text-light mb-0"><i class="fa-solid fa-tag text-amber me-2" aria-hidden="true"></i>ТАРИФНАЯ СЕТКА КОМПЛЕКСА</h2>
+        <span class="badge-tag badge-cyan">Актуальные цены 2026 г.</span>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-dark table-hover align-middle mb-0">
+          <thead>
+            <tr class="text-dimmed border-secondary">
+              <th scope="col">Игровая зона</th>
+              <th scope="col">День недели</th>
+              <th scope="col">Время действия</th>
+              <th scope="col" class="text-end">Стоимость за 1 час</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for tariff in tariffs %}
+              <tr>
+                <td class="fw-bold text-light">
+                  <i class="fa-solid fa-check text-cyan me-2" aria-hidden="true"></i>{{ tariff.category.name }}
+                </td>
+                <td>
+                  {% if tariff.day_type == 'WEEKDAY' %}
+                    <span class="badge-tag badge-cyan">Будни (Пн-Чт)</span>
+                  {% else %}
+                    <span class="badge-tag badge-amber">Выходные (Пт-Вс)</span>
+                  {% endif %}
+                </td>
+                <td class="text-muted">
+                  {% if tariff.time_slot == 'DAY' %}
+                    <i class="fa-regular fa-sun text-amber me-1" aria-hidden="true"></i> Дневной (до 18:00)
+                  {% else %}
+                    <i class="fa-regular fa-moon text-cyan me-1" aria-hidden="true"></i> Вечерний (после 18:00)
+                  {% endif %}
+                </td>
+                <td class="text-end fw-bold text-cyan fs-6">
+                  {{ tariff.price_per_hour|floatformat:2 }} ₽
+                </td>
+              </tr>
+            {% empty %}
+              <tr>
+                <td colspan="4" class="text-center py-3 text-muted">Тарифная сетка обновляется</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 4. КНОПКА ПЕРЕХОДА -->
+    <div class="text-center">
+      <a href="{% url 'booking_wizard' %}" class="btn btn-cyan btn-lg px-5">
+        <i class="fa-solid fa-calendar-check me-2" aria-hidden="true"></i> Рассчитать сеанс и забронировать
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

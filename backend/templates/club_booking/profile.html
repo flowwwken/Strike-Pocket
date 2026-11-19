@@ -1,0 +1,211 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Личный кабинет и клубная карта | РК «Strike & Pocket»{% endblock %}
+
+{% block content %}
+<section class="py-5" aria-labelledby="profile-heading">
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+      <div>
+        <h1 id="profile-heading" class="h2 fw-bold text-light mb-1">
+          <i class="fa-solid fa-id-card text-amber me-2" aria-hidden="true"></i>ЛИЧНЫЙ КАБИНЕТ И КАРТА КЛУБА
+        </h1>
+        <p class="small text-muted mb-0">
+          Программа привилегий Strike &amp; Pocket Club, персональные скидки и история ваших игр
+        </p>
+      </div>
+      <a href="{% url 'booking_wizard' %}" class="btn btn-cyan">
+        <i class="fa-solid fa-bolt me-1" aria-hidden="true"></i> Быстрая бронь со скидкой
+      </a>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <!-- 1. ВИРТУАЛЬНАЯ КЛУБНАЯ КАРТА -->
+      <div class="col-lg-6">
+        <div class="card-custom h-100 p-4 card-highlight-amber d-flex flex-column justify-content-between">
+          <div>
+            <div class="d-flex justify-content-between align-items-start mb-4">
+              <div>
+                <span class="badge-tag badge-amber mb-2">Программа лояльности</span>
+                <h2 class="h4 fw-bold text-light mb-0">STRIKE &amp; POCKET CLUB</h2>
+              </div>
+              <i class="fa-solid fa-crown fa-2x text-amber" aria-hidden="true"></i>
+            </div>
+
+            <!-- Изображение клубной карты -->
+            <div class="mb-4 text-center">
+              <img src="{% static 'img/club-card-gold.svg' %}" 
+                   alt="Клубная карта Gold Privilege с QR-кодом и чипом" 
+                   width="500" 
+                   height="300" 
+                   class="img-fluid rounded shadow-lg">
+            </div>
+
+            {% if club_card %}
+              <div class="card-custom bg-surface-card p-3 mb-3">
+                <div class="d-flex justify-content-between small text-muted mb-1">
+                  <span>Номер клубной карты:</span>
+                  <span class="font-monospace text-amber fw-bold">{{ club_card.card_number }}</span>
+                </div>
+                <div class="d-flex justify-content-between small text-muted mb-1">
+                  <span>Статус привилегий:</span>
+                  <span class="text-light fw-bold">{{ club_card.get_card_tier_display }}</span>
+                </div>
+                <div class="d-flex justify-content-between small text-muted">
+                  <span>Персональная скидка:</span>
+                  <span class="text-green fw-bold fs-6">{{ club_card.discount_percent }}% на всё</span>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="small text-muted">
+            <i class="fa-solid fa-circle-info text-cyan me-1" aria-hidden="true"></i> Предъявляйте QR-код на экране смартфона оператору зала для начисления скидок на баре и продления сеансов.
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. ПРОФИЛЬ ГОСТЯ И БОНУСНЫЙ БАЛАНС -->
+      <div class="col-lg-6">
+        <div class="card-custom h-100 p-4 d-flex flex-column justify-content-between">
+          <div>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge-tag badge-cyan">Данные гостя</span>
+              <span class="badge-tag badge-green"><i class="fa-solid fa-check" aria-hidden="true"></i> Активен</span>
+            </div>
+
+            <h2 class="h3 fw-bold text-light mb-1">
+              {{ client.last_name }} {{ client.first_name }} {% if client.patronymic %}{{ client.patronymic }}{% endif %}
+            </h2>
+            <p class="small text-muted mb-4">Клиент зарегистрирован в клубной системе</p>
+
+            <div class="card-custom bg-surface-card p-3 mb-3">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="small text-muted">Контактный телефон:</span>
+                <span class="text-light fw-semibold">{{ client.phone }}</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="small text-muted">Электронная почта:</span>
+                <span class="text-light fw-semibold">{{ client.email }}</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="small text-muted">Бонусный баланс:</span>
+                <span class="text-cyan fw-bold fs-5">{{ client.bonus_balance|floatformat:2 }} ₽</span>
+              </div>
+            </div>
+
+            <div class="p-3 card-custom bg-surface-card mb-4">
+              <h3 class="h6 fw-bold text-light mb-2"><i class="fa-solid fa-gift text-cyan me-2" aria-hidden="true"></i>Ваши привилегии:</h3>
+              <ul class="list-unstyled small text-muted mb-0">
+                <li class="mb-1"><i class="fa-solid fa-check text-cyan me-2" aria-hidden="true"></i> Автоматическая скидка при онлайн-бронировании</li>
+                <li class="mb-1"><i class="fa-solid fa-check text-cyan me-2" aria-hidden="true"></i> Бесплатная аренда профессиональной обуви боулинга</li>
+                <li class="mb-1"><i class="fa-solid fa-check text-cyan me-2" aria-hidden="true"></i> Приоритетный выбор дорожек в прайм-тайм (после 18:00)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <a href="{% url 'booking_wizard' %}" class="btn btn-amber w-100">
+              <i class="fa-solid fa-calendar-check me-2" aria-hidden="true"></i> Забронировать слот со скидкой
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. ИСТОРИЯ БРОНИРОВАНИЙ ГОСТЯ (ПАГИНАЦИЯ ПО 20 ЗАПИСЕЙ) -->
+    <div class="card-custom">
+      <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-2">
+        <h2 class="h4 fw-bold text-light mb-0">
+          <i class="fa-solid fa-clock-rotate-left text-cyan me-2" aria-hidden="true"></i>ИСТОРИЯ ВАШИХ БРОНИРОВАНИЙ
+        </h2>
+        <span class="badge-tag badge-cyan">Всего бронирований: {{ bookings.paginator.count }}</span>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-dark table-hover align-middle mb-0">
+          <thead>
+            <tr class="text-dimmed border-secondary">
+              <th scope="col">Номер брони</th>
+              <th scope="col">Зона и оборудование</th>
+              <th scope="col">Дата игры</th>
+              <th scope="col">Время</th>
+              <th scope="col">Игроки</th>
+              <th scope="col">Статус</th>
+              <th scope="col" class="text-end">Сумма (₽)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for b in bookings %}
+              <tr>
+                <td class="font-monospace fw-bold text-cyan">
+                  <a href="{% url 'check_booking' %}?q={{ b.booking_number }}" class="footer-link">
+                    {{ b.booking_number }}
+                  </a>
+                </td>
+                <td class="text-light">
+                  <div class="fw-semibold">{{ b.resource.title }}</div>
+                  <div class="small text-dimmed">{{ b.resource.category.name }}</div>
+                </td>
+                <td class="text-muted">{{ b.booking_date|date:"d.m.Y" }}</td>
+                <td class="text-muted">{{ b.time_start|time:"H:i" }} — {{ b.time_end|time:"H:i" }}</td>
+                <td class="text-light">{{ b.players_count }} чел.</td>
+                <td>
+                  {% if b.status == 'CONFIRMED' %}
+                    <span class="badge-tag badge-green">Подтверждена</span>
+                  {% elif b.status == 'COMPLETED' %}
+                    <span class="badge-tag badge-purple">Завершена</span>
+                  {% elif b.status == 'CANCELLED' %}
+                    <span class="badge-tag badge-red">Отменена</span>
+                  {% else %}
+                    <span class="badge-tag badge-amber">Ожидает</span>
+                  {% endif %}
+                </td>
+                <td class="text-end fw-bold text-cyan">
+                  {{ b.final_cost|floatformat:2 }} ₽
+                </td>
+              </tr>
+            {% empty %}
+              <tr>
+                <td colspan="7" class="text-center py-4 text-muted">
+                  У вас пока нет активных бронирований. Самое время забронировать дорожку!
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Пагинация по 20 записей -->
+      {% if bookings.has_other_pages %}
+        <nav aria-label="Навигация по истории бронирований" class="mt-4">
+          <ul class="pagination-custom">
+            {% if bookings.has_previous %}
+              <li class="page-item-custom">
+                <a href="?page={{ bookings.previous_page_number }}" aria-label="Предыдущая">&laquo;</a>
+              </li>
+            {% endif %}
+
+            {% for num in bookings.paginator.page_range %}
+              {% if bookings.number == num %}
+                <li class="page-item-custom active"><span aria-current="page">{{ num }}</span></li>
+              {% else %}
+                <li class="page-item-custom">
+                  <a href="?page={{ num }}">{{ num }}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
+
+            {% if bookings.has_next %}
+              <li class="page-item-custom">
+                <a href="?page={{ bookings.next_page_number }}" aria-label="Следующая">&raquo;</a>
+              </li>
+            {% endif %}
+          </ul>
+        </nav>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}

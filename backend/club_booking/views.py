@@ -97,8 +97,19 @@ def catalog_view(request):
 
     categories = ResourceCategory.objects.all()
 
+    # Пагинация по 20 записей согласно требованиям Занятия 8
+    paginator = Paginator(resource_cards, 20)
+    page_number = request.GET.get('page')
+    try:
+        page_obj = paginator.page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+
     context = {
-        'resource_cards': resource_cards,
+        'resource_cards': page_obj,
+        'page_obj': page_obj,
         'categories': categories,
         'selected_category': category_filter,
         'selected_status': status_filter,
@@ -276,10 +287,28 @@ def my_bookings_view(request):
 
 
 def bar_menu_view(request):
-    """Каталог ресторанного меню кухни и бара (FR-08)."""
-    categories = BarCategory.objects.prefetch_related('items').all()
+    """Каталог ресторанного меню кухни и бара (FR-08) с пагинацией по 20 записей."""
+    category_filter = request.GET.get('category', '').strip()
+    categories = BarCategory.objects.all()
+    items = BarItem.objects.filter(is_available=True).select_related('category').order_by('category', 'name')
+    
+    if category_filter:
+        items = items.filter(category__id=category_filter)
+
+    paginator = Paginator(items, 20)
+    page_number = request.GET.get('page')
+    try:
+        page_obj = paginator.page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+
     context = {
         'categories': categories,
+        'page_obj': page_obj,
+        'items': page_obj,
+        'selected_category': category_filter,
     }
     return render(request, 'club_booking/bar_menu.html', context)
 
