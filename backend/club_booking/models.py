@@ -70,6 +70,13 @@ class Client(models.Model):
             )
         ]
 
+    @property
+    def full_name(self):
+        fio = f"{self.last_name} {self.first_name}"
+        if self.patronymic:
+            fio += f" {self.patronymic}"
+        return fio
+
     def __str__(self):
         fio = f"{self.last_name} {self.first_name}"
         if self.patronymic:

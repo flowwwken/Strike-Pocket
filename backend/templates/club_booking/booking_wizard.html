@@ -20,6 +20,14 @@
       {% csrf_token %}
       <input type="hidden" name="bar_items_json" id="barItemsJson" value="[]">
 
+      {% if form.non_field_errors %}
+        <div class="alert alert-danger mb-4" role="alert">
+          {% for err in form.non_field_errors %}
+            <div class="small fw-semibold"><i class="fa-solid fa-triangle-exclamation me-2" aria-hidden="true"></i>{{ err }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
       <div class="row g-4">
         <!-- ЛЕВАЯ КОЛОНКА: ШАГИ 1-3 И ПРЕДЗАКАЗ БАРА -->
         <div class="col-lg-8">
@@ -33,64 +41,79 @@
             <div class="row g-3">
               <div class="col-md-6 form-group">
                 <label for="resourceSelect" class="form-label">Игровой ресурс (дорожка / стол) *</label>
-                <select name="resource_id" id="resourceSelect" class="form-select-custom" required>
+                <select name="resource_id" id="resourceSelect" class="form-select-custom {% if form.resource_id.errors %}is-invalid{% endif %}" required>
                   {% for r in resources %}
                     <option value="{{ r.id }}" data-category="{{ r.category.code }}" data-capacity="{{ r.max_capacity }}"
-                            {% if selected_resource and selected_resource.id == r.id %}selected{% endif %}>
+                            {% if form.resource_id.value|stringformat:"s" == r.id|stringformat:"s" or selected_resource and selected_resource.id == r.id %}selected{% endif %}>
                       {{ r.title }} [{{ r.category.name }}] (вместимость: до {{ r.max_capacity }} чел.)
                     </option>
                   {% endfor %}
                 </select>
+                {% if form.resource_id.errors %}
+                  <div class="text-danger small mt-1"><i class="fa-solid fa-circle-exclamation me-1" aria-hidden="true"></i>{{ form.resource_id.errors.0 }}</div>
+                {% endif %}
                 <span class="form-error-feedback d-none" id="error-resource_id"></span>
               </div>
 
               <div class="col-md-6 form-group">
                 <label for="dateInput" class="form-label">Дата проведения сеанса *</label>
-                <input type="date" name="booking_date" id="dateInput" class="form-control-custom" value="{{ default_date }}" required>
+                <input type="date" name="booking_date" id="dateInput" class="form-control-custom {% if form.booking_date.errors %}is-invalid{% endif %}" value="{{ form.booking_date.value|default:default_date }}" required>
+                {% if form.booking_date.errors %}
+                  <div class="text-danger small mt-1"><i class="fa-solid fa-circle-exclamation me-1" aria-hidden="true"></i>{{ form.booking_date.errors.0 }}</div>
+                {% endif %}
                 <span class="form-error-feedback d-none" id="error-booking_date"></span>
               </div>
 
               <div class="col-md-4 form-group">
                 <label for="startTimeInput" class="form-label">Время начала игры *</label>
-                <select name="time_start" id="startTimeInput" class="form-select-custom" required>
-                  <option value="12:00">12:00 (Дневной тариф)</option>
-                  <option value="13:00">13:00</option>
-                  <option value="14:00">14:00</option>
-                  <option value="15:00">15:00</option>
-                  <option value="16:00">16:00</option>
-                  <option value="17:00" selected>17:00 (Граница 18:00)</option>
-                  <option value="18:00">18:00 (Вечерний тариф)</option>
-                  <option value="19:00">19:00</option>
-                  <option value="20:00">20:00</option>
-                  <option value="21:00">21:00</option>
-                  <option value="22:00">22:00</option>
-                  <option value="23:00">23:00</option>
+                <select name="time_start" id="startTimeInput" class="form-select-custom {% if form.time_start.errors %}is-invalid{% endif %}" required>
+                  <option value="12:00" {% if form.time_start.value == '12:00' %}selected{% endif %}>12:00 (Дневной тариф)</option>
+                  <option value="13:00" {% if form.time_start.value == '13:00' %}selected{% endif %}>13:00</option>
+                  <option value="14:00" {% if form.time_start.value == '14:00' %}selected{% endif %}>14:00</option>
+                  <option value="15:00" {% if form.time_start.value == '15:00' %}selected{% endif %}>15:00</option>
+                  <option value="16:00" {% if form.time_start.value == '16:00' %}selected{% endif %}>16:00</option>
+                  <option value="17:00" {% if not form.time_start.value or form.time_start.value == '17:00' %}selected{% endif %}>17:00 (Граница 18:00)</option>
+                  <option value="18:00" {% if form.time_start.value == '18:00' %}selected{% endif %}>18:00 (Вечерний тариф)</option>
+                  <option value="19:00" {% if form.time_start.value == '19:00' %}selected{% endif %}>19:00</option>
+                  <option value="20:00" {% if form.time_start.value == '20:00' %}selected{% endif %}>20:00</option>
+                  <option value="21:00" {% if form.time_start.value == '21:00' %}selected{% endif %}>21:00</option>
+                  <option value="22:00" {% if form.time_start.value == '22:00' %}selected{% endif %}>22:00</option>
+                  <option value="23:00" {% if form.time_start.value == '23:00' %}selected{% endif %}>23:00</option>
                 </select>
+                {% if form.time_start.errors %}
+                  <div class="text-danger small mt-1"><i class="fa-solid fa-circle-exclamation me-1" aria-hidden="true"></i>{{ form.time_start.errors.0 }}</div>
+                {% endif %}
                 <span class="form-error-feedback d-none" id="error-time_start"></span>
               </div>
 
               <div class="col-md-4 form-group">
                 <label for="endTimeInput" class="form-label">Время окончания игры *</label>
-                <select name="time_end" id="endTimeInput" class="form-select-custom" required>
-                  <option value="13:00">13:00 (1 час)</option>
-                  <option value="14:00">14:00 (2 часа)</option>
-                  <option value="15:00">15:00 (3 часа)</option>
-                  <option value="16:00">16:00</option>
-                  <option value="17:00">17:00</option>
-                  <option value="18:00">18:00</option>
-                  <option value="19:00" selected>19:00 (2 часа)</option>
-                  <option value="20:00">20:00 (3 часа)</option>
-                  <option value="21:00">21:00</option>
-                  <option value="22:00">22:00</option>
-                  <option value="23:00">23:00</option>
-                  <option value="00:00">00:00</option>
+                <select name="time_end" id="endTimeInput" class="form-select-custom {% if form.time_end.errors %}is-invalid{% endif %}" required>
+                  <option value="13:00" {% if form.time_end.value == '13:00' %}selected{% endif %}>13:00 (1 час)</option>
+                  <option value="14:00" {% if form.time_end.value == '14:00' %}selected{% endif %}>14:00 (2 часа)</option>
+                  <option value="15:00" {% if form.time_end.value == '15:00' %}selected{% endif %}>15:00 (3 часа)</option>
+                  <option value="16:00" {% if form.time_end.value == '16:00' %}selected{% endif %}>16:00</option>
+                  <option value="17:00" {% if form.time_end.value == '17:00' %}selected{% endif %}>17:00</option>
+                  <option value="18:00" {% if form.time_end.value == '18:00' %}selected{% endif %}>18:00</option>
+                  <option value="19:00" {% if not form.time_end.value or form.time_end.value == '19:00' %}selected{% endif %}>19:00 (2 часа)</option>
+                  <option value="20:00" {% if form.time_end.value == '20:00' %}selected{% endif %}>20:00 (3 часа)</option>
+                  <option value="21:00" {% if form.time_end.value == '21:00' %}selected{% endif %}>21:00</option>
+                  <option value="22:00" {% if form.time_end.value == '22:00' %}selected{% endif %}>22:00</option>
+                  <option value="23:00" {% if form.time_end.value == '23:00' %}selected{% endif %}>23:00</option>
+                  <option value="00:00" {% if form.time_end.value == '00:00' %}selected{% endif %}>00:00</option>
                 </select>
+                {% if form.time_end.errors %}
+                  <div class="text-danger small mt-1"><i class="fa-solid fa-circle-exclamation me-1" aria-hidden="true"></i>{{ form.time_end.errors.0 }}</div>
+                {% endif %}
                 <span class="form-error-feedback d-none" id="error-time_end"></span>
               </div>
 
               <div class="col-md-4 form-group">
-                <label for="playersInput" class="form-label">Количество гостей (макс. 6) *</label>
-                <input type="number" name="players_count" id="playersInput" class="form-control-custom" min="1" max="12" value="4" required>
+                <label for="playersInput" class="form-label">Количество гостей (макс. 6 на дорожку) *</label>
+                <input type="number" name="players_count" id="playersInput" class="form-control-custom {% if form.players_count.errors %}is-invalid{% endif %}" min="1" max="12" value="{{ form.players_count.value|default:'4' }}" required>
+                {% if form.players_count.errors %}
+                  <div class="text-danger small mt-1"><i class="fa-solid fa-circle-exclamation me-1" aria-hidden="true"></i>{{ form.players_count.errors.0 }}</div>
+                {% endif %}
                 <span class="form-error-feedback d-none" id="error-players_count"></span>
               </div>
             </div>
@@ -156,33 +179,45 @@
             <div class="row g-3">
               <div class="col-md-4 form-group">
                 <label for="id_last_name" class="form-label">Фамилия *</label>
-                <input type="text" name="last_name" id="id_last_name" class="form-control-custom" placeholder="Иванов" required>
+                <input type="text" name="last_name" id="id_last_name" class="form-control-custom {% if form.last_name.errors %}is-invalid{% endif %}" placeholder="Иванов" value="{{ form.last_name.value|default:'' }}" required>
+                {% if form.last_name.errors %}
+                  <div class="text-danger small mt-1"><i class="fa-solid fa-circle-exclamation me-1" aria-hidden="true"></i>{{ form.last_name.errors.0 }}</div>
+                {% endif %}
                 <span class="form-error-feedback d-none" id="error-last_name"></span>
               </div>
               <div class="col-md-4 form-group">
                 <label for="id_first_name" class="form-label">Имя *</label>
-                <input type="text" name="first_name" id="id_first_name" class="form-control-custom" placeholder="Иван" required>
+                <input type="text" name="first_name" id="id_first_name" class="form-control-custom {% if form.first_name.errors %}is-invalid{% endif %}" placeholder="Иван" value="{{ form.first_name.value|default:'' }}" required>
+                {% if form.first_name.errors %}
+                  <div class="text-danger small mt-1"><i class="fa-solid fa-circle-exclamation me-1" aria-hidden="true"></i>{{ form.first_name.errors.0 }}</div>
+                {% endif %}
                 <span class="form-error-feedback d-none" id="error-first_name"></span>
               </div>
               <div class="col-md-4 form-group">
                 <label for="id_patronymic" class="form-label">Отчество</label>
-                <input type="text" name="patronymic" id="id_patronymic" class="form-control-custom" placeholder="Иванович">
+                <input type="text" name="patronymic" id="id_patronymic" class="form-control-custom" placeholder="Иванович" value="{{ form.patronymic.value|default:'' }}">
               </div>
 
               <div class="col-md-6 form-group">
                 <label for="id_phone" class="form-label">Телефон (+7 XXX XXX-XX-XX) *</label>
-                <input type="tel" name="phone" id="id_phone" class="form-control-custom" placeholder="+7 (927) 800-00-00" required>
+                <input type="tel" name="phone" id="id_phone" class="form-control-custom {% if form.phone.errors %}is-invalid{% endif %}" placeholder="+7 (927) 800-00-00" value="{{ form.phone.value|default:'' }}" required>
+                {% if form.phone.errors %}
+                  <div class="text-danger small mt-1"><i class="fa-solid fa-circle-exclamation me-1" aria-hidden="true"></i>{{ form.phone.errors.0 }}</div>
+                {% endif %}
                 <span class="form-error-feedback d-none" id="error-phone"></span>
               </div>
               <div class="col-md-6 form-group">
                 <label for="id_email" class="form-label">Электронная почта (E-mail) *</label>
-                <input type="email" name="email" id="id_email" class="form-control-custom" placeholder="guest@mail.ru" required>
+                <input type="email" name="email" id="id_email" class="form-control-custom {% if form.email.errors %}is-invalid{% endif %}" placeholder="guest@mail.ru" value="{{ form.email.value|default:'' }}" required>
+                {% if form.email.errors %}
+                  <div class="text-danger small mt-1"><i class="fa-solid fa-circle-exclamation me-1" aria-hidden="true"></i>{{ form.email.errors.0 }}</div>
+                {% endif %}
                 <span class="form-error-feedback d-none" id="error-email"></span>
               </div>
 
               <div class="col-12 form-group">
                 <label for="id_notes" class="form-label">Пожелания к сеансу</label>
-                <textarea name="notes" id="id_notes" rows="2" class="form-control-custom" placeholder="Поднять детские бортики, обувь 42 размера..."></textarea>
+                <textarea name="notes" id="id_notes" rows="2" class="form-control-custom" placeholder="Поднять детские бортики, обувь 42 размера...">{{ form.notes.value|default:'' }}</textarea>
               </div>
             </div>
           </article>
@@ -197,9 +232,12 @@
                 <i class="fa-solid fa-credit-card text-amber me-2" aria-hidden="true"></i>Клубная карта лояльности
               </h2>
               <div class="input-group mb-2">
-                <input type="text" id="cardInput" name="club_card_number" class="form-control-custom" placeholder="SP-GLD-00201" aria-label="Номер клубной карты">
+                <input type="text" id="cardInput" name="club_card_number" class="form-control-custom {% if form.club_card_number.errors %}is-invalid{% endif %}" placeholder="SP-GLD-00201" value="{{ form.club_card_number.value|default:'' }}" aria-label="Номер клубной карты">
                 <button class="btn btn-amber fw-bold" type="button" id="applyCardBtn">Применить</button>
               </div>
+              {% if form.club_card_number.errors %}
+                <div class="text-danger small mb-2"><i class="fa-solid fa-circle-exclamation me-1" aria-hidden="true"></i>{{ form.club_card_number.errors.0 }}</div>
+              {% endif %}
               <div id="cardStatus">
                 <span class="small text-muted">Пример: <code>SP-SLV-00101</code> (5%), <code>SP-GLD-00201</code> (10%)</span>
               </div>
@@ -220,7 +258,7 @@
             </article>
 
             <!-- КНОПКА ПОДТВЕРЖДЕНИЯ -->
-            <button type="submit" class="btn btn-cyan btn-lg w-100 fw-bold py-3">
+            <button type="submit" id="submitBookingBtn" class="btn btn-cyan btn-lg w-100 fw-bold py-3">
               <i class="fa-solid fa-arrow-right me-2" aria-hidden="true"></i> Перейти к оплате депозита
             </button>
             <div class="text-center small mt-2 text-muted">
@@ -235,5 +273,6 @@
 {% endblock %}
 
 {% block extra_scripts %}
+<script src="{% static 'js/client_validation.js' %}"></script>
 <script src="{% static 'js/booking_wizard.js' %}"></script>
 {% endblock %}

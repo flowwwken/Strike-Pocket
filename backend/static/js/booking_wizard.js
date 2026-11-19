@@ -61,6 +61,14 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
+    // Индикатор загрузки при асинхронном запросе через fetch (требование 4* Занятия 9)
+    priceBreakdown.innerHTML = `
+      <div class="text-center py-3 text-muted">
+        <span class="spinner-border spinner-border-sm text-cyan me-2" role="status" aria-hidden="true"></span>
+        <span>Идет расчет сметы по тарифам клуба...</span>
+      </div>
+    `;
+
     try {
       const url = `/api/calculate-price/?resource_id=${resourceId}&date=${dateVal}&time_start=${startTime}&time_end=${endTime}&club_card=${appliedCardNumber}`;
       const response = await fetch(url);
@@ -69,10 +77,11 @@ document.addEventListener('DOMContentLoaded', function () {
       if (data.status === 'success') {
         renderPriceBreakdown(data);
       } else {
-        priceBreakdown.innerHTML = `<div class="text-danger small">${data.error}</div>`;
+        priceBreakdown.innerHTML = `<div class="text-danger small py-2"><i class="fa-solid fa-circle-exclamation me-1"></i>${data.error}</div>`;
       }
     } catch (e) {
       console.error("Ошибка запроса расчета цены:", e);
+      priceBreakdown.innerHTML = `<div class="text-danger small py-2">Сбой связи с сервером при расчете. Попробуйте обновить страницу.</div>`;
     }
   }
 

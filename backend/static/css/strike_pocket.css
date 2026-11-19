@@ -438,9 +438,16 @@ p {
   background-color: #0d1424;
 }
 
-.form-control-custom.is-invalid {
+.form-control-custom.is-invalid,
+.form-select-custom.is-invalid {
   border-color: var(--color-danger-red) !important;
-  background-color: rgba(239, 68, 68, 0.05);
+  background-color: rgba(239, 68, 68, 0.08);
+}
+
+.form-control-custom.is-valid,
+.form-select-custom.is-valid {
+  border-color: var(--color-success-green) !important;
+  background-color: rgba(16, 185, 129, 0.08);
 }
 
 .form-error-feedback {

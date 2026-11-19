@@ -16,6 +16,7 @@ from .models import (
     Tariff, Booking, BarCategory, BarItem,
     BookingBarOrder, Payment
 )
+from .forms import BookingWizardForm, BookingSearchForm
 from .services import (
     calculate_booking_cost, check_resource_availability,
     create_booking_atomic, confirm_payment_and_fiscalize
@@ -338,3 +339,132 @@ class WebViewsAndAPITestCase(BaseClubTestCase):
         self.http_client.login(username='staff_test', password='password123')
         res_staff = self.http_client.get(url)
         self.assertEqual(res_staff.status_code, 200)
+
+
+class FormsAndValidationTestCase(BaseClubTestCase):
+    """
+    Тестирование серверной валидации форм и клиентских сценариев (Занятие 9).
+    Вариант 4: Ограничение 6 игроков на дорожку боулинга, формат телефона, сохранение полей.
+    """
+
+    def setUp(self):
+        super().setUp()
+        self.http_client = HttpClient()
+        self.future_date = (date.today() + timedelta(days=25)).strftime('%Y-%m-%d')
+
+    def test_booking_form_bowling_limit_exceeded(self):
+        """Особое требование Варианта 4: на 1 дорожку боулинга не более 6 человек."""
+        form_data = {
+            'resource_id': self.lane_1.id,
+            'booking_date': self.future_date,
+            'time_start': '15:00',
+            'time_end': '17:00',
+            'players_count': 8,  # Превышение лимита 6 игроков!
+            'last_name': 'Смирнов',
+            'first_name': 'Алексей',
+            'phone': '+7 (927) 123-45-67',
+            'email': 'smirnov@mail.ru',
+            'bar_items_json': '[]'
+        }
+        form = BookingWizardForm(data=form_data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('players_count', form.errors)
+        self.assertIn('не более 6 человек', form.errors['players_count'][0])
+
+    def test_booking_form_bowling_valid_capacity(self):
+        """Компания из 6 человек на дорожку боулинга — валидно."""
+        form_data = {
+            'resource_id': self.lane_1.id,
+            'booking_date': self.future_date,
+            'time_start': '15:00',
+            'time_end': '17:00',
+            'players_count': 6,
+            'last_name': 'Смирнов',
+            'first_name': 'Алексей',
+            'phone': '+7 (927) 123-45-67',
+            'email': 'smirnov@mail.ru',
+            'bar_items_json': '[]'
+        }
+        form = BookingWizardForm(data=form_data)
+        self.assertTrue(form.is_valid(), form.errors)
+
+    def test_booking_form_phone_validation(self):
+        """Серверная валидация телефонного номера."""
+        # Некорректный телефон
+        bad_data = {
+            'resource_id': self.lane_1.id,
+            'booking_date': self.future_date,
+            'time_start': '14:00',
+            'time_end': '16:00',
+            'players_count': 4,
+            'last_name': 'Петров',
+            'first_name': 'Петр',
+            'phone': '12345',  # Недостаточно цифр
+            'email': 'petrov@mail.ru',
+        }
+        form = BookingWizardForm(data=bad_data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('phone', form.errors)
+
+    def test_booking_form_past_date_rejected(self):
+        """Бронирование на прошедшую дату должно отклоняться."""
+        past_date = (date.today() - timedelta(days=5)).strftime('%Y-%m-%d')
+        bad_data = {
+            'resource_id': self.lane_1.id,
+            'booking_date': past_date,
+            'time_start': '14:00',
+            'time_end': '16:00',
+            'players_count': 4,
+            'last_name': 'Петров',
+            'first_name': 'Петр',
+            'phone': '+7 (927) 800-11-22',
+            'email': 'petrov@mail.ru',
+        }
+        form = BookingWizardForm(data=bad_data)
+        self.assertFalse(form.is_valid())
+        self.assertIn('booking_date', form.errors)
+
+    def test_booking_wizard_post_invalid_retains_values(self):
+        """При ошибке валидации форма отображает ошибки и сохраняет введённые значения."""
+        url = reverse('booking_wizard')
+        post_data = {
+            'resource_id': self.lane_1.id,
+            'booking_date': self.future_date,
+            'time_start': '17:00',
+            'time_end': '19:00',
+            'players_count': 9,  # Ошибка: > 6 игроков!
+            'last_name': 'Кузнецов',
+            'first_name': 'Николай',
+            'phone': '+79275556677',
+            'email': 'kuznetsov@mail.ru',
+            'notes': 'Нужен столик поближе',
+            'bar_items_json': '[]'
+        }
+        response = self.http_client.post(url, post_data)
+        self.assertEqual(response.status_code, 200)
+        content = response.content.decode('utf-8')
+        # Проверяем сохранение введенных данных
+        self.assertIn('Кузнецов', content)
+        self.assertIn('Николай', content)
+        self.assertIn('Нужен столик поближе', content)
+        # Проверяем вывод ошибки рядом с полем
+        self.assertIn('не более 6 человек', content)
+
+    def test_booking_wizard_post_valid_redirects(self):
+        """При успешной отправке происходит создание бронирования и редирект на оплату."""
+        url = reverse('booking_wizard')
+        post_data = {
+            'resource_id': self.lane_1.id,
+            'booking_date': self.future_date,
+            'time_start': '17:00',
+            'time_end': '19:00',
+            'players_count': 4,
+            'last_name': 'Кузнецов',
+            'first_name': 'Николай',
+            'phone': '+79275556677',
+            'email': 'kuznetsov@mail.ru',
+            'bar_items_json': '[]'
+        }
+        response = self.http_client.post(url, post_data)
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue('/payment/' in response.url)

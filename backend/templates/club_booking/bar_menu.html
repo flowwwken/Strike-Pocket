@@ -20,22 +20,34 @@
       </a>
     </div>
 
-    <!-- ФИЛЬТР ПО КАТЕГОРИЯМ БАРА (FLEXBOX) -->
-    <nav class="d-flex flex-wrap gap-2 mb-4" aria-label="Категории меню бара">
-      <a href="{% url 'bar_menu' %}" class="btn {% if not selected_category %}btn-cyan{% else %}btn-outline-custom{% endif %} btn-sm">
-        Все позиции
-      </a>
-      {% for cat in categories %}
-        <a href="{% url 'bar_menu' %}?category={{ cat.id }}" class="btn {% if selected_category == cat.id|stringformat:'s' %}btn-cyan{% else %}btn-outline-custom{% endif %} btn-sm">
-          {{ cat.name }} ({{ cat.items.count }})
-        </a>
-      {% endfor %}
-    </nav>
+    <!-- ПОИСК И ФИЛЬТР ПО КАТЕГОРИЯМ БАРА (ДИНАМИЧЕСКИЙ ЭЛЕМЕНТ БЕЗ ПЕРЕЗАГРУЗКИ СТРАНИЦЫ) -->
+    <div class="row g-3 mb-4 align-items-center">
+      <div class="col-md-5">
+        <div class="input-group">
+          <span class="input-group-text bg-surface border-cyan text-cyan">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          </span>
+          <input type="search" id="barLiveSearch" class="form-control-custom" placeholder="Живой поиск блюда или напитка..." aria-label="Живой поиск по меню бара">
+        </div>
+      </div>
+      <div class="col-md-7">
+        <nav class="d-flex flex-wrap gap-2 justify-content-md-end" aria-label="Категории меню бара">
+          <a href="{% url 'bar_menu' %}" class="btn {% if not selected_category %}btn-cyan{% else %}btn-outline-custom{% endif %} btn-sm">
+            Все позиции
+          </a>
+          {% for cat in categories %}
+            <a href="{% url 'bar_menu' %}?category={{ cat.id }}" class="btn {% if selected_category == cat.id|stringformat:'s' %}btn-cyan{% else %}btn-outline-custom{% endif %} btn-sm">
+              {{ cat.name }} ({{ cat.items.count }})
+            </a>
+          {% endfor %}
+        </nav>
+      </div>
+    </div>
 
     <!-- СЕТКА ПОЗИЦИЙ МЕНЮ ИЗ БАЗЫ ДАННЫХ -->
-    <div class="row g-4 mb-5">
+    <div class="row g-4 mb-5" id="barItemsGrid">
       {% for item in items %}
-        <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="col-lg-3 col-md-4 col-sm-6 bar-item-card" data-title="{{ item.name|lower }}" data-desc="{{ item.description|lower }}">
           <article class="card-custom h-100 p-3 d-flex flex-column justify-content-between">
             <div>
               <div class="d-flex justify-content-between align-items-start mb-2">
@@ -65,6 +77,13 @@
           </div>
         </div>
       {% endfor %}
+      <div id="noResultsMsg" class="col-12 text-center py-5 d-none">
+        <div class="card-custom p-4">
+          <i class="fa-solid fa-magnifying-glass text-muted fs-2 mb-2" aria-hidden="true"></i>
+          <h3 class="h5 text-light">По вашему запросу ничего не найдено</h3>
+          <p class="small text-muted mb-0">Попробуйте изменить поисковый запрос</p>
+        </div>
+      </div>
     </div>
 
     <!-- ПАГИНАЦИЯ ПО 20 ЗАПИСЕЙ -->
@@ -110,4 +129,40 @@
     </div>
   </div>
 </section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('barLiveSearch');
+    const cards = document.querySelectorAll('.bar-item-card');
+    const noResults = document.getElementById('noResultsMsg');
+
+    if (searchInput) {
+      searchInput.addEventListener('input', function () {
+        const query = this.value.trim().toLowerCase();
+        let visibleCount = 0;
+
+        cards.forEach(function (card) {
+          const title = (card.getAttribute('data-title') || '').toLowerCase();
+          const desc = (card.getAttribute('data-desc') || '').toLowerCase();
+          if (!query || title.includes(query) || desc.includes(query)) {
+            card.classList.remove('d-none');
+            visibleCount++;
+          } else {
+            card.classList.add('d-none');
+          }
+        });
+
+        if (noResults) {
+          if (visibleCount === 0) {
+            noResults.classList.remove('d-none');
+          } else {
+            noResults.classList.add('d-none');
+          }
+        }
+      });
+    }
+  });
+</script>
 {% endblock %}

@@ -22,6 +22,7 @@ from .models import (
     Tariff, Booking, BarCategory, BarItem,
     BookingBarOrder, Payment
 )
+from .forms import BookingWizardForm, BookingSearchForm
 from .services import (
     calculate_booking_cost, check_resource_availability,
     get_available_resources, create_booking_atomic,
@@ -133,70 +134,83 @@ def hall_map_view(request):
 def booking_wizard_view(request, resource_id=None):
     """
     Пошаговый мастер онлайн-бронирования (FR-03, FR-05, FR-06, FR-07, FR-08, FR-10, FR-11).
+    Использует Django Form (BookingWizardForm) с серверной валидацией, 
+    сохранением введенных данных при ошибке, CSRF-защитой и сообщениями django.contrib.messages.
     """
+    default_date = (date.today() + timedelta(days=1)).strftime('%Y-%m-%d')
+    initial_data = {
+        'booking_date': default_date,
+        'time_start': '17:00',
+        'time_end': '19:00',
+        'players_count': 4,
+    }
+    if resource_id:
+        initial_data['resource_id'] = resource_id
+
+    form = None
     if request.method == 'POST':
-        try:
-            req_resource_id = request.POST.get('resource_id')
-            booking_date = request.POST.get('booking_date')
-            time_start = request.POST.get('time_start')
-            time_end = request.POST.get('time_end')
-            players_count = int(request.POST.get('players_count', 1))
-            club_card_number = request.POST.get('club_card_number', '').strip() or None
-            notes = request.POST.get('notes', '').strip()
-
-            client_data = {
-                'last_name': request.POST.get('last_name', '').strip(),
-                'first_name': request.POST.get('first_name', '').strip(),
-                'patronymic': request.POST.get('patronymic', '').strip(),
-                'phone': request.POST.get('phone', '').strip(),
-                'email': request.POST.get('email', '').strip(),
-            }
-
-            if not client_data['phone'] or not client_data['last_name'] or not client_data['first_name']:
-                messages.error(request, "Пожалуйста, заполните обязательные контактные данные (Фамилия, Имя, Телефон).")
-                return redirect(request.path)
-
-            # Парсинг позиций бара
-            bar_items_raw = request.POST.get('bar_items_json', '[]')
+        form = BookingWizardForm(request.POST)
+        if form.is_valid():
             try:
-                bar_items_data = json.loads(bar_items_raw)
-            except Exception:
-                bar_items_data = []
+                data = form.cleaned_data
+                client_data = {
+                    'last_name': data['last_name'],
+                    'first_name': data['first_name'],
+                    'patronymic': data.get('patronymic', ''),
+                    'phone': data['phone'],
+                    'email': data['email'],
+                }
 
-            booking = create_booking_atomic(
-                client_data=client_data,
-                resource_id=req_resource_id,
-                booking_date=booking_date,
-                time_start=time_start,
-                time_end=time_end,
-                players_count=players_count,
-                club_card_number=club_card_number,
-                bar_items_data=bar_items_data,
-                notes=notes
-            )
+                # Парсинг позиций бара
+                bar_items_raw = data.get('bar_items_json', '[]') or '[]'
+                try:
+                    bar_items_data = json.loads(bar_items_raw)
+                except Exception:
+                    bar_items_data = []
 
-            messages.success(request, f"Бронирование №{booking.booking_number} успешно создано!")
-            return redirect('payment_process', booking_id=booking.id)
+                booking = create_booking_atomic(
+                    client_data=client_data,
+                    resource_id=data['resource_id'],
+                    booking_date=data['booking_date'],
+                    time_start=data['time_start'],
+                    time_end=data['time_end'],
+                    players_count=data['players_count'],
+                    club_card_number=data.get('club_card_number') or None,
+                    bar_items_data=bar_items_data,
+                    notes=data.get('notes', '')
+                )
 
-        except ValidationError as e:
-            messages.error(request, f"Ошибка оформления: {e}")
-            return redirect(request.path)
-        except Exception as e:
-            messages.error(request, f"Системная ошибка: {e}")
-            return redirect(request.path)
+                messages.success(
+                    request, 
+                    f"Бронирование №{booking.booking_number} успешно создано! "
+                    f"Гость: {booking.client.full_name}, сеанс: {booking.booking_date} с {booking.time_start.strftime('%H:%M')} по {booking.time_end.strftime('%H:%M')}."
+                )
+                return redirect('payment_process', booking_id=booking.id)
 
-    # GET запрос
+            except ValidationError as e:
+                messages.error(request, f"Ошибка при оформлении: {e}")
+            except Exception as e:
+                messages.error(request, f"Системная ошибка: {e}")
+        else:
+            messages.error(request, "Пожалуйста, исправьте ошибки в форме. Поля с ошибками выделены.")
+    else:
+        form = BookingWizardForm(initial=initial_data)
+
+    # GET запрос или невалидный POST: сохраняем выбранные значения и ошибки формы
     resources = ClubResource.objects.filter(status='AVAILABLE').select_related('category')
     categories = ResourceCategory.objects.all()
     bar_categories = BarCategory.objects.prefetch_related('items').all()
 
     selected_resource = None
-    if resource_id:
-        selected_resource = ClubResource.objects.filter(id=resource_id).first()
-
-    default_date = (date.today() + timedelta(days=1)).strftime('%Y-%m-%d')
+    selected_res_id = form['resource_id'].value() or resource_id
+    if selected_res_id:
+        try:
+            selected_resource = ClubResource.objects.filter(id=int(selected_res_id)).first()
+        except (ValueError, TypeError):
+            selected_resource = None
 
     context = {
+        'form': form,
         'resources': resources,
         'categories': categories,
         'bar_categories': bar_categories,
@@ -502,6 +516,7 @@ def about_view(request):
 
 def check_booking_view(request):
     """Страница поиска и оперативной проверки статуса бронирования по коду или телефону (FR-14)."""
+    search_form = BookingSearchForm(request.GET or None)
     query = request.GET.get('q', '').strip()
     booking = None
     time_diff_hours = None
@@ -521,6 +536,8 @@ def check_booking_view(request):
             time_diff = booking_dt - now_dt
             time_diff_hours = time_diff.total_seconds() / 3600.0
             can_cancel = time_diff_hours >= 2.0
+        elif not booking:
+            messages.warning(request, f"Бронирование по запросу «{query}» не найдено. Проверьте номер или телефон.")
 
     if request.method == 'POST' and booking:
         action = request.POST.get('action')
@@ -536,6 +553,7 @@ def check_booking_view(request):
             return redirect(f"/check-booking/?q={booking.booking_number}")
 
     context = {
+        'search_form': search_form,
         'query': query,
         'booking': booking,
         'time_diff_hours': time_diff_hours,
