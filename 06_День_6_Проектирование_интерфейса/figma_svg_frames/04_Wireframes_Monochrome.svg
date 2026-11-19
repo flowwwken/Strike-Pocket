@@ -1,0 +1,250 @@
+<svg width="1440" height="960" viewBox="0 0 1440 960" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1440" height="960" fill="#F8FAFC"/>
+  <text x="60" y="60" fill="#0F172A" font-family="Montserrat, Inter, sans-serif" font-size="28" font-weight="800" letter-spacing="1">МОНОХРОМНЫЕ ВАЙРФРЕЙМЫ (8 ЭКРАНОВ СИСТЕМЫ)</text>
+  <text x="60" y="85" fill="#64748B" font-family="Inter, sans-serif" font-size="14">Скелетные схемы экранов без цветового шума: компоновка блоков, F-паттерн и иерархия</text>
+  <line x1="60" y1="105" x2="1380" y2="105" stroke="#CBD5E1" stroke-width="1.5"/>
+
+  <!-- Сетка 4x2 экранов -->
+  <!-- Ряд 1: Экраны 1-4 -->
+  <!-- 1. Главная -->
+  <g transform="translate(60, 130)">
+    <rect width="300" height="360" rx="8" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5"/>
+    <rect width="300" height="28" rx="8" fill="#E2E8F0"/>
+    <text x="14" y="18" fill="#334155" font-size="11" font-weight="700">1. Главная (Desktop 1440)</text>
+    <!-- Header -->
+    <rect x="12" y="38" width="276" height="20" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <!-- Hero Banner -->
+    <rect x="12" y="66" width="276" height="80" fill="#E2E8F0"/>
+    <line x1="12" y1="66" x2="288" y2="146" stroke="#CBD5E1"/>
+    <line x1="288" y1="66" x2="12" y2="146" stroke="#CBD5E1"/>
+    <text x="150" y="110" fill="#475569" font-size="11" font-weight="600" text-anchor="middle">[Hero Заголовок &amp; CTA]</text>
+    <!-- Виджет быстрого расчета -->
+    <rect x="12" y="156" width="276" height="70" rx="4" fill="#F8FAFC" stroke="#94A3B8"/>
+    <text x="24" y="176" fill="#1E293B" font-size="10" font-weight="600">Быстрый расчет сеанса</text>
+    <rect x="24" y="186" width="115" height="16" fill="#E2E8F0"/>
+    <rect x="149" y="186" width="115" height="16" fill="#E2E8F0"/>
+    <rect x="24" y="206" width="240" height="14" fill="#0F172A"/>
+    <!-- Карточки залов -->
+    <rect x="12" y="236" width="85" height="110" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <rect x="107" y="236" width="85" height="110" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <rect x="202" y="236" width="86" height="110" fill="#F1F5F9" stroke="#CBD5E1"/>
+  </g>
+
+  <!-- 2. Каталог залов и тарифов -->
+  <g transform="translate(390, 130)">
+    <rect width="300" height="360" rx="8" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5"/>
+    <rect width="300" height="28" rx="8" fill="#E2E8F0"/>
+    <text x="14" y="18" fill="#334155" font-size="11" font-weight="700">2. Каталог зон и тарифов</text>
+    <rect x="12" y="38" width="276" height="20" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <!-- Табы фильтров -->
+    <rect x="12" y="66" width="60" height="18" fill="#0F172A"/>
+    <rect x="76" y="66" width="60" height="18" fill="#E2E8F0"/>
+    <rect x="140" y="66" width="60" height="18" fill="#E2E8F0"/>
+    <!-- Карточки тарифов -->
+    <rect x="12" y="94" width="276" height="75" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="24" y="115" fill="#0F172A" font-size="11" font-weight="600">Боулинг Brunswick (12 дорожек)</text>
+    <text x="24" y="132" fill="#64748B" font-size="9">Дневной: 1200 ₽/ч | Вечерний: 1800 ₽/ч</text>
+    <rect x="24" y="142" width="100" height="18" fill="#334155"/>
+
+    <rect x="12" y="178" width="276" height="75" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="24" y="199" fill="#0F172A" font-size="11" font-weight="600">Русская пирамида 12ft (6 столов)</text>
+    <text x="24" y="216" fill="#64748B" font-size="9">Дневной: 700 ₽/ч | Вечерний: 1000 ₽/ч</text>
+    <rect x="24" y="226" width="100" height="18" fill="#334155"/>
+
+    <rect x="12" y="262" width="276" height="85" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="24" y="283" fill="#0F172A" font-size="11" font-weight="600">Пул 9ft &amp; Снукер VIP</text>
+    <text x="24" y="300" fill="#64748B" font-size="9">От 600 до 1200 ₽/ч</text>
+    <rect x="24" y="312" width="100" height="18" fill="#334155"/>
+  </g>
+
+  <!-- 3. Интерактивная карта залов -->
+  <g transform="translate(720, 130)">
+    <rect width="300" height="360" rx="8" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5"/>
+    <rect width="300" height="28" rx="8" fill="#E2E8F0"/>
+    <text x="14" y="18" fill="#334155" font-size="11" font-weight="700">3. Интерактивная карта залов</text>
+    <rect x="12" y="38" width="276" height="20" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <!-- Схема дорожек и столов -->
+    <rect x="12" y="66" width="190" height="280" fill="#F8FAFC" stroke="#94A3B8"/>
+    <!-- 12 дорожек -->
+    <g transform="translate(20, 75)">
+      <rect width="10" height="120" fill="#CBD5E1"/>
+      <rect x="14" width="10" height="120" fill="#CBD5E1"/>
+      <rect x="28" width="10" height="120" fill="#0F172A"/>
+      <rect x="42" width="10" height="120" fill="#CBD5E1"/>
+      <rect x="56" width="10" height="120" fill="#CBD5E1"/>
+      <rect x="70" width="10" height="120" fill="#CBD5E1"/>
+      <text x="45" y="135" fill="#475569" font-size="8" text-anchor="middle">Боулинг 1-12</text>
+    </g>
+    <!-- Столы -->
+    <g transform="translate(110, 75)">
+      <rect width="32" height="20" rx="2" fill="#CBD5E1"/>
+      <rect y="26" width="32" height="20" rx="2" fill="#0F172A"/>
+      <rect y="52" width="32" height="20" rx="2" fill="#CBD5E1"/>
+      <text x="16" y="86" fill="#475569" font-size="8" text-anchor="middle">Бильярд</text>
+    </g>
+    <!-- Боковая панель деталей слота -->
+    <rect x="208" y="66" width="80" height="280" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <text x="214" y="86" fill="#0F172A" font-size="9" font-weight="700">Дорожка #03</text>
+    <text x="214" y="102" fill="#16A34A" font-size="8">Свободна</text>
+    <text x="214" y="125" fill="#475569" font-size="8">До 6 чел.</text>
+    <rect x="214" y="315" width="68" height="22" fill="#0F172A"/>
+  </g>
+
+  <!-- 4. Визард бронирования -->
+  <g transform="translate(1050, 130)">
+    <rect width="330" height="360" rx="8" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5"/>
+    <rect width="330" height="28" rx="8" fill="#E2E8F0"/>
+    <text x="14" y="18" fill="#334155" font-size="11" font-weight="700">4. Шаги визарда (Wizard 1-4)</text>
+    <rect x="12" y="38" width="306" height="20" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <!-- Степпер -->
+    <g transform="translate(24, 68)">
+      <circle cx="10" cy="10" r="10" fill="#0F172A"/>
+      <text x="10" y="14" fill="#FFFFFF" font-size="10" text-anchor="middle">1</text>
+      <line x1="22" y1="10" x2="60" y2="10" stroke="#CBD5E1"/>
+      <circle cx="72" cy="10" r="10" fill="#CBD5E1"/>
+      <text x="72" y="14" fill="#475569" font-size="10" text-anchor="middle">2</text>
+      <line x1="84" y1="10" x2="122" y2="10" stroke="#CBD5E1"/>
+      <circle cx="134" cy="10" r="10" fill="#CBD5E1"/>
+      <line x1="146" y1="10" x2="184" y2="10" stroke="#CBD5E1"/>
+      <circle cx="196" cy="10" r="10" fill="#CBD5E1"/>
+    </g>
+    <!-- Форма -->
+    <rect x="20" y="100" width="290" height="26" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="30" y="117" fill="#64748B" font-size="9">Дата игры: 20.11.2026</text>
+    <rect x="20" y="134" width="140" height="26" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="30" y="151" fill="#64748B" font-size="9">Время: 17:00</text>
+    <rect x="170" y="134" width="140" height="26" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="180" y="151" fill="#64748B" font-size="9">Длительность: 2ч</text>
+    <rect x="20" y="168" width="290" height="26" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="30" y="185" fill="#64748B" font-size="9">Гости: 4 человека (≤ 6)</text>
+    <!-- Итог расчета -->
+    <rect x="20" y="206" width="290" height="90" rx="4" fill="#F1F5F9" stroke="#94A3B8"/>
+    <text x="30" y="226" fill="#0F172A" font-size="10" font-weight="700">Расчет с переходом 18:00:</text>
+    <text x="30" y="244" fill="#334155" font-size="9">17:00-18:00 (1ч дневной) = 1 200 ₽</text>
+    <text x="30" y="258" fill="#334155" font-size="9">18:00-19:00 (1ч вечерний) = 1 800 ₽</text>
+    <text x="30" y="278" fill="#0F172A" font-size="11" font-weight="800">Итого: 3 000 ₽</text>
+    <rect x="20" y="306" width="290" height="36" rx="4" fill="#0F172A"/>
+    <text x="165" y="328" fill="#FFFFFF" font-size="11" font-weight="600" text-anchor="middle">Перейти к предзаказу бара &rarr;</text>
+  </g>
+
+  <!-- Ряд 2: Экраны 5-8 -->
+  <!-- 5. Меню бара предзаказ -->
+  <g transform="translate(60, 520)">
+    <rect width="300" height="380" rx="8" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5"/>
+    <rect width="300" height="28" rx="8" fill="#E2E8F0"/>
+    <text x="14" y="18" fill="#334155" font-size="11" font-weight="700">5. Меню бара (Предзаказ к дорожке)</text>
+    <rect x="12" y="38" width="276" height="20" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <!-- Категории меню -->
+    <rect x="12" y="66" width="276" height="85" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="24" y="86" fill="#0F172A" font-size="10" font-weight="700">Пицца Пепперони 35см</text>
+    <text x="24" y="102" fill="#64748B" font-size="9">Томатный соус, моцарелла, колбаски</text>
+    <text x="24" y="124" fill="#0F172A" font-size="11" font-weight="700">650 ₽</text>
+    <rect x="220" y="108" width="58" height="22" fill="#334155"/>
+
+    <rect x="12" y="160" width="276" height="85" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="24" y="180" fill="#0F172A" font-size="10" font-weight="700">Бургер Strike Deluxe</text>
+    <text x="24" y="196" fill="#64748B" font-size="9">Говядина Black Angus, чеддер, фри</text>
+    <text x="24" y="218" fill="#0F172A" font-size="11" font-weight="700">550 ₽</text>
+    <rect x="220" y="202" width="58" height="22" fill="#334155"/>
+
+    <rect x="12" y="254" width="276" height="60" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="24" y="274" fill="#0F172A" font-size="10" font-weight="700">Морс клюквенный 1л — 300 ₽</text>
+    <rect x="220" y="268" width="58" height="22" fill="#334155"/>
+
+    <!-- Подвал заказа -->
+    <rect x="12" y="324" width="276" height="42" rx="4" fill="#0F172A"/>
+    <text x="150" y="350" fill="#FFFFFF" font-size="11" font-weight="600" text-anchor="middle">В корзине 2 поз. на 1 200 ₽</text>
+  </g>
+
+  <!-- 6. Проверка статуса брони -->
+  <g transform="translate(390, 520)">
+    <rect width="300" height="380" rx="8" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5"/>
+    <rect width="300" height="28" rx="8" fill="#E2E8F0"/>
+    <text x="14" y="18" fill="#334155" font-size="11" font-weight="700">6. Проверка брони &amp; Отмена</text>
+    <rect x="12" y="38" width="276" height="20" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <!-- Поле поиска -->
+    <rect x="12" y="66" width="276" height="30" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="24" y="85" fill="#64748B" font-size="10">Введите код брони (SP-84920)</text>
+    <!-- Карточка найденной брони -->
+    <rect x="12" y="106" width="276" height="190" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="24" y="128" fill="#0F172A" font-size="12" font-weight="700">Бронь #SP-84920 [CONFIRMED]</text>
+    <text x="24" y="148" fill="#475569" font-size="10">Зона: Боулинг, Дорожка #03</text>
+    <text x="24" y="166" fill="#475569" font-size="10">Время: 20.11.2026, 17:00 – 19:00</text>
+    <text x="24" y="184" fill="#475569" font-size="10">Гости: 4 человека</text>
+    <text x="24" y="202" fill="#475569" font-size="10">Сумма: 3 000 ₽ (Оплачено 100%)</text>
+    <text x="24" y="222" fill="#16A34A" font-size="10">Предзаказ бара: Пицца + Напитки</text>
+
+    <!-- Кнопки управления -->
+    <rect x="12" y="306" width="276" height="30" rx="4" fill="#DC2626"/>
+    <text x="150" y="325" fill="#FFFFFF" font-size="10" font-weight="600" text-anchor="middle">Отменить бронирование (&gt; 2ч)</text>
+    <rect x="12" y="342" width="276" height="28" rx="4" fill="#E2E8F0"/>
+    <text x="150" y="360" fill="#334155" font-size="10" text-anchor="middle">Скачать квитанцию PDF</text>
+  </g>
+
+  <!-- 7. Личный кабинет и клубная карта -->
+  <g transform="translate(720, 520)">
+    <rect width="300" height="380" rx="8" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5"/>
+    <rect width="300" height="28" rx="8" fill="#E2E8F0"/>
+    <text x="14" y="18" fill="#334155" font-size="11" font-weight="700">7. Личный кабинет &amp; Клубная карта</text>
+    <rect x="12" y="38" width="276" height="20" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <!-- Виртуальная клубная карта -->
+    <rect x="12" y="66" width="276" height="130" rx="8" fill="#0F172A"/>
+    <text x="28" y="94" fill="#38BDF8" font-size="13" font-weight="800">STRIKE &amp; POCKET CLUB</text>
+    <text x="28" y="118" fill="#FBBF24" font-size="12" font-weight="700">GOLD STATUS • СКИДКА 10%</text>
+    <text x="28" y="146" fill="#FFFFFF" font-size="11">Владелец: Вадим Верин</text>
+    <text x="28" y="168" fill="#94A3B8" font-size="10">Карта №: SP-GOLD-8492</text>
+    <rect x="210" y="130" width="60" height="50" fill="#FFFFFF"/>
+    <text x="240" y="158" fill="#000000" font-size="8" text-anchor="middle">[QR-код]</text>
+
+    <!-- История бронирований -->
+    <rect x="12" y="206" width="276" height="48" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="20" y="226" fill="#0F172A" font-size="10" font-weight="600">14.11.2026 • Русский бильярд</text>
+    <text x="20" y="242" fill="#64748B" font-size="9">2 часа • Стол #02 • Завершен</text>
+
+    <rect x="12" y="260" width="276" height="48" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="20" y="280" fill="#0F172A" font-size="10" font-weight="600">02.11.2026 • Боулинг Brunswick</text>
+    <text x="20" y="296" fill="#64748B" font-size="9">3 часа • Дорожка #05 • Завершен</text>
+
+    <rect x="12" y="324" width="276" height="36" rx="4" fill="#0F172A"/>
+    <text x="150" y="346" fill="#FFFFFF" font-size="10" font-weight="600" text-anchor="middle">Забронировать со скидкой 10%</text>
+  </g>
+
+  <!-- 8. АРМ Оператора зала -->
+  <g transform="translate(1050, 520)">
+    <rect width="330" height="380" rx="8" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5"/>
+    <rect width="330" height="28" rx="8" fill="#E2E8F0"/>
+    <text x="14" y="18" fill="#334155" font-size="11" font-weight="700">8. АРМ Оператора (Тайм-сетка)</text>
+    <rect x="12" y="38" width="306" height="20" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <!-- Таблица тайм-сетки -->
+    <rect x="12" y="66" width="306" height="240" fill="#F8FAFC" stroke="#94A3B8"/>
+    <!-- Временная шкала 16:00 - 21:00 -->
+    <text x="20" y="84" fill="#475569" font-size="8" font-weight="700">ДОРОЖКА</text>
+    <text x="90" y="84" fill="#475569" font-size="8">16:00</text>
+    <text x="140" y="84" fill="#475569" font-size="8">17:00</text>
+    <text x="190" y="84" fill="#475569" font-size="8">18:00</text>
+    <text x="240" y="84" fill="#475569" font-size="8">19:00</text>
+    <line x1="12" y1="92" x2="318" y2="92" stroke="#CBD5E1"/>
+
+    <text x="20" y="112" fill="#0F172A" font-size="9" font-weight="700">#01</text>
+    <rect x="90" y="100" width="95" height="18" rx="2" fill="#0F172A"/>
+    <text x="137" y="112" fill="#FFFFFF" font-size="7" text-anchor="middle">Бронь #102</text>
+
+    <text x="20" y="138" fill="#0F172A" font-size="9" font-weight="700">#02</text>
+    <rect x="140" y="126" width="145" height="18" rx="2" fill="#334155"/>
+    <text x="212" y="138" fill="#FFFFFF" font-size="7" text-anchor="middle">Бронь #108</text>
+
+    <text x="20" y="164" fill="#0F172A" font-size="9" font-weight="700">#03</text>
+    <rect x="140" y="152" width="95" height="18" rx="2" fill="#DC2626"/>
+    <text x="187" y="164" fill="#FFFFFF" font-size="7" text-anchor="middle">No-Show (+15м)</text>
+
+    <text x="20" y="190" fill="#0F172A" font-size="9" font-weight="700">#04</text>
+    <rect x="190" y="178" width="95" height="18" rx="2" fill="#0F172A"/>
+
+    <!-- Кнопки быстрых действий -->
+    <rect x="12" y="318" width="145" height="42" rx="4" fill="#0F172A"/>
+    <text x="84" y="342" fill="#FFFFFF" font-size="9" font-weight="600" text-anchor="middle">+ Новая бронь стойки</text>
+
+    <rect x="167" y="318" width="151" height="42" rx="4" fill="#16A34A"/>
+    <text x="242" y="342" fill="#FFFFFF" font-size="9" font-weight="600" text-anchor="middle">Печать чека 54-ФЗ</text>
+  </g>
+</svg>

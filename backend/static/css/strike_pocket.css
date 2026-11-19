@@ -1,0 +1,342 @@
+/* ==========================================================================
+   Стили веб-сервиса развлекательного комплекса «Strike & Pocket»
+   Тема: Dark Neon Lounge (Премиальный графит, бирюзовый циан, золотистый янтарь)
+   ========================================================================== */
+
+:root {
+  --bg-main: #0a0e17;
+  --bg-card: #121929;
+  --bg-card-hover: #18233a;
+  --bg-glass: rgba(18, 25, 41, 0.95);
+  --border-color: rgba(0, 229, 255, 0.22);
+  --border-glow: rgba(0, 229, 255, 0.5);
+  
+  --cyan-neon: #00e5ff;
+  --cyan-glow: rgba(0, 229, 255, 0.3);
+  --amber-neon: #ffb300;
+  --amber-glow: rgba(255, 179, 0, 0.3);
+  --purple-neon: #a855f7;
+  --green-neon: #10b981;
+  --red-neon: #ef4444;
+
+  --text-main: #f8fafc;
+  --text-light: #ffffff;
+  --text-muted: #cbd5e1;      /* Светло-серебристый цвет с высокой контрастностью */
+  --text-dimmed: #94a3b8;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Принудительное переопределение для гарантированной читаемости на темном фоне */
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+.text-dimmed {
+  color: var(--text-dimmed) !important;
+}
+
+.text-cyan {
+  color: var(--cyan-neon) !important;
+}
+
+.text-amber {
+  color: var(--amber-neon) !important;
+}
+
+p.lead {
+  color: #e2e8f0 !important;
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+/* Навигационная панель */
+.navbar-custom {
+  background: rgba(10, 14, 23, 0.96);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.85rem 1rem;
+}
+
+.brand-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1.45rem;
+  letter-spacing: 1.2px;
+  color: #ffffff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.brand-logo span.cyan {
+  color: var(--cyan-neon);
+  text-shadow: 0 0 12px var(--cyan-glow);
+}
+
+.brand-logo span.amber {
+  color: var(--amber-neon);
+  text-shadow: 0 0 12px var(--amber-glow);
+}
+
+.nav-link-custom {
+  color: #cbd5e1 !important;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.55rem 0.95rem !important;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-link-custom:hover, .nav-link-custom.active {
+  color: var(--cyan-neon) !important;
+  background: rgba(0, 229, 255, 0.1);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.15);
+}
+
+/* Карточки */
+.card-custom {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card-custom:hover {
+  border-color: var(--border-glow);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px var(--cyan-glow);
+  transform: translateY(-2px);
+}
+
+/* Кнопки */
+.btn-cyan {
+  background: linear-gradient(135deg, #00e5ff, #00b4d8);
+  color: #050b14 !important;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 1.4rem;
+  transition: all 0.25s ease;
+}
+
+.btn-cyan:hover {
+  background: linear-gradient(135deg, #33ebff, #00c4ea);
+  color: #000000 !important;
+  box-shadow: 0 0 18px var(--cyan-glow);
+  transform: translateY(-1px);
+}
+
+.btn-amber {
+  background: linear-gradient(135deg, #ffb300, #ff8f00);
+  color: #050b14 !important;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 1.4rem;
+  transition: all 0.25s ease;
+}
+
+.btn-amber:hover {
+  background: linear-gradient(135deg, #ffc107, #ffa000);
+  color: #000000 !important;
+  box-shadow: 0 0 18px var(--amber-glow);
+  transform: translateY(-1px);
+}
+
+.btn-outline-custom {
+  border: 1px solid var(--border-color);
+  color: #f1f5f9 !important;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-outline-custom:hover {
+  border-color: var(--cyan-neon);
+  color: var(--cyan-neon) !important;
+  background: rgba(0, 229, 255, 0.1);
+  box-shadow: 0 0 12px var(--cyan-glow);
+}
+
+/* Бейджи статусов */
+.badge-status {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.badge-available {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399 !important;
+  border: 1px solid rgba(16, 185, 129, 0.45);
+}
+
+.badge-occupied {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171 !important;
+  border: 1px solid rgba(239, 68, 68, 0.45);
+}
+
+.badge-maintenance {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24 !important;
+  border: 1px solid rgba(245, 158, 11, 0.45);
+}
+
+/* Стили визарда бронирования */
+.wizard-step-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(0, 229, 255, 0.15);
+  color: var(--cyan-neon);
+  border: 1.5px solid var(--cyan-neon);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin-right: 0.7rem;
+}
+
+.price-summary-box {
+  background: linear-gradient(145deg, #151e33, #0f1524);
+  border: 1px solid var(--border-glow);
+  border-radius: 12px;
+  padding: 1.3rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+.price-split-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+  font-size: 0.95rem;
+  color: #e2e8f0;
+}
+
+.price-split-row span:first-child {
+  color: #cbd5e1;
+}
+
+/* Чек по 54-ФЗ */
+.fiscal-receipt {
+  background: #ffffff;
+  color: #0f172a !important;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 1.75rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.fiscal-receipt hr {
+  border-top: 1px dashed #334155;
+}
+
+.fiscal-receipt * {
+  color: #0f172a !important;
+}
+
+/* Шахматка АРМ */
+.schedule-grid-container {
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-card);
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1200px;
+}
+
+.schedule-table th, .schedule-table td {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.55rem;
+  text-align: center;
+}
+
+.schedule-table th {
+  background: #0d1424;
+  color: var(--cyan-neon);
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.slot-cell {
+  height: 50px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  transition: background 0.15s;
+}
+
+.slot-cell:hover {
+  background: rgba(0, 229, 255, 0.08);
+}
+
+.booking-badge-grid {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: #ffffff !important;
+  border-radius: 4px;
+  padding: 3px 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* Интерактивные элементы SVG карты */
+.map-lane rect,
+.map-table rect {
+  transition: all 0.2s ease;
+}
+
+.map-lane:hover rect {
+  filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.85)) !important;
+  stroke: #ffffff !important;
+  stroke-width: 2px !important;
+}
+
+.map-table:hover rect {
+  filter: drop-shadow(0 0 10px rgba(52, 211, 153, 0.85)) !important;
+  stroke: #ffffff !important;
+  stroke-width: 2.5px !important;
+}
+
+.shadow-glow-cyan {
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.45) !important;
+}
+
+.shadow-glow-amber {
+  box-shadow: 0 0 16px rgba(255, 179, 0, 0.45) !important;
+}
+
+/* Подвал */
+footer {
+  margin-top: auto;
+  background: #060910;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2.5rem 0 1.5rem 0;
+  color: #cbd5e1;
+}
+
+footer p, footer li, footer span {
+  color: #cbd5e1;
+}

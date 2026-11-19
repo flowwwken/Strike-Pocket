@@ -1,0 +1,147 @@
+<svg width="1440" height="960" viewBox="0 0 1440 960" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1440" height="960" fill="#0A0E17"/>
+  <text x="60" y="60" fill="#00E5FF" font-family="Montserrat, Inter, sans-serif" font-size="28" font-weight="800" letter-spacing="1">ПОЛЬЗОВАТЕЛЬСКИЕ СЦЕНАРИИ (USER FLOWS &amp; ВЕТВЛЕНИЯ)</text>
+  <text x="60" y="85" fill="#CBD5E1" font-family="Inter, sans-serif" font-size="14">3 ключевых сценария: Бронирование со спецтребованиями, Отмена брони в ЛК, АРМ Оператора</text>
+  <line x1="60" y1="105" x2="1380" y2="105" stroke="#374151" stroke-width="1"/>
+
+  <!-- Сценарий 1: Онлайн-бронирование -->
+  <g transform="translate(60, 125)">
+    <rect width="1320" height="235" rx="10" fill="#111827" stroke="#00E5FF" stroke-opacity="0.3"/>
+    <text x="20" y="28" fill="#00E5FF" font-family="Montserrat, sans-serif" font-size="15" font-weight="700">СЦЕНАРИЙ 1: БРОНИРОВАНИЕ ДОРОЖКИ КЛИЕНТОМ (ПРОВЕРКИ FR-05, ТАРИФ 18:00, БАР)</text>
+    
+    <!-- Шаги -->
+    <g transform="translate(20, 50)">
+      <rect width="130" height="60" rx="6" fill="#1E293B" stroke="#00E5FF"/>
+      <text x="65" y="26" fill="#FFFFFF" font-size="11" font-weight="600" text-anchor="middle">Вход на сайт</text>
+      <text x="65" y="44" fill="#00E5FF" font-size="10" text-anchor="middle">Выбор даты/времени</text>
+
+      <line x1="130" y1="30" x2="160" y2="30" stroke="#00E5FF" stroke-width="2"/>
+
+      <rect x="160" width="140" height="60" rx="6" fill="#1E293B" stroke="#00E5FF"/>
+      <text x="230" y="26" fill="#FFFFFF" font-size="11" font-weight="600" text-anchor="middle">Кол-во гостей</text>
+      <text x="230" y="44" fill="#FBBF24" font-size="10" text-anchor="middle">Проверка &gt; 6 чел?</text>
+
+      <line x1="300" y1="30" x2="330" y2="30" stroke="#00E5FF" stroke-width="2"/>
+
+      <!-- Ветвление: > 6 гостей -->
+      <rect x="330" width="160" height="60" rx="6" fill="#2E1065" stroke="#A855F7"/>
+      <text x="410" y="24" fill="#E9D5FF" font-size="11" font-weight="600" text-anchor="middle">&gt; 6 игроков?</text>
+      <text x="410" y="42" fill="#F472B6" font-size="10" text-anchor="middle">Требование 2-й дорожки</text>
+
+      <line x1="490" y1="30" x2="520" y2="30" stroke="#00E5FF" stroke-width="2"/>
+
+      <!-- Расчет тарифа со сменой в 18:00 -->
+      <rect x="520" width="170" height="60" rx="6" fill="#1E293B" stroke="#00E5FF"/>
+      <text x="605" y="24" fill="#FFFFFF" font-size="11" font-weight="600" text-anchor="middle">Авторасчет тарифа</text>
+      <text x="605" y="42" fill="#38BDF8" font-size="10" text-anchor="middle">Стык 18:00 (День+Вечер)</text>
+
+      <line x1="690" y1="30" x2="720" y2="30" stroke="#00E5FF" stroke-width="2"/>
+
+      <!-- Предзаказ бара -->
+      <rect x="720" width="150" height="60" rx="6" fill="#1E293B" stroke="#FFB300"/>
+      <text x="795" y="24" fill="#FFFFFF" font-size="11" font-weight="600" text-anchor="middle">Предзаказ бара</text>
+      <text x="795" y="42" fill="#FFB300" font-size="10" text-anchor="middle">Пицца, напитки (+0₽)</text>
+
+      <line x1="870" y1="30" x2="900" y2="30" stroke="#00E5FF" stroke-width="2"/>
+
+      <!-- Клубная карта -->
+      <rect x="900" width="150" height="60" rx="6" fill="#1E293B" stroke="#00E5FF"/>
+      <text x="975" y="24" fill="#FFFFFF" font-size="11" font-weight="600" text-anchor="middle">Клубная карта</text>
+      <text x="975" y="42" fill="#34D399" font-size="10" text-anchor="middle">Валидация скидки %</text>
+
+      <line x1="1050" y1="30" x2="1080" y2="30" stroke="#00E5FF" stroke-width="2"/>
+
+      <!-- Оплата и SMS -->
+      <rect x="1080" width="180" height="60" rx="6" fill="#064E3B" stroke="#10B981" stroke-width="2"/>
+      <text x="1170" y="24" fill="#A7F3D0" font-size="11" font-weight="700" text-anchor="middle">Оплата СБП / Карта</text>
+      <text x="1170" y="42" fill="#FFFFFF" font-size="10" text-anchor="middle">PIN-код брони в SMS/Email</text>
+    </g>
+
+    <!-- Подпись условий ошибки -->
+    <text x="20" y="145" fill="#EF4444" font-size="11">Ветвление ошибки: Если дорожка уже занята другим клиентом &rarr; Модальное окно "Слот перехвачен", мгновенный откат без списания средств</text>
+    <text x="20" y="165" fill="#38BDF8" font-size="11">Бизнес-правило 18:00: Сеанс 17:00–19:00 разбивается на 1ч по 1200₽ + 1ч по 1800₽ = 3000₽ (минус персональная скидка карты)</text>
+  </g>
+
+  <!-- Сценарий 2: Отмена бронирования -->
+  <g transform="translate(60, 385)">
+    <rect width="1320" height="235" rx="10" fill="#111827" stroke="#F59E0B" stroke-opacity="0.3"/>
+    <text x="20" y="28" fill="#F59E0B" font-family="Montserrat, sans-serif" font-size="15" font-weight="700">СЦЕНАРИЙ 2: ПРОВЕРКА И ОТМЕНА БРОНИ В ЛИЧНОМ КАБИНЕТЕ (ПРАВИЛО 2 ЧАСОВ)</text>
+
+    <g transform="translate(20, 50)">
+      <rect width="180" height="60" rx="6" fill="#1E293B" stroke="#F59E0B"/>
+      <text x="90" y="26" fill="#FFFFFF" font-size="11" font-weight="600" text-anchor="middle">Ввод № брони + PIN</text>
+      <text x="90" y="44" fill="#CBD5E1" font-size="10" text-anchor="middle">Поиск брони в БД</text>
+
+      <line x1="180" y1="30" x2="220" y2="30" stroke="#F59E0B" stroke-width="2"/>
+
+      <rect x="220" width="200" height="60" rx="6" fill="#1E293B" stroke="#F59E0B"/>
+      <text x="320" y="26" fill="#FFFFFF" font-size="11" font-weight="600" text-anchor="middle">Экран статуса брони</text>
+      <text x="320" y="44" fill="#38BDF8" font-size="10" text-anchor="middle">Кнопка "Отменить бронь"</text>
+
+      <line x1="420" y1="30" x2="460" y2="30" stroke="#F59E0B" stroke-width="2"/>
+
+      <rect x="460" width="220" height="60" rx="6" fill="#1E293B" stroke="#F59E0B"/>
+      <text x="570" y="26" fill="#FFFFFF" font-size="11" font-weight="600" text-anchor="middle">Проверка времени до игры</text>
+      <text x="570" y="44" fill="#FBBF24" font-size="10" text-anchor="middle">Разница &gt; 2 часов?</text>
+
+      <line x1="680" y1="30" x2="720" y2="30" stroke="#10B981" stroke-width="2"/>
+
+      <!-- Успешная отмена -->
+      <rect x="720" width="250" height="60" rx="6" fill="#064E3B" stroke="#10B981"/>
+      <text x="845" y="24" fill="#A7F3D0" font-size="11" font-weight="700" text-anchor="middle">ДА (&gt; 2ч): Полный возврат</text>
+      <text x="845" y="42" fill="#FFFFFF" font-size="10" text-anchor="middle">Статус: CANCELLED, автовозврат 100%</text>
+
+      <!-- Отказ в отмене -->
+      <g transform="translate(1000, 0)">
+        <rect width="260" height="60" rx="6" fill="#7F1D1D" stroke="#EF4444"/>
+        <text x="130" y="24" fill="#FECACA" font-size="11" font-weight="700" text-anchor="middle">НЕТ (&lt; 2ч): Запрет автоотмены</text>
+        <text x="130" y="42" fill="#FFFFFF" font-size="10" text-anchor="middle">Алерт: Обратитесь к администратору</text>
+      </g>
+    </g>
+
+    <text x="20" y="145" fill="#10B981" font-size="11">&check; При успешной отмене слот на интерактивной карте мгновенно освобождается для повторного бронирования.</text>
+    <text x="20" y="165" fill="#EF4444" font-size="11">&times; Защита от спама и пустых простоев оборудования: при отказе менее чем за 2 часа предоплата не возвращается онлайн.</text>
+  </g>
+
+  <!-- Сценарий 3: АРМ Оператора -->
+  <g transform="translate(60, 645)">
+    <rect width="1320" height="235" rx="10" fill="#111827" stroke="#A855F7" stroke-opacity="0.3"/>
+    <text x="20" y="28" fill="#A855F7" font-family="Montserrat, sans-serif" font-size="15" font-weight="700">СЦЕНАРИЙ 3: ОПЕРАТИВНОЕ УПРАВЛЕНИЕ ЗАЛОМ В АРМ ОПЕРАТОРА (NO-SHOW, 54-ФЗ)</text>
+
+    <g transform="translate(20, 50)">
+      <rect width="170" height="60" rx="6" fill="#1E293B" stroke="#A855F7"/>
+      <text x="85" y="26" fill="#FFFFFF" font-size="11" font-weight="600" text-anchor="middle">Тайм-сетка АРМ</text>
+      <text x="85" y="44" fill="#CBD5E1" font-size="10" text-anchor="middle">Мониторинг 22 дорожек</text>
+
+      <line x1="170" y1="30" x2="210" y2="30" stroke="#A855F7" stroke-width="2"/>
+
+      <rect x="210" width="190" height="60" rx="6" fill="#1E293B" stroke="#A855F7"/>
+      <text x="305" y="26" fill="#FFFFFF" font-size="11" font-weight="600" text-anchor="middle">Прибытие гостей</text>
+      <text x="305" y="44" fill="#FBBF24" font-size="10" text-anchor="middle">Опоздание &gt; 15 минут?</text>
+
+      <line x1="400" y1="30" x2="440" y2="30" stroke="#A855F7" stroke-width="2"/>
+
+      <!-- Опоздание / Явка -->
+      <rect x="440" width="220" height="60" rx="6" fill="#1E293B" stroke="#00E5FF"/>
+      <text x="550" y="24" fill="#FFFFFF" font-size="11" font-weight="600" text-anchor="middle">Явка: Чек-ин гостей</text>
+      <text x="550" y="42" fill="#00E5FF" font-size="10" text-anchor="middle">Активация пинспоттера</text>
+
+      <line x1="660" y1="30" x2="700" y2="30" stroke="#00E5FF" stroke-width="2"/>
+
+      <!-- Дозаказ и продление -->
+      <rect x="700" width="240" height="60" rx="6" fill="#1E293B" stroke="#FFB300"/>
+      <text x="820" y="24" fill="#FFFFFF" font-size="11" font-weight="600" text-anchor="middle">Продление / Бар меню</text>
+      <text x="820" y="42" fill="#FFB300" font-size="10" text-anchor="middle">Авторасчет доплаты</text>
+
+      <line x1="940" y1="30" x2="980" y2="30" stroke="#10B981" stroke-width="2"/>
+
+      <!-- Закрытие смены 54-ФЗ -->
+      <rect x="980" width="280" height="60" rx="6" fill="#064E3B" stroke="#10B981"/>
+      <text x="1120" y="24" fill="#A7F3D0" font-size="11" font-weight="700" text-anchor="middle">Окончательный расчет</text>
+      <text x="1120" y="42" fill="#FFFFFF" font-size="10" text-anchor="middle">Печать чека ККТ по 54-ФЗ</text>
+    </g>
+
+    <text x="20" y="145" fill="#EF4444" font-size="11">&times; Ветка No-Show: Если гость не явился в течение 15 минут, система подсвечивает бронь красным и позволяет аннулировать слот.</text>
+    <text x="20" y="165" fill="#38BDF8" font-size="11">&check; Интеграция с ККТ АТОЛ: автоматическая фискализация чека, раздельные товарные позиции на услуги боулинга и кухню бара.</text>
+  </g>
+</svg>

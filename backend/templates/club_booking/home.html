@@ -1,0 +1,278 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Главная | РК «Strike & Pocket» — Боулинг и Бильярд в Ульяновске{% endblock %}
+
+{% block content %}
+<!-- HERO СЕКЦИЯ -->
+<section class="py-5 position-relative overflow-hidden" style="background: radial-gradient(circle at 70% 30%, rgba(0, 229, 255, 0.12) 0%, rgba(10, 14, 23, 1) 70%);">
+  <div class="container py-lg-4">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <div class="d-inline-flex align-items-center gap-2 px-3 py-1 mb-3 rounded-pill" style="background: rgba(0, 229, 255, 0.12); border: 1px solid var(--border-glow);">
+          <i class="fa-solid fa-sparkles text-cyan"></i>
+          <span class="small fw-semibold text-cyan">Премиум-отдых в центре Ульяновска</span>
+        </div>
+        <h1 class="display-4 fw-bold text-light mb-3" style="font-family: 'Montserrat', sans-serif;">
+          ИГРАЙ НА ПИКЕ ЭМОЦИЙ В <span class="text-cyan">STRIKE</span> &amp; <span class="text-amber">POCKET</span>
+        </h1>
+        <p class="lead mb-4" style="color: #cbd5e1; font-size: 1.15rem; line-height: 1.6;">
+          12 профессиональных дорожек боулинга <strong class="text-white">Brunswick GS-X</strong>, 10 турнирных столов русской пирамиды, американского пула и снукера, ресторанная подача кухни и мгновенное онлайн-бронирование.
+        </p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="{% url 'booking_wizard' %}" class="btn btn-cyan btn-lg px-4 shadow-glow-cyan">
+            <i class="fa-solid fa-calendar-check me-2"></i> Забронировать сейчас
+          </a>
+          <a href="{% url 'hall_map' %}" class="btn btn-outline-custom btn-lg px-4">
+            <i class="fa-solid fa-map-location-dot me-2"></i> Интерактивная карта залов
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="card card-custom p-4 text-center position-relative shadow-lg" style="background: #111827; border: 1px solid rgba(0, 229, 255, 0.35);">
+          <div class="position-absolute top-0 end-0 m-3 badge bg-danger text-light px-3 py-2 rounded-pill shadow-sm">
+            <i class="fa-solid fa-fire me-1"></i> Хит сезона
+          </div>
+          <div class="my-3">
+            <i class="fa-solid fa-bowling-ball-pin fa-4x text-cyan mb-3"></i>
+            <h3 class="fw-bold text-white mb-2">Быстрый расчет сеанса</h3>
+            <p class="small mb-3" style="color: #cbd5e1; font-size: 0.95rem;">
+              Тарифы день/вечер (граница в 18:00) и скидки по клубным картам
+            </p>
+          </div>
+          <div class="row g-2 mb-3 text-start small">
+            <div class="col-6">
+              <div class="p-2 rounded" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(0, 229, 255, 0.3);">
+                <div style="color: #cbd5e1; font-weight: 500; font-size: 0.85rem;">Боулинг день</div>
+                <div class="text-cyan fw-bold fs-6">от 1 100 ₽/час</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-2 rounded" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255, 179, 0, 0.3);">
+                <div style="color: #cbd5e1; font-weight: 500; font-size: 0.85rem;">Боулинг вечер</div>
+                <div class="text-amber fw-bold fs-6">от 1 600 ₽/час</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-2 rounded" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(16, 185, 129, 0.3);">
+                <div style="color: #cbd5e1; font-weight: 500; font-size: 0.85rem;">Пирамида 12ft</div>
+                <div class="fw-bold fs-6" style="color: #34d399;">от 750 ₽/час</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-2 rounded" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(168, 85, 247, 0.3);">
+                <div style="color: #cbd5e1; font-weight: 500; font-size: 0.85rem;">Пул / Снукер</div>
+                <div class="fw-bold fs-6" style="color: #c084fc;">от 700 ₽/час</div>
+              </div>
+            </div>
+          </div>
+          <a href="{% url 'booking_wizard' %}" class="btn btn-amber w-100 fw-bold py-2 shadow-glow-amber">
+            <i class="fa-solid fa-calculator me-1"></i> Рассчитать и забронировать
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- СТАТИСТИКА КЛУБА (С высокой контрастностью подписей) -->
+<section class="py-4 border-top border-bottom border-secondary border-opacity-25" style="background: #0d1424;">
+  <div class="container">
+    <div class="row text-center g-4">
+      <div class="col-md-3 col-6">
+        <h2 class="fw-bold text-cyan mb-1" style="font-family: 'Montserrat', sans-serif;">12</h2>
+        <div class="fw-semibold small" style="color: #cbd5e1; font-size: 0.95rem;">Дорожек боулинга Brunswick</div>
+      </div>
+      <div class="col-md-3 col-6">
+        <h2 class="fw-bold text-amber mb-1" style="font-family: 'Montserrat', sans-serif;">10</h2>
+        <div class="fw-semibold small" style="color: #cbd5e1; font-size: 0.95rem;">Турнирных бильярдных столов</div>
+      </div>
+      <div class="col-md-3 col-6">
+        <h2 class="fw-bold text-white mb-1" style="font-family: 'Montserrat', sans-serif;">4</h2>
+        <div class="fw-semibold small" style="color: #cbd5e1; font-size: 0.95rem;">Игровые зоны (Боулинг, Пирамида, Пул, Снукер)</div>
+      </div>
+      <div class="col-md-3 col-6">
+        <h2 class="fw-bold text-success mb-1" style="font-family: 'Montserrat', sans-serif;">100%</h2>
+        <div class="fw-semibold small" style="color: #cbd5e1; font-size: 0.95rem;">Гарантия брони и чеки по 54-ФЗ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- КАТАЛОГ ЗАЛОВ И ЗОН -->
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h6 class="text-cyan fw-bold text-uppercase letter-spacing-1">Оборудование и залы</h6>
+      <h2 class="fw-bold text-light" style="font-family: 'Montserrat', sans-serif;">ВЫБЕРИТЕ ВАШ ФОРМАТ ИГРЫ</h2>
+      <p style="color: #cbd5e1; font-size: 1.05rem;">Каждая зона клуба спроектирована по официальным стандартам спортивных федераций</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Боулинг -->
+      <div class="col-lg-3 col-md-6">
+        <div class="card card-custom h-100 p-3 d-flex flex-column" style="background: #111827; border: 1px solid rgba(0, 229, 255, 0.25);">
+          <div class="text-center p-3 rounded mb-3" style="background: rgba(0, 229, 255, 0.08);">
+            <i class="fa-solid fa-bowling-ball fa-3x text-cyan"></i>
+          </div>
+          <h5 class="fw-bold text-white mb-1">Боулинг</h5>
+          <div class="badge bg-info text-dark w-auto align-self-start mb-2 fw-bold">12 дорожек</div>
+          <p class="small flex-grow-1" style="color: #cbd5e1; line-height: 1.55;">
+            Американские дорожки Brunswick Pro Anvilane GS-X с синтетическим покрытием, автоподъемными детскими бортиками и экранами подсчета очков.
+          </p>
+          <ul class="list-unstyled small border-top border-secondary border-opacity-25 pt-2 mb-3" style="color: #e2e8f0;">
+            <li class="mb-1"><i class="fa-solid fa-users text-cyan me-2"></i>Вместимость: до 6 чел./дор.</li>
+            <li><i class="fa-solid fa-tag text-cyan me-2"></i>От {{ min_tariffs.BOWLING }} ₽/час</li>
+          </ul>
+          <a href="{% url 'booking_wizard' %}" class="btn btn-cyan w-100 fw-bold">Забронировать</a>
+        </div>
+      </div>
+
+      <!-- Русская пирамида -->
+      <div class="col-lg-3 col-md-6">
+        <div class="card card-custom h-100 p-3 d-flex flex-column" style="background: #111827; border: 1px solid rgba(16, 185, 129, 0.25);">
+          <div class="text-center p-3 rounded mb-3" style="background: rgba(16, 185, 129, 0.08);">
+            <i class="fa-solid fa-circle-dot fa-3x text-success"></i>
+          </div>
+          <h5 class="fw-bold text-white mb-1">Русская пирамида</h5>
+          <div class="badge bg-success w-auto align-self-start mb-2 fw-bold">6 столов (12ft)</div>
+          <p class="small flex-grow-1" style="color: #cbd5e1; line-height: 1.55;">
+            Профессиональные столы 12ft «Руптур Магнат» на природном сланце Ardesia 45 мм, сукно Iwan Simonis 760 (Бельгия) и шары Aramith Super Pro 68 мм.
+          </p>
+          <ul class="list-unstyled small border-top border-secondary border-opacity-25 pt-2 mb-3" style="color: #e2e8f0;">
+            <li class="mb-1"><i class="fa-solid fa-users text-success me-2"></i>Вместимость: до 4 чел./стол</li>
+            <li><i class="fa-solid fa-tag text-success me-2"></i>От {{ min_tariffs.RUSSIAN_BILLIARD }} ₽/час</li>
+          </ul>
+          <a href="{% url 'booking_wizard' %}" class="btn btn-outline-custom w-100 fw-bold">Забронировать</a>
+        </div>
+      </div>
+
+      <!-- Американский пул -->
+      <div class="col-lg-3 col-md-6">
+        <div class="card card-custom h-100 p-3 d-flex flex-column" style="background: #111827; border: 1px solid rgba(255, 179, 0, 0.25);">
+          <div class="text-center p-3 rounded mb-3" style="background: rgba(255, 179, 0, 0.08);">
+            <i class="fa-solid fa-certificate fa-3x text-amber"></i>
+          </div>
+          <h5 class="fw-bold text-white mb-1">Американский пул</h5>
+          <div class="badge bg-warning text-dark w-auto align-self-start mb-2 fw-bold">3 стола (9ft)</div>
+          <p class="small flex-grow-1" style="color: #cbd5e1; line-height: 1.55;">
+            Официальные турнирные столы Dynamic III 9 футов, одобренные EPBF. Быстрый раскат, кии Cuetec и шары Super Aramith Pro TV.
+          </p>
+          <ul class="list-unstyled small border-top border-secondary border-opacity-25 pt-2 mb-3" style="color: #e2e8f0;">
+            <li class="mb-1"><i class="fa-solid fa-users text-amber me-2"></i>Вместимость: до 4 чел./стол</li>
+            <li><i class="fa-solid fa-tag text-amber me-2"></i>От {{ min_tariffs.AMERICAN_POOL }} ₽/час</li>
+          </ul>
+          <a href="{% url 'booking_wizard' %}" class="btn btn-outline-custom w-100 fw-bold">Забронировать</a>
+        </div>
+      </div>
+
+      <!-- Снукер -->
+      <div class="col-lg-3 col-md-6">
+        <div class="card card-custom h-100 p-3 d-flex flex-column" style="background: #111827; border: 1px solid rgba(168, 85, 247, 0.3);">
+          <div class="text-center p-3 rounded mb-3" style="background: rgba(168, 85, 247, 0.08);">
+            <i class="fa-solid fa-crown fa-3x text-purple"></i>
+          </div>
+          <h5 class="fw-bold text-white mb-1">Снукер VIP</h5>
+          <div class="badge bg-purple text-light w-auto align-self-start mb-2 fw-bold">1 VIP-стол (12ft)</div>
+          <p class="small flex-grow-1" style="color: #cbd5e1; line-height: 1.55;">
+            Легендарный стол Riley Aristocrat Match 12ft со стальными бортами Steel Block, подогревом плит и сукном Strachan 6811 Gold в VIP-лаундже.
+          </p>
+          <ul class="list-unstyled small border-top border-secondary border-opacity-25 pt-2 mb-3" style="color: #e2e8f0;">
+            <li class="mb-1"><i class="fa-solid fa-users text-purple me-2"></i>Вместимость: до 4 чел.</li>
+            <li><i class="fa-solid fa-tag text-purple me-2"></i>От {{ min_tariffs.SNOOKER }} ₽/час</li>
+          </ul>
+          <a href="{% url 'booking_wizard' %}" class="btn btn-outline-custom w-100 fw-bold">Забронировать</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПОЧЕМУ МЫ (ПРЕИМУЩЕСТВА) -->
+<section class="py-5" style="background: #0f1523;">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <h6 class="text-cyan fw-bold text-uppercase letter-spacing-1">Стандарты качества</h6>
+        <h2 class="fw-bold text-light mb-4" style="font-family: 'Montserrat', sans-serif;">
+          СОВРЕМЕННЫЙ СЕРВИС И ЧЕСТНАЯ ТАРИФИКАЦИЯ
+        </h2>
+        <div class="d-flex gap-3 mb-4">
+          <div class="text-cyan fs-3"><i class="fa-solid fa-clock-rotate-left"></i></div>
+          <div>
+            <h5 class="text-white fw-bold mb-1">Раздельный расчет день / вечер (18:00)</h5>
+            <p class="small" style="color: #cbd5e1; line-height: 1.55;">
+              При сеансе через границу 18:00 (например с 17:00 до 19:00) система автоматически делит время: час рассчитывается по дневному тарифу, а второй час — по вечернему. Никаких переплат!
+            </p>
+          </div>
+        </div>
+        <div class="d-flex gap-3 mb-4">
+          <div class="text-amber fs-3"><i class="fa-solid fa-utensils"></i></div>
+          <div>
+            <h5 class="text-white fw-bold mb-1">Предзаказ кухни и бара на дорожку</h5>
+            <p class="small" style="color: #cbd5e1; line-height: 1.55;">
+              Заказывайте пиццу из печи, сочные бургеры и напитки прямо во время бронирования. Все будет приготовлено и подано строго к началу вашей игры.
+            </p>
+          </div>
+        </div>
+        <div class="d-flex gap-3 mb-4">
+          <div class="text-success fs-3"><i class="fa-solid fa-credit-card"></i></div>
+          <div>
+            <h5 class="text-white fw-bold mb-1">Фискализация и чеки по 54-ФЗ</h5>
+            <p class="small" style="color: #cbd5e1; line-height: 1.55;">
+              Оплата депозита картой или через СБП по QR-коду с автоматической генерацией фискального чека с реквизитами ФН и ФПД.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card card-custom p-4 border-glow shadow-lg" style="background: #111827;">
+          <h4 class="text-white fw-bold mb-3"><i class="fa-solid fa-map-location-dot text-cyan me-2"></i>План залов Strike &amp; Pocket</h4>
+          <p class="small mb-4" style="color: #cbd5e1; line-height: 1.55;">
+            Посмотрите расположение всех 12 дорожек боулинга, 10 турнирных столов бильярда, ресторана и VIP-лаунджа на интерактивной SVG-карте заведения.
+          </p>
+          <div class="p-4 rounded text-center mb-3" style="background: rgba(0,0,0,0.3); border: 1px dashed var(--border-glow);">
+            <i class="fa-solid fa-compass-drafting fa-3x text-cyan mb-2"></i>
+            <div class="text-white fw-bold">Векторная схема клуба</div>
+            <div class="small" style="color: #cbd5e1;">Кликните по любому столу или дорожке для бронирования</div>
+          </div>
+          <a href="{% url 'hall_map' %}" class="btn btn-cyan w-100 fw-bold py-2 shadow-glow-cyan">
+            <i class="fa-solid fa-arrow-up-right-from-square me-2"></i> Открыть интерактивную карту залов
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПРЕДЛОЖЕНИЕ КУХНИ И БАРА -->
+<section class="py-5">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div>
+        <h6 class="text-cyan fw-bold text-uppercase letter-spacing-1">Кухня &amp; Бар</h6>
+        <h3 class="fw-bold text-white mb-0" style="font-family: 'Montserrat', sans-serif;">МЕНЮ ДЛЯ КОМПАНИИ</h3>
+      </div>
+      <a href="{% url 'bar_menu' %}" class="btn btn-outline-custom btn-sm">
+        Смотреть все меню <i class="fa-solid fa-arrow-right ms-1"></i>
+      </a>
+    </div>
+
+    <div class="row g-3">
+      {% for item in featured_bar %}
+        <div class="col-md-3 col-6">
+          <div class="card card-custom h-100 p-3" style="background: #111827; border: 1px solid rgba(255,255,255,0.08);">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <span class="badge bg-secondary small">{{ item.portion_size }}</span>
+              <span class="text-amber fw-bold fs-6">{{ item.price }} ₽</span>
+            </div>
+            <h6 class="fw-bold text-white mb-1">{{ item.name }}</h6>
+            <div class="small mt-auto" style="color: #cbd5e1;">{{ item.category.name }}</div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

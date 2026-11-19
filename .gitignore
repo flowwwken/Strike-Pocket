@@ -47,3 +47,8 @@ media/
 .idea/
 *.sublime-project
 *.sublime-workspace
+
+# Node & Puppeteer Temp
+node_modules/
+chrome_tmp*/
+

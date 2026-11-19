@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Меню кухни и бара | РК «Strike & Pocket»{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+    <div>
+      <h1 class="h2 fw-bold text-light mb-1" style="font-family: 'Montserrat', sans-serif;">
+        <i class="fa-solid fa-utensils text-amber me-2"></i>МЕНЮ КУХНИ И БАРА (FR-08)
+      </h1>
+      <p class="small mb-0" style="color: #cbd5e1;">Авторская пицца из дровяной печи, крафтовые бургеры, закуски для компаний и напитки</p>
+    </div>
+    <a href="{% url 'booking_wizard' %}" class="btn btn-cyan fw-bold shadow-glow-cyan">
+      <i class="fa-solid fa-calendar-check me-1"></i> Забронировать с предзаказом
+    </a>
+  </div>
+
+  <!-- КАТЕГОРИИ МЕНЮ -->
+  <ul class="nav nav-pills mb-4 gap-2" id="menuTabs" role="tablist">
+    <li class="nav-item">
+      <button class="nav-link btn-outline-custom active" id="all-tab" data-bs-toggle="pill" data-bs-target="#tab-all" type="button">
+        Все меню
+      </button>
+    </li>
+    {% for cat in categories %}
+      <li class="nav-item">
+        <button class="nav-link btn-outline-custom" id="tab-btn-{{ cat.id }}" data-bs-toggle="pill" data-bs-target="#tab-cat-{{ cat.id }}" type="button">
+          {{ cat.name }} ({{ cat.items.count }})
+        </button>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <!-- СОДЕРЖИМОЕ ТАБОВ -->
+  <div class="tab-content" id="menuTabsContent">
+    <!-- Все меню -->
+    <div class="tab-pane fade show active" id="tab-all">
+      {% for cat in categories %}
+        <div class="mb-5">
+          <h4 class="text-cyan fw-bold mb-3 border-bottom border-secondary border-opacity-25 pb-2">
+            <i class="fa-solid fa-utensils me-2"></i>{{ cat.name }}
+          </h4>
+          <div class="row g-3">
+            {% for item in cat.items.all %}
+              <div class="col-lg-3 col-md-4 col-6">
+                <div class="card card-custom h-100 p-3 d-flex flex-column shadow-sm" style="background: #111827; border: 1px solid rgba(255, 255, 255, 0.08);">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <span class="badge bg-secondary small">{{ item.portion_size }}</span>
+                    <span class="text-amber fw-bold fs-6">{{ item.price }} ₽</span>
+                  </div>
+                  <h6 class="fw-bold text-white mb-1">{{ item.name }}</h6>
+                  <div class="mt-auto pt-2 d-flex justify-content-between align-items-center">
+                    <span class="badge badge-status badge-available small">Доступно</span>
+                    <a href="{% url 'booking_wizard' %}" class="btn btn-sm btn-outline-custom" title="Предзаказ в бронь">
+                      <i class="fa-solid fa-plus"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Вкладки по отдельным категориям -->
+    {% for cat in categories %}
+      <div class="tab-pane fade" id="tab-cat-{{ cat.id }}">
+        <div class="row g-3">
+          {% for item in cat.items.all %}
+            <div class="col-lg-3 col-md-4 col-6">
+              <div class="card card-custom h-100 p-3 d-flex flex-column shadow-sm" style="background: #111827; border: 1px solid rgba(255, 255, 255, 0.08);">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <span class="badge bg-secondary small">{{ item.portion_size }}</span>
+                  <span class="text-amber fw-bold fs-6">{{ item.price }} ₽</span>
+                </div>
+                <h6 class="fw-bold text-white mb-1">{{ item.name }}</h6>
+                <div class="mt-auto pt-2 d-flex justify-content-between align-items-center">
+                  <span class="badge badge-status badge-available small">Доступно</span>
+                  <a href="{% url 'booking_wizard' %}" class="btn btn-sm btn-outline-custom">
+                    <i class="fa-solid fa-plus me-1"></i> В бронь
+                  </a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- БАННЕР ПРЕДЗАКАЗА -->
+  <div class="card card-custom p-4 mt-4 text-center border-glow shadow-lg" style="background: #111827;">
+    <h4 class="fw-bold text-white mb-2">Хотите заказать блюда прямо к началу игры?</h4>
+    <p class="small mb-3" style="color: #cbd5e1;">Выберите удобную дорожку или стол, укажите количество гостей и добавьте любые позиции ресторанного меню на шаге оформления заказа.</p>
+    <div>
+      <a href="{% url 'booking_wizard' %}" class="btn btn-cyan btn-lg px-4 fw-bold shadow-glow-cyan">
+        <i class="fa-solid fa-calendar-plus me-2"></i> Перейти к бронированию с предзаказом
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,3325 @@
+[
+{
+  "model": "club_booking.client",
+  "pk": 1,
+  "fields": {
+    "last_name": "Алексеев",
+    "first_name": "Максим",
+    "patronymic": "Игоревич",
+    "phone": "+79278011234",
+    "email": "m.alekseev@mail.ru",
+    "bonus_balance": "450.00",
+    "is_active": true,
+    "created_at": "2026-11-15T10:51:08.948Z"
+  }
+},
+{
+  "model": "club_booking.client",
+  "pk": 2,
+  "fields": {
+    "last_name": "Васильева",
+    "first_name": "Елена",
+    "patronymic": "Сергеевна",
+    "phone": "+79278022345",
+    "email": "elena.vas@yandex.ru",
+    "bonus_balance": "1200.00",
+    "is_active": true,
+    "created_at": "2026-11-15T10:51:08.954Z"
+  }
+},
+{
+  "model": "club_booking.client",
+  "pk": 3,
+  "fields": {
+    "last_name": "Григорьев",
+    "first_name": "Артем",
+    "patronymic": "Владимирович",
+    "phone": "+79021233456",
+    "email": "artem.grig@gmail.com",
+    "bonus_balance": "0.00",
+    "is_active": true,
+    "created_at": "2026-11-15T10:51:08.961Z"
+  }
+},
+{
+  "model": "club_booking.client",
+  "pk": 4,
+  "fields": {
+    "last_name": "Дмитриева",
+    "first_name": "Ольга",
+    "patronymic": "Андреевна",
+    "phone": "+79021244567",
+    "email": "olga.dmitr@mail.ru",
+    "bonus_balance": "850.00",
+    "is_active": true,
+    "created_at": "2026-11-15T10:51:08.968Z"
+  }
+},
+{
+  "model": "club_booking.client",
+  "pk": 5,
+  "fields": {
+    "last_name": "Елисеев",
+    "first_name": "Денис",
+    "patronymic": "Михайлович",
+    "phone": "+79278055678",
+    "email": "d.eliseev@inbox.ru",
+    "bonus_balance": "320.00",
+    "is_active": true,
+    "created_at": "2026-11-15T10:51:08.974Z"
+  }
+},
+{
+  "model": "club_booking.client",
+  "pk": 6,
+  "fields": {
+    "last_name": "Жданов",
+    "first_name": "Кирилл",
+    "patronymic": "Олегович",
+    "phone": "+79278066789",
+    "email": "k.zhdanov@yandex.ru",
+    "bonus_balance": "2100.00",
+    "is_active": true,
+    "created_at": "2026-11-15T10:51:08.981Z"
+  }
+},
+{
+  "model": "club_booking.client",
+  "pk": 7,
+  "fields": {
+    "last_name": "Зайцева",
+    "first_name": "Анна",
+    "patronymic": "Павловна",
+    "phone": "+79021277890",
+    "email": "anna.zaytseva@mail.ru",
+    "bonus_balance": "600.00",
+    "is_active": true,
+    "created_at": "2026-11-15T10:51:08.988Z"
+  }
+},
+{
+  "model": "club_booking.client",
+  "pk": 8,
+  "fields": {
+    "last_name": "Иванов",
+    "first_name": "Сергей",
+    "patronymic": "Николаевич",
+    "phone": "+79278088901",
+    "email": "serg.ivanov@gmail.com",
+    "bonus_balance": "150.00",
+    "is_active": true,
+    "created_at": "2026-11-15T10:51:08.994Z"
+  }
+},
+{
+  "model": "club_booking.client",
+  "pk": 9,
+  "fields": {
+    "last_name": "Ковалев",
+    "first_name": "Роман",
+    "patronymic": "Денисович",
+    "phone": "+79278099012",
+    "email": "r.kovalev@yandex.ru",
+    "bonus_balance": "950.00",
+    "is_active": true,
+    "created_at": "2026-11-15T10:51:09.002Z"
+  }
+},
+{
+  "model": "club_booking.client",
+  "pk": 10,
+  "fields": {
+    "last_name": "Лебедева",
+    "first_name": "Мария",
+    "patronymic": "Константиновна",
+    "phone": "+79021300123",
+    "email": "m.lebedeva@mail.ru",
+    "bonus_balance": "1800.00",
+    "is_active": true,
+    "created_at": "2026-11-15T10:51:09.008Z"
+  }
+},
+{
+  "model": "club_booking.client",
+  "pk": 11,
+  "fields": {
+    "last_name": "Морозов",
+    "first_name": "Павел",
+    "patronymic": "Алексеевич",
+    "phone": "+79278111234",
+    "email": "p.morozov@gmail.com",
+    "bonus_balance": "400.00",
+    "is_active": true,
+    "created_at": "2026-11-15T10:51:09.015Z"
+  }
+},
+{
+  "model": "club_booking.client",
+  "pk": 12,
+  "fields": {
+    "last_name": "Новиков",
+    "first_name": "Илья",
+    "patronymic": "Сергеевич",
+    "phone": "+79278122345",
+    "email": "i.novikov@yandex.ru",
+    "bonus_balance": "0.00",
+    "is_active": true,
+    "created_at": "2026-11-15T10:51:09.023Z"
+  }
+},
+{
+  "model": "club_booking.client",
+  "pk": 13,
+  "fields": {
+    "last_name": "Орлова",
+    "first_name": "Светлана",
+    "patronymic": "Валерьевна",
+    "phone": "+79021333456",
+    "email": "sveta.orlova@mail.ru",
+    "bonus_balance": "730.00",
+    "is_active": true,
+    "created_at": "2026-11-15T10:51:09.030Z"
+  }
+},
+{
+  "model": "club_booking.client",
+  "pk": 14,
+  "fields": {
+    "last_name": "Павлов",
+    "first_name": "Виталий",
+    "patronymic": "Евгеньевич",
+    "phone": "+79278144567",
+    "email": "v.pavlov@gmail.com",
+    "bonus_balance": "1150.00",
+    "is_active": true,
+    "created_at": "2026-11-15T10:51:09.037Z"
+  }
+},
+{
+  "model": "club_booking.client",
+  "pk": 15,
+  "fields": {
+    "last_name": "Романов",
+    "first_name": "Владислав",
+    "patronymic": "Артемович",
+    "phone": "+79278155678",
+    "email": "vlad.romanov@inbox.ru",
+    "bonus_balance": "2500.00",
+    "is_active": true,
+    "created_at": "2026-11-15T10:51:09.043Z"
+  }
+},
+{
+  "model": "club_booking.client",
+  "pk": 16,
+  "fields": {
+    "last_name": "Семенова",
+    "first_name": "Дарья",
+    "patronymic": "Геннадьевна",
+    "phone": "+79021366789",
+    "email": "daria.semenova@yandex.ru",
+    "bonus_balance": "300.00",
+    "is_active": true,
+    "created_at": "2026-11-15T10:51:09.051Z"
+  }
+},
+{
+  "model": "club_booking.clubcard",
+  "pk": 1,
+  "fields": {
+    "client": 1,
+    "card_number": "SP-SLV-00101",
+    "card_tier": "SILVER",
+    "discount_percent": "5.00",
+    "issued_at": "2026-11-15",
+    "expires_at": null,
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.clubcard",
+  "pk": 2,
+  "fields": {
+    "client": 2,
+    "card_number": "SP-GLD-00201",
+    "card_tier": "GOLD",
+    "discount_percent": "10.00",
+    "issued_at": "2026-11-15",
+    "expires_at": null,
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.clubcard",
+  "pk": 3,
+  "fields": {
+    "client": 4,
+    "card_number": "SP-SLV-00102",
+    "card_tier": "SILVER",
+    "discount_percent": "5.00",
+    "issued_at": "2026-11-15",
+    "expires_at": null,
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.clubcard",
+  "pk": 4,
+  "fields": {
+    "client": 5,
+    "card_number": "SP-SLV-00103",
+    "card_tier": "SILVER",
+    "discount_percent": "5.00",
+    "issued_at": "2026-11-15",
+    "expires_at": null,
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.clubcard",
+  "pk": 5,
+  "fields": {
+    "client": 6,
+    "card_number": "SP-PLT-00301",
+    "card_tier": "PLATINUM",
+    "discount_percent": "15.00",
+    "issued_at": "2026-11-15",
+    "expires_at": null,
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.clubcard",
+  "pk": 6,
+  "fields": {
+    "client": 7,
+    "card_number": "SP-SLV-00104",
+    "card_tier": "SILVER",
+    "discount_percent": "5.00",
+    "issued_at": "2026-11-15",
+    "expires_at": null,
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.clubcard",
+  "pk": 7,
+  "fields": {
+    "client": 9,
+    "card_number": "SP-GLD-00202",
+    "card_tier": "GOLD",
+    "discount_percent": "10.00",
+    "issued_at": "2026-11-15",
+    "expires_at": null,
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.clubcard",
+  "pk": 8,
+  "fields": {
+    "client": 10,
+    "card_number": "SP-PLT-00302",
+    "card_tier": "PLATINUM",
+    "discount_percent": "15.00",
+    "issued_at": "2026-11-15",
+    "expires_at": null,
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.clubcard",
+  "pk": 9,
+  "fields": {
+    "client": 11,
+    "card_number": "SP-SLV-00105",
+    "card_tier": "SILVER",
+    "discount_percent": "5.00",
+    "issued_at": "2026-11-15",
+    "expires_at": null,
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.clubcard",
+  "pk": 10,
+  "fields": {
+    "client": 13,
+    "card_number": "SP-SLV-00106",
+    "card_tier": "SILVER",
+    "discount_percent": "5.00",
+    "issued_at": "2026-11-15",
+    "expires_at": null,
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.clubcard",
+  "pk": 11,
+  "fields": {
+    "client": 14,
+    "card_number": "SP-GLD-00203",
+    "card_tier": "GOLD",
+    "discount_percent": "10.00",
+    "issued_at": "2026-11-15",
+    "expires_at": null,
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.clubcard",
+  "pk": 12,
+  "fields": {
+    "client": 15,
+    "card_number": "SP-PLT-00303",
+    "card_tier": "PLATINUM",
+    "discount_percent": "15.00",
+    "issued_at": "2026-11-15",
+    "expires_at": null,
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.resourcecategory",
+  "pk": 1,
+  "fields": {
+    "code": "BOWLING",
+    "name": "Боулинг",
+    "description": "Профессиональные дорожки Brunswick с синтетическим покрытием Anvilane и автоматическим возвратом шаров",
+    "min_players": 1,
+    "max_players": 6
+  }
+},
+{
+  "model": "club_booking.resourcecategory",
+  "pk": 2,
+  "fields": {
+    "code": "RUSSIAN_BILLIARD",
+    "name": "Русский бильярд (пирамида 12ft)",
+    "description": "Турнирные 12-футовые столы на натуральном ардезитном сланце (плита 45 мм), сукно Iwan Simonis 760",
+    "min_players": 1,
+    "max_players": 4
+  }
+},
+{
+  "model": "club_booking.resourcecategory",
+  "pk": 3,
+  "fields": {
+    "code": "AMERICAN_POOL",
+    "name": "Американский пул (9ft)",
+    "description": "Столы Dynamic III 9ft, утвержденные европейской федерацией EPBF, сукно Simonis 860",
+    "min_players": 1,
+    "max_players": 4
+  }
+},
+{
+  "model": "club_booking.resourcecategory",
+  "pk": 4,
+  "fields": {
+    "code": "SNOOKER",
+    "name": "Снукер (12ft)",
+    "description": "Английский снукерный стол Riley Aristocrat 12ft, отборное сукно Strachan 6811 Gold",
+    "min_players": 1,
+    "max_players": 4
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 1,
+  "fields": {
+    "category": 1,
+    "resource_number": 1,
+    "title": "Дорожка №01",
+    "equipment_brand": "Brunswick Pro Anvilane GS-X",
+    "status": "AVAILABLE",
+    "max_capacity": 6
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 2,
+  "fields": {
+    "category": 1,
+    "resource_number": 2,
+    "title": "Дорожка №02",
+    "equipment_brand": "Brunswick Pro Anvilane GS-X",
+    "status": "AVAILABLE",
+    "max_capacity": 6
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 3,
+  "fields": {
+    "category": 1,
+    "resource_number": 3,
+    "title": "Дорожка №03",
+    "equipment_brand": "Brunswick Pro Anvilane GS-X",
+    "status": "AVAILABLE",
+    "max_capacity": 6
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 4,
+  "fields": {
+    "category": 1,
+    "resource_number": 4,
+    "title": "Дорожка №04",
+    "equipment_brand": "Brunswick Pro Anvilane GS-X",
+    "status": "AVAILABLE",
+    "max_capacity": 6
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 5,
+  "fields": {
+    "category": 1,
+    "resource_number": 5,
+    "title": "Дорожка №05",
+    "equipment_brand": "Brunswick Pro Anvilane GS-X",
+    "status": "AVAILABLE",
+    "max_capacity": 6
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 6,
+  "fields": {
+    "category": 1,
+    "resource_number": 6,
+    "title": "Дорожка №06",
+    "equipment_brand": "Brunswick Pro Anvilane GS-X",
+    "status": "AVAILABLE",
+    "max_capacity": 6
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 7,
+  "fields": {
+    "category": 1,
+    "resource_number": 7,
+    "title": "Дорожка №07",
+    "equipment_brand": "Brunswick Pro Anvilane GS-X",
+    "status": "AVAILABLE",
+    "max_capacity": 6
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 8,
+  "fields": {
+    "category": 1,
+    "resource_number": 8,
+    "title": "Дорожка №08",
+    "equipment_brand": "Brunswick Pro Anvilane GS-X",
+    "status": "AVAILABLE",
+    "max_capacity": 6
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 9,
+  "fields": {
+    "category": 1,
+    "resource_number": 9,
+    "title": "Дорожка №09",
+    "equipment_brand": "Brunswick Pro Anvilane GS-X",
+    "status": "AVAILABLE",
+    "max_capacity": 6
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 10,
+  "fields": {
+    "category": 1,
+    "resource_number": 10,
+    "title": "Дорожка №10",
+    "equipment_brand": "Brunswick Pro Anvilane GS-X",
+    "status": "AVAILABLE",
+    "max_capacity": 6
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 11,
+  "fields": {
+    "category": 1,
+    "resource_number": 11,
+    "title": "Дорожка №11",
+    "equipment_brand": "Brunswick Pro Anvilane GS-X",
+    "status": "AVAILABLE",
+    "max_capacity": 6
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 12,
+  "fields": {
+    "category": 1,
+    "resource_number": 12,
+    "title": "Дорожка №12",
+    "equipment_brand": "Brunswick Pro Anvilane GS-X",
+    "status": "AVAILABLE",
+    "max_capacity": 6
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 13,
+  "fields": {
+    "category": 2,
+    "resource_number": 1,
+    "title": "Стол №01 (Пирамида 12ft)",
+    "equipment_brand": "Руптур Магнат 12ft / Ardesia",
+    "status": "AVAILABLE",
+    "max_capacity": 4
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 14,
+  "fields": {
+    "category": 2,
+    "resource_number": 2,
+    "title": "Стол №02 (Пирамида 12ft)",
+    "equipment_brand": "Руптур Магнат 12ft / Ardesia",
+    "status": "AVAILABLE",
+    "max_capacity": 4
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 15,
+  "fields": {
+    "category": 2,
+    "resource_number": 3,
+    "title": "Стол №03 (Пирамида 12ft)",
+    "equipment_brand": "Руптур Магнат 12ft / Ardesia",
+    "status": "AVAILABLE",
+    "max_capacity": 4
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 16,
+  "fields": {
+    "category": 2,
+    "resource_number": 4,
+    "title": "Стол №04 (Пирамида 12ft)",
+    "equipment_brand": "Руптур Магнат 12ft / Ardesia",
+    "status": "AVAILABLE",
+    "max_capacity": 4
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 17,
+  "fields": {
+    "category": 2,
+    "resource_number": 5,
+    "title": "Стол №05 (Пирамида 12ft)",
+    "equipment_brand": "Руптур Магнат 12ft / Ardesia",
+    "status": "AVAILABLE",
+    "max_capacity": 4
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 18,
+  "fields": {
+    "category": 2,
+    "resource_number": 6,
+    "title": "Стол №06 (Пирамида 12ft)",
+    "equipment_brand": "Руптур Магнат 12ft / Ardesia",
+    "status": "AVAILABLE",
+    "max_capacity": 4
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 19,
+  "fields": {
+    "category": 3,
+    "resource_number": 7,
+    "title": "Стол №07 (Пул 9ft)",
+    "equipment_brand": "Dynamic III 9ft Tournament",
+    "status": "AVAILABLE",
+    "max_capacity": 4
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 20,
+  "fields": {
+    "category": 3,
+    "resource_number": 8,
+    "title": "Стол №08 (Пул 9ft)",
+    "equipment_brand": "Dynamic III 9ft Tournament",
+    "status": "AVAILABLE",
+    "max_capacity": 4
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 21,
+  "fields": {
+    "category": 3,
+    "resource_number": 9,
+    "title": "Стол №09 (Пул 9ft)",
+    "equipment_brand": "Dynamic III 9ft Tournament",
+    "status": "AVAILABLE",
+    "max_capacity": 4
+  }
+},
+{
+  "model": "club_booking.clubresource",
+  "pk": 22,
+  "fields": {
+    "category": 4,
+    "resource_number": 10,
+    "title": "Стол №10 (Снукер 12ft)",
+    "equipment_brand": "Riley Aristocrat Match 12ft",
+    "status": "AVAILABLE",
+    "max_capacity": 4
+  }
+},
+{
+  "model": "club_booking.tariff",
+  "pk": 1,
+  "fields": {
+    "category": 1,
+    "day_type": "WEEKDAY",
+    "time_slot": "DAY",
+    "price_per_hour": "1100.00",
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.tariff",
+  "pk": 2,
+  "fields": {
+    "category": 1,
+    "day_type": "WEEKDAY",
+    "time_slot": "EVENING",
+    "price_per_hour": "1600.00",
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.tariff",
+  "pk": 3,
+  "fields": {
+    "category": 1,
+    "day_type": "WEEKEND",
+    "time_slot": "DAY",
+    "price_per_hour": "1700.00",
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.tariff",
+  "pk": 4,
+  "fields": {
+    "category": 1,
+    "day_type": "WEEKEND",
+    "time_slot": "EVENING",
+    "price_per_hour": "2200.00",
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.tariff",
+  "pk": 5,
+  "fields": {
+    "category": 2,
+    "day_type": "WEEKDAY",
+    "time_slot": "DAY",
+    "price_per_hour": "750.00",
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.tariff",
+  "pk": 6,
+  "fields": {
+    "category": 2,
+    "day_type": "WEEKDAY",
+    "time_slot": "EVENING",
+    "price_per_hour": "1100.00",
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.tariff",
+  "pk": 7,
+  "fields": {
+    "category": 2,
+    "day_type": "WEEKEND",
+    "time_slot": "DAY",
+    "price_per_hour": "1000.00",
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.tariff",
+  "pk": 8,
+  "fields": {
+    "category": 2,
+    "day_type": "WEEKEND",
+    "time_slot": "EVENING",
+    "price_per_hour": "1350.00",
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.tariff",
+  "pk": 9,
+  "fields": {
+    "category": 3,
+    "day_type": "WEEKDAY",
+    "time_slot": "DAY",
+    "price_per_hour": "600.00",
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.tariff",
+  "pk": 10,
+  "fields": {
+    "category": 3,
+    "day_type": "WEEKDAY",
+    "time_slot": "EVENING",
+    "price_per_hour": "900.00",
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.tariff",
+  "pk": 11,
+  "fields": {
+    "category": 3,
+    "day_type": "WEEKEND",
+    "time_slot": "DAY",
+    "price_per_hour": "800.00",
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.tariff",
+  "pk": 12,
+  "fields": {
+    "category": 3,
+    "day_type": "WEEKEND",
+    "time_slot": "EVENING",
+    "price_per_hour": "1100.00",
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.tariff",
+  "pk": 13,
+  "fields": {
+    "category": 4,
+    "day_type": "WEEKDAY",
+    "time_slot": "DAY",
+    "price_per_hour": "850.00",
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.tariff",
+  "pk": 14,
+  "fields": {
+    "category": 4,
+    "day_type": "WEEKDAY",
+    "time_slot": "EVENING",
+    "price_per_hour": "1250.00",
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.tariff",
+  "pk": 15,
+  "fields": {
+    "category": 4,
+    "day_type": "WEEKEND",
+    "time_slot": "DAY",
+    "price_per_hour": "1100.00",
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.tariff",
+  "pk": 16,
+  "fields": {
+    "category": 4,
+    "day_type": "WEEKEND",
+    "time_slot": "EVENING",
+    "price_per_hour": "1500.00",
+    "is_active": true
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 1,
+  "fields": {
+    "booking_number": "SP-20261102-0001",
+    "client": 1,
+    "resource": 1,
+    "booking_date": "2026-11-02",
+    "time_start": "14:00:00",
+    "time_end": "16:00:00",
+    "duration_hours": "2.00",
+    "players_count": 4,
+    "rental_cost": "2200.00",
+    "discount_amount": "201.50",
+    "total_cost": "3828.50",
+    "deposit_amount": "0.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Дорожка №01. Игроков: 4.",
+    "created_at": "2026-11-15T10:51:09.282Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 2,
+  "fields": {
+    "booking_number": "SP-20261102-0002",
+    "client": 2,
+    "resource": 2,
+    "booking_date": "2026-11-02",
+    "time_start": "16:00:00",
+    "time_end": "17:30:00",
+    "duration_hours": "1.50",
+    "players_count": 5,
+    "rental_cost": "1650.00",
+    "discount_amount": "308.00",
+    "total_cost": "2772.00",
+    "deposit_amount": "0.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Дорожка №02. Игроков: 5.",
+    "created_at": "2026-11-15T10:51:09.290Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 3,
+  "fields": {
+    "booking_number": "SP-20261102-0003",
+    "client": 3,
+    "resource": 3,
+    "booking_date": "2026-11-02",
+    "time_start": "19:00:00",
+    "time_end": "21:00:00",
+    "duration_hours": "2.00",
+    "players_count": 6,
+    "rental_cost": "3200.00",
+    "discount_amount": "0.00",
+    "total_cost": "4510.00",
+    "deposit_amount": "1600.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Дорожка №03. Игроков: 6.",
+    "created_at": "2026-11-15T10:51:09.300Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 4,
+  "fields": {
+    "booking_number": "SP-20261103-0004",
+    "client": 4,
+    "resource": 4,
+    "booking_date": "2026-11-03",
+    "time_start": "18:00:00",
+    "time_end": "21:00:00",
+    "duration_hours": "3.00",
+    "players_count": 4,
+    "rental_cost": "4800.00",
+    "discount_amount": "340.50",
+    "total_cost": "6469.50",
+    "deposit_amount": "2280.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Дорожка №04. Игроков: 4.",
+    "created_at": "2026-11-15T10:51:09.309Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 5,
+  "fields": {
+    "booking_number": "SP-20261103-0005",
+    "client": 5,
+    "resource": 5,
+    "booking_date": "2026-11-03",
+    "time_start": "20:00:00",
+    "time_end": "22:00:00",
+    "duration_hours": "2.00",
+    "players_count": 6,
+    "rental_cost": "3200.00",
+    "discount_amount": "203.00",
+    "total_cost": "3857.00",
+    "deposit_amount": "1520.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Дорожка №05. Игроков: 6.",
+    "created_at": "2026-11-15T10:51:09.319Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 6,
+  "fields": {
+    "booking_number": "SP-20261104-0006",
+    "client": 6,
+    "resource": 6,
+    "booking_date": "2026-11-04",
+    "time_start": "13:00:00",
+    "time_end": "15:00:00",
+    "duration_hours": "2.00",
+    "players_count": 3,
+    "rental_cost": "2200.00",
+    "discount_amount": "466.50",
+    "total_cost": "2643.50",
+    "deposit_amount": "0.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Дорожка №06. Игроков: 3.",
+    "created_at": "2026-11-15T10:51:09.327Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 7,
+  "fields": {
+    "booking_number": "SP-20261104-0007",
+    "client": 7,
+    "resource": 7,
+    "booking_date": "2026-11-04",
+    "time_start": "15:00:00",
+    "time_end": "16:00:00",
+    "duration_hours": "1.00",
+    "players_count": 4,
+    "rental_cost": "1100.00",
+    "discount_amount": "103.50",
+    "total_cost": "1966.50",
+    "deposit_amount": "0.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Дорожка №07. Игроков: 4.",
+    "created_at": "2026-11-15T10:51:09.337Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 8,
+  "fields": {
+    "booking_number": "SP-20261104-0008",
+    "client": 8,
+    "resource": 8,
+    "booking_date": "2026-11-04",
+    "time_start": "19:00:00",
+    "time_end": "21:30:00",
+    "duration_hours": "2.50",
+    "players_count": 5,
+    "rental_cost": "4000.00",
+    "discount_amount": "0.00",
+    "total_cost": "5310.00",
+    "deposit_amount": "2000.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Дорожка №08. Игроков: 5.",
+    "created_at": "2026-11-15T10:51:09.345Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 9,
+  "fields": {
+    "booking_number": "SP-20261105-0009",
+    "client": 9,
+    "resource": 9,
+    "booking_date": "2026-11-05",
+    "time_start": "17:00:00",
+    "time_end": "19:00:00",
+    "duration_hours": "2.00",
+    "players_count": 6,
+    "rental_cost": "2200.00",
+    "discount_amount": "290.00",
+    "total_cost": "2610.00",
+    "deposit_amount": "0.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Дорожка №09. Игроков: 6.",
+    "created_at": "2026-11-15T10:51:09.353Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 10,
+  "fields": {
+    "booking_number": "SP-20261105-0010",
+    "client": 10,
+    "resource": 10,
+    "booking_date": "2026-11-05",
+    "time_start": "20:00:00",
+    "time_end": "22:00:00",
+    "duration_hours": "2.00",
+    "players_count": 4,
+    "rental_cost": "3200.00",
+    "discount_amount": "786.00",
+    "total_cost": "4454.00",
+    "deposit_amount": "1360.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Дорожка №10. Игроков: 4.",
+    "created_at": "2026-11-15T10:51:09.362Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 11,
+  "fields": {
+    "booking_number": "SP-20261106-0011",
+    "client": 11,
+    "resource": 11,
+    "booking_date": "2026-11-06",
+    "time_start": "14:00:00",
+    "time_end": "16:00:00",
+    "duration_hours": "2.00",
+    "players_count": 5,
+    "rental_cost": "3400.00",
+    "discount_amount": "205.50",
+    "total_cost": "3904.50",
+    "deposit_amount": "0.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Дорожка №11. Игроков: 5.",
+    "created_at": "2026-11-15T10:51:09.372Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 12,
+  "fields": {
+    "booking_number": "SP-20261106-0012",
+    "client": 12,
+    "resource": 12,
+    "booking_date": "2026-11-06",
+    "time_start": "18:00:00",
+    "time_end": "20:00:00",
+    "duration_hours": "2.00",
+    "players_count": 6,
+    "rental_cost": "4400.00",
+    "discount_amount": "0.00",
+    "total_cost": "6420.00",
+    "deposit_amount": "2200.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Дорожка №12. Игроков: 6.",
+    "created_at": "2026-11-15T10:51:09.379Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 13,
+  "fields": {
+    "booking_number": "SP-20261107-0013",
+    "client": 13,
+    "resource": 1,
+    "booking_date": "2026-11-07",
+    "time_start": "12:00:00",
+    "time_end": "13:30:00",
+    "duration_hours": "1.50",
+    "players_count": 3,
+    "rental_cost": "2550.00",
+    "discount_amount": "147.00",
+    "total_cost": "2793.00",
+    "deposit_amount": "0.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Дорожка №01. Игроков: 3.",
+    "created_at": "2026-11-15T10:51:09.389Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 14,
+  "fields": {
+    "booking_number": "SP-20261107-0014",
+    "client": 14,
+    "resource": 2,
+    "booking_date": "2026-11-07",
+    "time_start": "15:00:00",
+    "time_end": "17:00:00",
+    "duration_hours": "2.00",
+    "players_count": 5,
+    "rental_cost": "3400.00",
+    "discount_amount": "396.00",
+    "total_cost": "3564.00",
+    "deposit_amount": "0.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Дорожка №02. Игроков: 5.",
+    "created_at": "2026-11-15T10:51:09.397Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 15,
+  "fields": {
+    "booking_number": "SP-20261108-0015",
+    "client": 15,
+    "resource": 3,
+    "booking_date": "2026-11-08",
+    "time_start": "18:00:00",
+    "time_end": "20:00:00",
+    "duration_hours": "2.00",
+    "players_count": 6,
+    "rental_cost": "4400.00",
+    "discount_amount": "988.50",
+    "total_cost": "5601.50",
+    "deposit_amount": "1870.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Дорожка №03. Игроков: 6.",
+    "created_at": "2026-11-15T10:51:09.406Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 16,
+  "fields": {
+    "booking_number": "SP-20261109-0016",
+    "client": 16,
+    "resource": 4,
+    "booking_date": "2026-11-09",
+    "time_start": "19:00:00",
+    "time_end": "21:00:00",
+    "duration_hours": "2.00",
+    "players_count": 4,
+    "rental_cost": "3200.00",
+    "discount_amount": "0.00",
+    "total_cost": "5040.00",
+    "deposit_amount": "1600.00",
+    "status": "CONFIRMED",
+    "notes": "Бронирование Дорожка №04. Игроков: 4.",
+    "created_at": "2026-11-15T10:51:09.415Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 17,
+  "fields": {
+    "booking_number": "SP-20261109-0017",
+    "client": 1,
+    "resource": 5,
+    "booking_date": "2026-11-09",
+    "time_start": "21:00:00",
+    "time_end": "22:30:00",
+    "duration_hours": "1.50",
+    "players_count": 5,
+    "rental_cost": "2400.00",
+    "discount_amount": "191.50",
+    "total_cost": "3638.50",
+    "deposit_amount": "1140.00",
+    "status": "CONFIRMED",
+    "notes": "Бронирование Дорожка №05. Игроков: 5.",
+    "created_at": "2026-11-15T10:51:09.424Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 18,
+  "fields": {
+    "booking_number": "SP-20261110-0018",
+    "client": 2,
+    "resource": 6,
+    "booking_date": "2026-11-10",
+    "time_start": "15:00:00",
+    "time_end": "17:00:00",
+    "duration_hours": "2.00",
+    "players_count": 6,
+    "rental_cost": "2200.00",
+    "discount_amount": "417.00",
+    "total_cost": "3753.00",
+    "deposit_amount": "0.00",
+    "status": "CONFIRMED",
+    "notes": "Бронирование Дорожка №06. Игроков: 6.",
+    "created_at": "2026-11-15T10:51:09.434Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 19,
+  "fields": {
+    "booking_number": "SP-20261110-0019",
+    "client": 6,
+    "resource": 7,
+    "booking_date": "2026-11-10",
+    "time_start": "18:00:00",
+    "time_end": "20:00:00",
+    "duration_hours": "2.00",
+    "players_count": 4,
+    "rental_cost": "3200.00",
+    "discount_amount": "807.00",
+    "total_cost": "4573.00",
+    "deposit_amount": "1360.00",
+    "status": "IN_PROGRESS",
+    "notes": "Бронирование Дорожка №07. Игроков: 4.",
+    "created_at": "2026-11-15T10:51:09.442Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 20,
+  "fields": {
+    "booking_number": "SP-20261111-0020",
+    "client": 10,
+    "resource": 8,
+    "booking_date": "2026-11-11",
+    "time_start": "19:00:00",
+    "time_end": "21:00:00",
+    "duration_hours": "2.00",
+    "players_count": 6,
+    "rental_cost": "3200.00",
+    "discount_amount": "513.00",
+    "total_cost": "2907.00",
+    "deposit_amount": "1360.00",
+    "status": "NEW",
+    "notes": "Бронирование Дорожка №08. Игроков: 6.",
+    "created_at": "2026-11-15T10:51:09.451Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 21,
+  "fields": {
+    "booking_number": "SP-20261102-0021",
+    "client": 3,
+    "resource": 13,
+    "booking_date": "2026-11-02",
+    "time_start": "15:00:00",
+    "time_end": "17:00:00",
+    "duration_hours": "2.00",
+    "players_count": 2,
+    "rental_cost": "1500.00",
+    "discount_amount": "0.00",
+    "total_cost": "2520.00",
+    "deposit_amount": "0.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Стол №01 (Пирамида 12ft). Игроков: 2.",
+    "created_at": "2026-11-15T10:51:09.460Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 22,
+  "fields": {
+    "booking_number": "SP-20261102-0022",
+    "client": 5,
+    "resource": 14,
+    "booking_date": "2026-11-02",
+    "time_start": "18:00:00",
+    "time_end": "21:00:00",
+    "duration_hours": "3.00",
+    "players_count": 4,
+    "rental_cost": "3300.00",
+    "discount_amount": "200.50",
+    "total_cost": "3809.50",
+    "deposit_amount": "1567.50",
+    "status": "COMPLETED",
+    "notes": "Бронирование Стол №02 (Пирамида 12ft). Игроков: 4.",
+    "created_at": "2026-11-15T10:51:09.469Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 23,
+  "fields": {
+    "booking_number": "SP-20261103-0023",
+    "client": 7,
+    "resource": 15,
+    "booking_date": "2026-11-03",
+    "time_start": "14:00:00",
+    "time_end": "16:00:00",
+    "duration_hours": "2.00",
+    "players_count": 2,
+    "rental_cost": "1500.00",
+    "discount_amount": "184.00",
+    "total_cost": "3496.00",
+    "deposit_amount": "0.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Стол №03 (Пирамида 12ft). Игроков: 2.",
+    "created_at": "2026-11-15T10:51:09.478Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 24,
+  "fields": {
+    "booking_number": "SP-20261103-0024",
+    "client": 9,
+    "resource": 16,
+    "booking_date": "2026-11-03",
+    "time_start": "17:00:00",
+    "time_end": "19:30:00",
+    "duration_hours": "2.50",
+    "players_count": 3,
+    "rental_cost": "1875.00",
+    "discount_amount": "418.50",
+    "total_cost": "3766.50",
+    "deposit_amount": "0.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Стол №04 (Пирамида 12ft). Игроков: 3.",
+    "created_at": "2026-11-15T10:51:09.487Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 25,
+  "fields": {
+    "booking_number": "SP-20261104-0025",
+    "client": 11,
+    "resource": 17,
+    "booking_date": "2026-11-04",
+    "time_start": "16:00:00",
+    "time_end": "18:00:00",
+    "duration_hours": "2.00",
+    "players_count": 2,
+    "rental_cost": "1500.00",
+    "discount_amount": "91.00",
+    "total_cost": "1729.00",
+    "deposit_amount": "0.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Стол №05 (Пирамида 12ft). Игроков: 2.",
+    "created_at": "2026-11-15T10:51:09.496Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 26,
+  "fields": {
+    "booking_number": "SP-20261104-0026",
+    "client": 13,
+    "resource": 18,
+    "booking_date": "2026-11-04",
+    "time_start": "19:00:00",
+    "time_end": "21:00:00",
+    "duration_hours": "2.00",
+    "players_count": 4,
+    "rental_cost": "2200.00",
+    "discount_amount": "145.00",
+    "total_cost": "2755.00",
+    "deposit_amount": "1045.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Стол №06 (Пирамида 12ft). Игроков: 4.",
+    "created_at": "2026-11-15T10:51:09.506Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 27,
+  "fields": {
+    "booking_number": "SP-20261105-0027",
+    "client": 15,
+    "resource": 19,
+    "booking_date": "2026-11-05",
+    "time_start": "15:00:00",
+    "time_end": "17:00:00",
+    "duration_hours": "2.00",
+    "players_count": 2,
+    "rental_cost": "1200.00",
+    "discount_amount": "250.50",
+    "total_cost": "1419.50",
+    "deposit_amount": "0.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Стол №07 (Пул 9ft). Игроков: 2.",
+    "created_at": "2026-11-15T10:51:09.516Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 28,
+  "fields": {
+    "booking_number": "SP-20261105-0028",
+    "client": 4,
+    "resource": 20,
+    "booking_date": "2026-11-05",
+    "time_start": "18:00:00",
+    "time_end": "20:00:00",
+    "duration_hours": "2.00",
+    "players_count": 3,
+    "rental_cost": "1800.00",
+    "discount_amount": "140.50",
+    "total_cost": "2669.50",
+    "deposit_amount": "855.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Стол №08 (Пул 9ft). Игроков: 3.",
+    "created_at": "2026-11-15T10:51:09.527Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 29,
+  "fields": {
+    "booking_number": "SP-20261106-0029",
+    "client": 8,
+    "resource": 21,
+    "booking_date": "2026-11-06",
+    "time_start": "16:00:00",
+    "time_end": "17:30:00",
+    "duration_hours": "1.50",
+    "players_count": 2,
+    "rental_cost": "1200.00",
+    "discount_amount": "0.00",
+    "total_cost": "2900.00",
+    "deposit_amount": "0.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Стол №09 (Пул 9ft). Игроков: 2.",
+    "created_at": "2026-11-15T10:51:09.537Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 30,
+  "fields": {
+    "booking_number": "SP-20261106-0030",
+    "client": 6,
+    "resource": 22,
+    "booking_date": "2026-11-06",
+    "time_start": "19:00:00",
+    "time_end": "22:00:00",
+    "duration_hours": "3.00",
+    "players_count": 2,
+    "rental_cost": "4500.00",
+    "discount_amount": "876.00",
+    "total_cost": "4964.00",
+    "deposit_amount": "1912.50",
+    "status": "COMPLETED",
+    "notes": "Бронирование Стол №10 (Снукер 12ft). Игроков: 2.",
+    "created_at": "2026-11-15T10:51:09.547Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 31,
+  "fields": {
+    "booking_number": "SP-20261107-0031",
+    "client": 10,
+    "resource": 13,
+    "booking_date": "2026-11-07",
+    "time_start": "14:00:00",
+    "time_end": "16:00:00",
+    "duration_hours": "2.00",
+    "players_count": 4,
+    "rental_cost": "2000.00",
+    "discount_amount": "478.50",
+    "total_cost": "2711.50",
+    "deposit_amount": "0.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Стол №01 (Пирамида 12ft). Игроков: 4.",
+    "created_at": "2026-11-15T10:51:09.557Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 32,
+  "fields": {
+    "booking_number": "SP-20261107-0032",
+    "client": 12,
+    "resource": 14,
+    "booking_date": "2026-11-07",
+    "time_start": "18:00:00",
+    "time_end": "20:00:00",
+    "duration_hours": "2.00",
+    "players_count": 2,
+    "rental_cost": "2700.00",
+    "discount_amount": "0.00",
+    "total_cost": "2960.00",
+    "deposit_amount": "1350.00",
+    "status": "COMPLETED",
+    "notes": "Бронирование Стол №02 (Пирамида 12ft). Игроков: 2.",
+    "created_at": "2026-11-15T10:51:09.567Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 33,
+  "fields": {
+    "booking_number": "SP-20261108-0033",
+    "client": 14,
+    "resource": 19,
+    "booking_date": "2026-11-08",
+    "time_start": "16:00:00",
+    "time_end": "18:00:00",
+    "duration_hours": "2.00",
+    "players_count": 2,
+    "rental_cost": "1600.00",
+    "discount_amount": "260.00",
+    "total_cost": "2340.00",
+    "deposit_amount": "0.00",
+    "status": "CONFIRMED",
+    "notes": "Бронирование Стол №07 (Пул 9ft). Игроков: 2.",
+    "created_at": "2026-11-15T10:51:09.576Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 34,
+  "fields": {
+    "booking_number": "SP-20261108-0034",
+    "client": 16,
+    "resource": 20,
+    "booking_date": "2026-11-08",
+    "time_start": "19:00:00",
+    "time_end": "21:30:00",
+    "duration_hours": "2.50",
+    "players_count": 4,
+    "rental_cost": "2750.00",
+    "discount_amount": "0.00",
+    "total_cost": "3030.00",
+    "deposit_amount": "1375.00",
+    "status": "CONFIRMED",
+    "notes": "Бронирование Стол №08 (Пул 9ft). Игроков: 4.",
+    "created_at": "2026-11-15T10:51:09.586Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 35,
+  "fields": {
+    "booking_number": "SP-20261109-0035",
+    "client": 2,
+    "resource": 22,
+    "booking_date": "2026-11-09",
+    "time_start": "18:00:00",
+    "time_end": "21:00:00",
+    "duration_hours": "3.00",
+    "players_count": 2,
+    "rental_cost": "3750.00",
+    "discount_amount": "595.00",
+    "total_cost": "5355.00",
+    "deposit_amount": "1687.50",
+    "status": "CONFIRMED",
+    "notes": "Бронирование Стол №10 (Снукер 12ft). Игроков: 2.",
+    "created_at": "2026-11-15T10:51:09.594Z"
+  }
+},
+{
+  "model": "club_booking.booking",
+  "pk": 36,
+  "fields": {
+    "booking_number": "SP-20261110-0036",
+    "client": 1,
+    "resource": 15,
+    "booking_date": "2026-11-10",
+    "time_start": "19:00:00",
+    "time_end": "21:00:00",
+    "duration_hours": "2.00",
+    "players_count": 2,
+    "rental_cost": "2200.00",
+    "discount_amount": "110.00",
+    "total_cost": "2090.00",
+    "deposit_amount": "1045.00",
+    "status": "CANCELLED",
+    "notes": "Бронирование Стол №03 (Пирамида 12ft). Игроков: 2.",
+    "created_at": "2026-11-15T10:51:09.603Z"
+  }
+},
+{
+  "model": "club_booking.barcategory",
+  "pk": 1,
+  "fields": {
+    "name": "Пицца из каменной печи",
+    "description": "Тонкое итальянское тесто, натуральный сыр моцарелла",
+    "order_priority": 1
+  }
+},
+{
+  "model": "club_booking.barcategory",
+  "pk": 2,
+  "fields": {
+    "name": "Горячие закуски к дорожкам",
+    "description": "Идеальный формат закусок для компании игроков",
+    "order_priority": 2
+  }
+},
+{
+  "model": "club_booking.barcategory",
+  "pk": 3,
+  "fields": {
+    "name": "Бургеры и сэндвичи",
+    "description": "Сочные котлеты из мраморной говядины на гриле",
+    "order_priority": 3
+  }
+},
+{
+  "model": "club_booking.barcategory",
+  "pk": 4,
+  "fields": {
+    "name": "Безалкогольные напитки",
+    "description": "Домашние морсы, лимонады и освежающие напитки",
+    "order_priority": 4
+  }
+},
+{
+  "model": "club_booking.barcategory",
+  "pk": 5,
+  "fields": {
+    "name": "Кофе и десерты",
+    "description": "Классические чизкейки и ароматный кофе",
+    "order_priority": 5
+  }
+},
+{
+  "model": "club_booking.baritem",
+  "pk": 1,
+  "fields": {
+    "category": 1,
+    "name": "Пицца Пепперони",
+    "portion_size": "550 г",
+    "price": "690.00",
+    "is_available": true
+  }
+},
+{
+  "model": "club_booking.baritem",
+  "pk": 2,
+  "fields": {
+    "category": 1,
+    "name": "Пицца Четыре сыра",
+    "portion_size": "520 г",
+    "price": "750.00",
+    "is_available": true
+  }
+},
+{
+  "model": "club_booking.baritem",
+  "pk": 3,
+  "fields": {
+    "category": 1,
+    "name": "Пицца Мясная барбекю",
+    "portion_size": "600 г",
+    "price": "820.00",
+    "is_available": true
+  }
+},
+{
+  "model": "club_booking.baritem",
+  "pk": 4,
+  "fields": {
+    "category": 1,
+    "name": "Пицца Ветчина и грибы",
+    "portion_size": "540 г",
+    "price": "670.00",
+    "is_available": true
+  }
+},
+{
+  "model": "club_booking.baritem",
+  "pk": 5,
+  "fields": {
+    "category": 2,
+    "name": "Куриные крылья Баффало",
+    "portion_size": "300 г",
+    "price": "480.00",
+    "is_available": true
+  }
+},
+{
+  "model": "club_booking.baritem",
+  "pk": 6,
+  "fields": {
+    "category": 2,
+    "name": "Сырные палочки с клюквой",
+    "portion_size": "200 г",
+    "price": "390.00",
+    "is_available": true
+  }
+},
+{
+  "model": "club_booking.baritem",
+  "pk": 7,
+  "fields": {
+    "category": 2,
+    "name": "Картофель фри классический",
+    "portion_size": "150 г",
+    "price": "220.00",
+    "is_available": true
+  }
+},
+{
+  "model": "club_booking.baritem",
+  "pk": 8,
+  "fields": {
+    "category": 2,
+    "name": "Чесночные гренки тар-тар",
+    "portion_size": "180 г",
+    "price": "260.00",
+    "is_available": true
+  }
+},
+{
+  "model": "club_booking.baritem",
+  "pk": 9,
+  "fields": {
+    "category": 2,
+    "name": "Начос с горячим сыром",
+    "portion_size": "220 г",
+    "price": "340.00",
+    "is_available": true
+  }
+},
+{
+  "model": "club_booking.baritem",
+  "pk": 10,
+  "fields": {
+    "category": 3,
+    "name": "Бургер Strike Classic",
+    "portion_size": "380 г",
+    "price": "560.00",
+    "is_available": true
+  }
+},
+{
+  "model": "club_booking.baritem",
+  "pk": 11,
+  "fields": {
+    "category": 3,
+    "name": "Чизбургер Double Beef",
+    "portion_size": "420 г",
+    "price": "640.00",
+    "is_available": true
+  }
+},
+{
+  "model": "club_booking.baritem",
+  "pk": 12,
+  "fields": {
+    "category": 4,
+    "name": "Морс клюквенный домашний",
+    "portion_size": "1.0 л",
+    "price": "350.00",
+    "is_available": true
+  }
+},
+{
+  "model": "club_booking.baritem",
+  "pk": 13,
+  "fields": {
+    "category": 4,
+    "name": "Лимонад Цитрус-Мята",
+    "portion_size": "0.5 л",
+    "price": "280.00",
+    "is_available": true
+  }
+},
+{
+  "model": "club_booking.baritem",
+  "pk": 14,
+  "fields": {
+    "category": 4,
+    "name": "Кола Strike Reserve",
+    "portion_size": "0.5 л",
+    "price": "190.00",
+    "is_available": true
+  }
+},
+{
+  "model": "club_booking.baritem",
+  "pk": 15,
+  "fields": {
+    "category": 4,
+    "name": "Чай Ассам с чабрецом",
+    "portion_size": "800 мл",
+    "price": "320.00",
+    "is_available": true
+  }
+},
+{
+  "model": "club_booking.baritem",
+  "pk": 16,
+  "fields": {
+    "category": 5,
+    "name": "Чизкейк Нью-Йорк",
+    "portion_size": "160 г",
+    "price": "360.00",
+    "is_available": true
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 1,
+  "fields": {
+    "booking": 1,
+    "bar_item": 1,
+    "quantity": 1,
+    "price_at_order": "690.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.612Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 2,
+  "fields": {
+    "booking": 1,
+    "bar_item": 3,
+    "quantity": 1,
+    "price_at_order": "820.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.618Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 3,
+  "fields": {
+    "booking": 1,
+    "bar_item": 15,
+    "quantity": 1,
+    "price_at_order": "320.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.624Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 4,
+  "fields": {
+    "booking": 2,
+    "bar_item": 5,
+    "quantity": 1,
+    "price_at_order": "480.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.640Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 5,
+  "fields": {
+    "booking": 2,
+    "bar_item": 10,
+    "quantity": 1,
+    "price_at_order": "560.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.645Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 6,
+  "fields": {
+    "booking": 2,
+    "bar_item": 6,
+    "quantity": 1,
+    "price_at_order": "390.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.650Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 7,
+  "fields": {
+    "booking": 3,
+    "bar_item": 9,
+    "quantity": 2,
+    "price_at_order": "340.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.664Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 8,
+  "fields": {
+    "booking": 3,
+    "bar_item": 12,
+    "quantity": 1,
+    "price_at_order": "350.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.671Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 9,
+  "fields": {
+    "booking": 3,
+    "bar_item": 13,
+    "quantity": 1,
+    "price_at_order": "280.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.676Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 10,
+  "fields": {
+    "booking": 4,
+    "bar_item": 15,
+    "quantity": 1,
+    "price_at_order": "320.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.690Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 11,
+  "fields": {
+    "booking": 4,
+    "bar_item": 14,
+    "quantity": 1,
+    "price_at_order": "190.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.696Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 12,
+  "fields": {
+    "booking": 4,
+    "bar_item": 2,
+    "quantity": 2,
+    "price_at_order": "750.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.703Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 13,
+  "fields": {
+    "booking": 5,
+    "bar_item": 7,
+    "quantity": 1,
+    "price_at_order": "220.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.716Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 14,
+  "fields": {
+    "booking": 5,
+    "bar_item": 11,
+    "quantity": 1,
+    "price_at_order": "640.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.733Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 15,
+  "fields": {
+    "booking": 6,
+    "bar_item": 16,
+    "quantity": 2,
+    "price_at_order": "360.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.747Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 16,
+  "fields": {
+    "booking": 6,
+    "bar_item": 14,
+    "quantity": 1,
+    "price_at_order": "190.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.754Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 17,
+  "fields": {
+    "booking": 7,
+    "bar_item": 13,
+    "quantity": 1,
+    "price_at_order": "280.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.770Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 18,
+  "fields": {
+    "booking": 7,
+    "bar_item": 1,
+    "quantity": 1,
+    "price_at_order": "690.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.776Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 19,
+  "fields": {
+    "booking": 8,
+    "bar_item": 12,
+    "quantity": 1,
+    "price_at_order": "350.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.791Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 20,
+  "fields": {
+    "booking": 8,
+    "bar_item": 5,
+    "quantity": 2,
+    "price_at_order": "480.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.798Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 21,
+  "fields": {
+    "booking": 9,
+    "bar_item": 12,
+    "quantity": 2,
+    "price_at_order": "350.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.813Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 22,
+  "fields": {
+    "booking": 10,
+    "bar_item": 11,
+    "quantity": 2,
+    "price_at_order": "640.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.827Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 23,
+  "fields": {
+    "booking": 10,
+    "bar_item": 5,
+    "quantity": 1,
+    "price_at_order": "480.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.834Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 24,
+  "fields": {
+    "booking": 10,
+    "bar_item": 13,
+    "quantity": 1,
+    "price_at_order": "280.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.842Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 25,
+  "fields": {
+    "booking": 11,
+    "bar_item": 6,
+    "quantity": 1,
+    "price_at_order": "390.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.857Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 26,
+  "fields": {
+    "booking": 11,
+    "bar_item": 15,
+    "quantity": 1,
+    "price_at_order": "320.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.863Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 27,
+  "fields": {
+    "booking": 12,
+    "bar_item": 4,
+    "quantity": 2,
+    "price_at_order": "670.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.880Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 28,
+  "fields": {
+    "booking": 12,
+    "bar_item": 9,
+    "quantity": 2,
+    "price_at_order": "340.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.888Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 29,
+  "fields": {
+    "booking": 13,
+    "bar_item": 6,
+    "quantity": 1,
+    "price_at_order": "390.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.905Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 30,
+  "fields": {
+    "booking": 14,
+    "bar_item": 10,
+    "quantity": 1,
+    "price_at_order": "560.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.920Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 31,
+  "fields": {
+    "booking": 15,
+    "bar_item": 2,
+    "quantity": 2,
+    "price_at_order": "750.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.935Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 32,
+  "fields": {
+    "booking": 15,
+    "bar_item": 1,
+    "quantity": 1,
+    "price_at_order": "690.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:09.942Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 33,
+  "fields": {
+    "booking": 16,
+    "bar_item": 10,
+    "quantity": 1,
+    "price_at_order": "560.00",
+    "status": "ORDERED",
+    "ordered_at": "2026-11-15T10:51:09.959Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 34,
+  "fields": {
+    "booking": 16,
+    "bar_item": 11,
+    "quantity": 2,
+    "price_at_order": "640.00",
+    "status": "ORDERED",
+    "ordered_at": "2026-11-15T10:51:09.965Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 35,
+  "fields": {
+    "booking": 17,
+    "bar_item": 2,
+    "quantity": 1,
+    "price_at_order": "750.00",
+    "status": "ORDERED",
+    "ordered_at": "2026-11-15T10:51:09.982Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 36,
+  "fields": {
+    "booking": 17,
+    "bar_item": 9,
+    "quantity": 2,
+    "price_at_order": "340.00",
+    "status": "ORDERED",
+    "ordered_at": "2026-11-15T10:51:09.989Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 37,
+  "fields": {
+    "booking": 18,
+    "bar_item": 11,
+    "quantity": 2,
+    "price_at_order": "640.00",
+    "status": "ORDERED",
+    "ordered_at": "2026-11-15T10:51:10.004Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 38,
+  "fields": {
+    "booking": 18,
+    "bar_item": 1,
+    "quantity": 1,
+    "price_at_order": "690.00",
+    "status": "ORDERED",
+    "ordered_at": "2026-11-15T10:51:10.012Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 39,
+  "fields": {
+    "booking": 19,
+    "bar_item": 1,
+    "quantity": 2,
+    "price_at_order": "690.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.025Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 40,
+  "fields": {
+    "booking": 19,
+    "bar_item": 13,
+    "quantity": 1,
+    "price_at_order": "280.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.031Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 41,
+  "fields": {
+    "booking": 19,
+    "bar_item": 8,
+    "quantity": 2,
+    "price_at_order": "260.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.038Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 42,
+  "fields": {
+    "booking": 20,
+    "bar_item": 7,
+    "quantity": 1,
+    "price_at_order": "220.00",
+    "status": "ORDERED",
+    "ordered_at": "2026-11-15T10:51:10.053Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 43,
+  "fields": {
+    "booking": 21,
+    "bar_item": 12,
+    "quantity": 1,
+    "price_at_order": "350.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.068Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 44,
+  "fields": {
+    "booking": 21,
+    "bar_item": 4,
+    "quantity": 1,
+    "price_at_order": "670.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.075Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 45,
+  "fields": {
+    "booking": 22,
+    "bar_item": 16,
+    "quantity": 1,
+    "price_at_order": "360.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.091Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 46,
+  "fields": {
+    "booking": 22,
+    "bar_item": 12,
+    "quantity": 1,
+    "price_at_order": "350.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.098Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 47,
+  "fields": {
+    "booking": 23,
+    "bar_item": 4,
+    "quantity": 2,
+    "price_at_order": "670.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.114Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 48,
+  "fields": {
+    "booking": 23,
+    "bar_item": 13,
+    "quantity": 1,
+    "price_at_order": "280.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.119Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 49,
+  "fields": {
+    "booking": 23,
+    "bar_item": 10,
+    "quantity": 1,
+    "price_at_order": "560.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.127Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 50,
+  "fields": {
+    "booking": 24,
+    "bar_item": 14,
+    "quantity": 1,
+    "price_at_order": "190.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.143Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 51,
+  "fields": {
+    "booking": 24,
+    "bar_item": 5,
+    "quantity": 1,
+    "price_at_order": "480.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.149Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 52,
+  "fields": {
+    "booking": 24,
+    "bar_item": 3,
+    "quantity": 2,
+    "price_at_order": "820.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.155Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 53,
+  "fields": {
+    "booking": 25,
+    "bar_item": 15,
+    "quantity": 1,
+    "price_at_order": "320.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.170Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 54,
+  "fields": {
+    "booking": 26,
+    "bar_item": 14,
+    "quantity": 2,
+    "price_at_order": "190.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.185Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 55,
+  "fields": {
+    "booking": 26,
+    "bar_item": 15,
+    "quantity": 1,
+    "price_at_order": "320.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.192Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 56,
+  "fields": {
+    "booking": 27,
+    "bar_item": 13,
+    "quantity": 1,
+    "price_at_order": "280.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.209Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 57,
+  "fields": {
+    "booking": 27,
+    "bar_item": 14,
+    "quantity": 1,
+    "price_at_order": "190.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.216Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 58,
+  "fields": {
+    "booking": 28,
+    "bar_item": 3,
+    "quantity": 1,
+    "price_at_order": "820.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.231Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 59,
+  "fields": {
+    "booking": 28,
+    "bar_item": 14,
+    "quantity": 1,
+    "price_at_order": "190.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.238Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 60,
+  "fields": {
+    "booking": 29,
+    "bar_item": 16,
+    "quantity": 1,
+    "price_at_order": "360.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.253Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 61,
+  "fields": {
+    "booking": 29,
+    "bar_item": 4,
+    "quantity": 2,
+    "price_at_order": "670.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.261Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 62,
+  "fields": {
+    "booking": 30,
+    "bar_item": 4,
+    "quantity": 2,
+    "price_at_order": "670.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.275Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 63,
+  "fields": {
+    "booking": 31,
+    "bar_item": 4,
+    "quantity": 1,
+    "price_at_order": "670.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.291Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 64,
+  "fields": {
+    "booking": 31,
+    "bar_item": 8,
+    "quantity": 2,
+    "price_at_order": "260.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.297Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 65,
+  "fields": {
+    "booking": 32,
+    "bar_item": 8,
+    "quantity": 1,
+    "price_at_order": "260.00",
+    "status": "SERVED",
+    "ordered_at": "2026-11-15T10:51:10.312Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 66,
+  "fields": {
+    "booking": 33,
+    "bar_item": 16,
+    "quantity": 1,
+    "price_at_order": "360.00",
+    "status": "ORDERED",
+    "ordered_at": "2026-11-15T10:51:10.327Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 67,
+  "fields": {
+    "booking": 33,
+    "bar_item": 15,
+    "quantity": 2,
+    "price_at_order": "320.00",
+    "status": "ORDERED",
+    "ordered_at": "2026-11-15T10:51:10.333Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 68,
+  "fields": {
+    "booking": 34,
+    "bar_item": 13,
+    "quantity": 1,
+    "price_at_order": "280.00",
+    "status": "ORDERED",
+    "ordered_at": "2026-11-15T10:51:10.348Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 69,
+  "fields": {
+    "booking": 35,
+    "bar_item": 13,
+    "quantity": 2,
+    "price_at_order": "280.00",
+    "status": "ORDERED",
+    "ordered_at": "2026-11-15T10:51:10.363Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 70,
+  "fields": {
+    "booking": 35,
+    "bar_item": 5,
+    "quantity": 2,
+    "price_at_order": "480.00",
+    "status": "ORDERED",
+    "ordered_at": "2026-11-15T10:51:10.369Z"
+  }
+},
+{
+  "model": "club_booking.bookingbarorder",
+  "pk": 71,
+  "fields": {
+    "booking": 35,
+    "bar_item": 9,
+    "quantity": 2,
+    "price_at_order": "340.00",
+    "status": "ORDERED",
+    "ordered_at": "2026-11-15T10:51:10.378Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 1,
+  "fields": {
+    "booking": 1,
+    "transaction_id": "TXN-FIN-0001-234412",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "CASH",
+    "amount": "3828.50",
+    "fiscal_receipt_number": "ФД-34631/ФП-79301957",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.394Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 2,
+  "fields": {
+    "booking": 2,
+    "transaction_id": "TXN-FIN-0002-815513",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "CARD",
+    "amount": "2772.00",
+    "fiscal_receipt_number": "ФД-83315/ФП-46871777",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.402Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 3,
+  "fields": {
+    "booking": 3,
+    "transaction_id": "TXN-DEP-0003-505308",
+    "payment_type": "PREPAYMENT_50",
+    "payment_method": "CARD",
+    "amount": "1600.00",
+    "fiscal_receipt_number": "ФД-63756/ФП-49347935",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.410Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 4,
+  "fields": {
+    "booking": 3,
+    "transaction_id": "TXN-FIN-0003-520344",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "CASH",
+    "amount": "2910.00",
+    "fiscal_receipt_number": "ФД-93293/ФП-93298717",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.418Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 5,
+  "fields": {
+    "booking": 4,
+    "transaction_id": "TXN-DEP-0004-520309",
+    "payment_type": "PREPAYMENT_50",
+    "payment_method": "CARD",
+    "amount": "2280.00",
+    "fiscal_receipt_number": "ФД-10461/ФП-92456590",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.426Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 6,
+  "fields": {
+    "booking": 4,
+    "transaction_id": "TXN-FIN-0004-712974",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "CARD",
+    "amount": "4189.50",
+    "fiscal_receipt_number": "ФД-44669/ФП-65812466",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.432Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 7,
+  "fields": {
+    "booking": 5,
+    "transaction_id": "TXN-DEP-0005-185279",
+    "payment_type": "PREPAYMENT_50",
+    "payment_method": "CARD",
+    "amount": "1520.00",
+    "fiscal_receipt_number": "ФД-68769/ФП-79781474",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.439Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 8,
+  "fields": {
+    "booking": 5,
+    "transaction_id": "TXN-FIN-0005-681556",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "SBP",
+    "amount": "2337.00",
+    "fiscal_receipt_number": "ФД-23683/ФП-30645264",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.446Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 9,
+  "fields": {
+    "booking": 6,
+    "transaction_id": "TXN-FIN-0006-938555",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "CASH",
+    "amount": "2643.50",
+    "fiscal_receipt_number": "ФД-16264/ФП-26013535",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.454Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 10,
+  "fields": {
+    "booking": 7,
+    "transaction_id": "TXN-FIN-0007-812456",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "SBP",
+    "amount": "1966.50",
+    "fiscal_receipt_number": "ФД-83169/ФП-19650031",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.461Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 11,
+  "fields": {
+    "booking": 8,
+    "transaction_id": "TXN-DEP-0008-956994",
+    "payment_type": "PREPAYMENT_50",
+    "payment_method": "SBP",
+    "amount": "2000.00",
+    "fiscal_receipt_number": "ФД-58161/ФП-38189342",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.467Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 12,
+  "fields": {
+    "booking": 8,
+    "transaction_id": "TXN-FIN-0008-867363",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "SBP",
+    "amount": "3310.00",
+    "fiscal_receipt_number": "ФД-13423/ФП-37281298",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.475Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 13,
+  "fields": {
+    "booking": 9,
+    "transaction_id": "TXN-FIN-0009-661643",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "CASH",
+    "amount": "2610.00",
+    "fiscal_receipt_number": "ФД-67381/ФП-58446596",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.482Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 14,
+  "fields": {
+    "booking": 10,
+    "transaction_id": "TXN-DEP-0010-377084",
+    "payment_type": "PREPAYMENT_50",
+    "payment_method": "SBP",
+    "amount": "1360.00",
+    "fiscal_receipt_number": "ФД-34243/ФП-92551051",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.489Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 15,
+  "fields": {
+    "booking": 10,
+    "transaction_id": "TXN-FIN-0010-345196",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "CASH",
+    "amount": "3094.00",
+    "fiscal_receipt_number": "ФД-22652/ФП-52987594",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.496Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 16,
+  "fields": {
+    "booking": 11,
+    "transaction_id": "TXN-FIN-0011-784110",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "CASH",
+    "amount": "3904.50",
+    "fiscal_receipt_number": "ФД-23340/ФП-13590093",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.504Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 17,
+  "fields": {
+    "booking": 12,
+    "transaction_id": "TXN-DEP-0012-846157",
+    "payment_type": "PREPAYMENT_50",
+    "payment_method": "SBP",
+    "amount": "2200.00",
+    "fiscal_receipt_number": "ФД-19120/ФП-18392669",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.512Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 18,
+  "fields": {
+    "booking": 12,
+    "transaction_id": "TXN-FIN-0012-674906",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "CASH",
+    "amount": "4220.00",
+    "fiscal_receipt_number": "ФД-40467/ФП-51642342",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.520Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 19,
+  "fields": {
+    "booking": 13,
+    "transaction_id": "TXN-FIN-0013-933645",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "CASH",
+    "amount": "2793.00",
+    "fiscal_receipt_number": "ФД-66272/ФП-21790303",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.528Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 20,
+  "fields": {
+    "booking": 14,
+    "transaction_id": "TXN-FIN-0014-694425",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "SBP",
+    "amount": "3564.00",
+    "fiscal_receipt_number": "ФД-70629/ФП-68818266",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.535Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 21,
+  "fields": {
+    "booking": 15,
+    "transaction_id": "TXN-DEP-0015-326626",
+    "payment_type": "PREPAYMENT_50",
+    "payment_method": "SBP",
+    "amount": "1870.00",
+    "fiscal_receipt_number": "ФД-70473/ФП-89869968",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.542Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 22,
+  "fields": {
+    "booking": 15,
+    "transaction_id": "TXN-FIN-0015-289689",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "SBP",
+    "amount": "3731.50",
+    "fiscal_receipt_number": "ФД-90700/ФП-16941799",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.549Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 23,
+  "fields": {
+    "booking": 16,
+    "transaction_id": "TXN-DEP-0016-176271",
+    "payment_type": "PREPAYMENT_50",
+    "payment_method": "CARD",
+    "amount": "1600.00",
+    "fiscal_receipt_number": "ФД-36156/ФП-24746743",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.555Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 24,
+  "fields": {
+    "booking": 17,
+    "transaction_id": "TXN-DEP-0017-268305",
+    "payment_type": "PREPAYMENT_50",
+    "payment_method": "CARD",
+    "amount": "1140.00",
+    "fiscal_receipt_number": "ФД-35597/ФП-62033903",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.563Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 25,
+  "fields": {
+    "booking": 19,
+    "transaction_id": "TXN-DEP-0019-806964",
+    "payment_type": "PREPAYMENT_50",
+    "payment_method": "SBP",
+    "amount": "1360.00",
+    "fiscal_receipt_number": "ФД-42840/ФП-93238065",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.569Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 26,
+  "fields": {
+    "booking": 20,
+    "transaction_id": "TXN-DEP-0020-976264",
+    "payment_type": "PREPAYMENT_50",
+    "payment_method": "SBP",
+    "amount": "1360.00",
+    "fiscal_receipt_number": "ФД-57980/ФП-43906236",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.577Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 27,
+  "fields": {
+    "booking": 21,
+    "transaction_id": "TXN-FIN-0021-595194",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "CASH",
+    "amount": "2520.00",
+    "fiscal_receipt_number": "ФД-34442/ФП-61365324",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.583Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 28,
+  "fields": {
+    "booking": 22,
+    "transaction_id": "TXN-DEP-0022-222172",
+    "payment_type": "PREPAYMENT_50",
+    "payment_method": "CARD",
+    "amount": "1567.50",
+    "fiscal_receipt_number": "ФД-76441/ФП-21387051",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.590Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 29,
+  "fields": {
+    "booking": 22,
+    "transaction_id": "TXN-FIN-0022-548677",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "CASH",
+    "amount": "2242.00",
+    "fiscal_receipt_number": "ФД-93665/ФП-69092031",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.597Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 30,
+  "fields": {
+    "booking": 23,
+    "transaction_id": "TXN-FIN-0023-556135",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "CARD",
+    "amount": "3496.00",
+    "fiscal_receipt_number": "ФД-24581/ФП-70291817",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.605Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 31,
+  "fields": {
+    "booking": 24,
+    "transaction_id": "TXN-FIN-0024-355700",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "CASH",
+    "amount": "3766.50",
+    "fiscal_receipt_number": "ФД-61104/ФП-25166987",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.610Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 32,
+  "fields": {
+    "booking": 25,
+    "transaction_id": "TXN-FIN-0025-798355",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "CARD",
+    "amount": "1729.00",
+    "fiscal_receipt_number": "ФД-21940/ФП-69773167",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.617Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 33,
+  "fields": {
+    "booking": 26,
+    "transaction_id": "TXN-DEP-0026-475683",
+    "payment_type": "PREPAYMENT_50",
+    "payment_method": "CARD",
+    "amount": "1045.00",
+    "fiscal_receipt_number": "ФД-85561/ФП-72636797",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.624Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 34,
+  "fields": {
+    "booking": 26,
+    "transaction_id": "TXN-FIN-0026-105542",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "SBP",
+    "amount": "1710.00",
+    "fiscal_receipt_number": "ФД-29414/ФП-50418211",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.631Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 35,
+  "fields": {
+    "booking": 27,
+    "transaction_id": "TXN-FIN-0027-585063",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "CARD",
+    "amount": "1419.50",
+    "fiscal_receipt_number": "ФД-95665/ФП-94020636",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.638Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 36,
+  "fields": {
+    "booking": 28,
+    "transaction_id": "TXN-DEP-0028-559169",
+    "payment_type": "PREPAYMENT_50",
+    "payment_method": "CARD",
+    "amount": "855.00",
+    "fiscal_receipt_number": "ФД-12526/ФП-73864043",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.645Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 37,
+  "fields": {
+    "booking": 28,
+    "transaction_id": "TXN-FIN-0028-471447",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "SBP",
+    "amount": "1814.50",
+    "fiscal_receipt_number": "ФД-94551/ФП-87323517",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.652Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 38,
+  "fields": {
+    "booking": 29,
+    "transaction_id": "TXN-FIN-0029-425514",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "CASH",
+    "amount": "2900.00",
+    "fiscal_receipt_number": "ФД-50838/ФП-57372090",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.659Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 39,
+  "fields": {
+    "booking": 30,
+    "transaction_id": "TXN-DEP-0030-965102",
+    "payment_type": "PREPAYMENT_50",
+    "payment_method": "SBP",
+    "amount": "1912.50",
+    "fiscal_receipt_number": "ФД-17630/ФП-20748556",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.667Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 40,
+  "fields": {
+    "booking": 30,
+    "transaction_id": "TXN-FIN-0030-413273",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "SBP",
+    "amount": "3051.50",
+    "fiscal_receipt_number": "ФД-84443/ФП-23846356",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.675Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 41,
+  "fields": {
+    "booking": 31,
+    "transaction_id": "TXN-FIN-0031-291831",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "SBP",
+    "amount": "2711.50",
+    "fiscal_receipt_number": "ФД-76681/ФП-15932822",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.683Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 42,
+  "fields": {
+    "booking": 32,
+    "transaction_id": "TXN-DEP-0032-896710",
+    "payment_type": "PREPAYMENT_50",
+    "payment_method": "CARD",
+    "amount": "1350.00",
+    "fiscal_receipt_number": "ФД-65862/ФП-68670310",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.690Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 43,
+  "fields": {
+    "booking": 32,
+    "transaction_id": "TXN-FIN-0032-659821",
+    "payment_type": "FINAL_PAYMENT",
+    "payment_method": "SBP",
+    "amount": "1610.00",
+    "fiscal_receipt_number": "ФД-25396/ФП-22214276",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.696Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 44,
+  "fields": {
+    "booking": 34,
+    "transaction_id": "TXN-DEP-0034-455938",
+    "payment_type": "PREPAYMENT_50",
+    "payment_method": "CARD",
+    "amount": "1375.00",
+    "fiscal_receipt_number": "ФД-26269/ФП-89893912",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.704Z"
+  }
+},
+{
+  "model": "club_booking.payment",
+  "pk": 45,
+  "fields": {
+    "booking": 35,
+    "transaction_id": "TXN-DEP-0035-504949",
+    "payment_type": "PREPAYMENT_50",
+    "payment_method": "SBP",
+    "amount": "1687.50",
+    "fiscal_receipt_number": "ФД-34737/ФП-28710478",
+    "status": "PAID",
+    "created_at": "2026-11-15T10:51:10.710Z"
+  }
+}
+]
