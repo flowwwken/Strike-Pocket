@@ -14,6 +14,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST, require_GET
 from django.core.exceptions import ValidationError
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Count, Sum, Avg, Q
 
 from .models import (
@@ -456,3 +457,96 @@ def api_bar_items(request):
         for item in items
     ]
     return JsonResponse({'status': 'success', 'items': data})
+
+
+def about_view(request):
+    """Статическая страница: О комплексе Strike & Pocket, правила, тарифы день/вечер и стандарты оборудования."""
+    categories = ResourceCategory.objects.all()
+    tariffs = Tariff.objects.filter(is_active=True).select_related('category').order_by('category', 'day_type', 'time_slot')
+    
+    context = {
+        'categories': categories,
+        'tariffs': tariffs,
+    }
+    return render(request, 'club_booking/about.html', context)
+
+
+def check_booking_view(request):
+    """Страница поиска и оперативной проверки статуса бронирования по коду или телефону (FR-14)."""
+    query = request.GET.get('q', '').strip()
+    booking = None
+    time_diff_hours = None
+    can_cancel = False
+
+    if query:
+        booking = Booking.objects.select_related('client', 'resource', 'resource__category')\
+            .prefetch_related('bar_orders__bar_item', 'payments')\
+            .filter(
+                Q(booking_number__iexact=query) |
+                Q(client__phone__icontains=query)
+            ).order_by('-booking_date', '-time_start').first()
+
+        if booking and booking.status in ['NEW', 'CONFIRMED']:
+            now_dt = datetime.now()
+            booking_dt = datetime.combine(booking.booking_date, booking.time_start)
+            time_diff = booking_dt - now_dt
+            time_diff_hours = time_diff.total_seconds() / 3600.0
+            can_cancel = time_diff_hours >= 2.0
+
+    if request.method == 'POST' and booking:
+        action = request.POST.get('action')
+        if action == 'cancel':
+            now_dt = datetime.now()
+            booking_dt = datetime.combine(booking.booking_date, booking.time_start)
+            if (booking_dt - now_dt).total_seconds() / 3600.0 >= 2.0:
+                booking.status = 'CANCELLED'
+                booking.save(update_fields=['status'])
+                messages.success(request, f"Бронирование #{booking.booking_number} успешно отменено. Средства будут возвращены.")
+            else:
+                messages.error(request, "Отмена менее чем за 2 часа невозможна онлайн. Пожалуйста, обратитесь к администратору по телефону.")
+            return redirect(f"/check-booking/?q={booking.booking_number}")
+
+    context = {
+        'query': query,
+        'booking': booking,
+        'time_diff_hours': time_diff_hours,
+        'can_cancel': can_cancel,
+    }
+    return render(request, 'club_booking/check_booking.html', context)
+
+
+def profile_view(request):
+    """Личный кабинет постоянного клиента, виртуальная клубная карта лояльности и история бронирований."""
+    # Для демонстрации и тестирования используем первого клиента из БД
+    phone = request.GET.get('phone', '').strip()
+    if phone:
+        client = Client.objects.filter(phone__icontains=phone).first()
+    else:
+        client = Client.objects.filter(club_cards__isnull=False).first() or Client.objects.first()
+
+    club_card = client.club_cards.filter(is_active=True).first() if client else None
+    
+    # История бронирований с пагинацией по 20 записей
+    bookings_qs = Booking.objects.filter(client=client).select_related('resource', 'resource__category').order_by('-booking_date', '-time_start') if client else Booking.objects.none()
+    paginator = Paginator(bookings_qs, 20)
+    page = request.GET.get('page')
+    try:
+        bookings_page = paginator.page(page)
+    except PageNotAnInteger:
+        bookings_page = paginator.page(1)
+    except EmptyPage:
+        bookings_page = paginator.page(paginator.num_pages)
+
+    context = {
+        'client': client,
+        'club_card': club_card,
+        'bookings': bookings_page,
+    }
+    return render(request, 'club_booking/profile.html', context)
+
+
+def booking_create_view(request):
+    """Отдельная страница формы быстрого бронирования слота."""
+    # Будет расширена формой Django на Занятии 9
+    return redirect('booking_wizard')
+
