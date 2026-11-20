@@ -52,3 +52,8 @@ media/
 node_modules/
 chrome_tmp*/
 
+# Student Reports (word documents)
+reports/
+*.docx
+
+
