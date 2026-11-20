@@ -55,5 +55,7 @@ chrome_tmp*/
 # Student Reports (word documents)
 reports/
 *.docx
+00_ИТОГОВЫЕ_ОТЧЕТЫ_И_ДОКУМЕНТЫ/
+0[1-9]_*/
 
 
