@@ -308,7 +308,10 @@ def bar_menu_view(request):
     items = BarItem.objects.filter(is_available=True).select_related('category').order_by('category', 'name')
     
     if category_filter:
-        items = items.filter(category__id=category_filter)
+        if category_filter.isdigit():
+            items = items.filter(category__id=int(category_filter))
+        else:
+            category_filter = ''
 
     paginator = Paginator(items, 20)
     page_number = request.GET.get('page')
