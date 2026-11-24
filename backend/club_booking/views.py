@@ -544,12 +544,19 @@ def check_booking_view(request):
         if action == 'cancel':
             now_dt = datetime.now()
             booking_dt = datetime.combine(booking.booking_date, booking.time_start)
-            if (booking_dt - now_dt).total_seconds() / 3600.0 >= 2.0:
+            time_diff_hours = (booking_dt - now_dt).total_seconds() / 3600.0
+            
+            # Исправление BUG-02: регламент отмены и удержания депозита (граница 2 часа)
+            if time_diff_hours >= 2.0:
                 booking.status = 'CANCELLED'
-                booking.save(update_fields=['status'])
-                messages.success(request, f"Бронирование #{booking.booking_number} успешно отменено. Средства будут возвращены.")
+                booking.notes = f"{booking.notes or ''} [Своевременная отмена: депозит {booking.deposit_amount} ₽ подлежит возврату]".strip()
+                booking.save(update_fields=['status', 'notes'])
+                messages.success(request, f"Бронирование #{booking.booking_number} успешно отменено. Депозит {booking.deposit_amount} ₽ будет возвращен на карту.")
             else:
-                messages.error(request, "Отмена менее чем за 2 часа невозможна онлайн. Пожалуйста, обратитесь к администратору по телефону.")
+                booking.status = 'CANCELLED'
+                booking.notes = f"{booking.notes or ''} [Поздняя отмена < 2 ч: депозит {booking.deposit_amount} ₽ удержан клубом по регламенту]".strip()
+                booking.save(update_fields=['status', 'notes'])
+                messages.warning(request, f"Бронирование #{booking.booking_number} отменено менее чем за 2 часа до начала игры. Депозит {booking.deposit_amount} ₽ удержан в соответствии с правилами клуба.")
             return redirect(f"/check-booking/?q={booking.booking_number}")
 
     context = {
