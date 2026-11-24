@@ -523,11 +523,21 @@ def check_booking_view(request):
     can_cancel = False
 
     if query:
+        # Исправление BUG-03: нормализация формата номера телефона для надежного поиска
+        digits = re.sub(r'\D', '', query)
+        normalized_phone = query
+        if len(digits) == 11 and digits[0] in ['7', '8']:
+            normalized_phone = f"+7{digits[1:]}"
+        elif len(digits) == 10:
+            normalized_phone = f"+7{digits}"
+
         booking = Booking.objects.select_related('client', 'resource', 'resource__category')\
             .prefetch_related('bar_orders__bar_item', 'payments')\
             .filter(
                 Q(booking_number__iexact=query) |
-                Q(client__phone__icontains=query)
+                Q(client__phone__icontains=query) |
+                Q(client__phone__icontains=normalized_phone) |
+                Q(client__phone__icontains=digits)
             ).order_by('-booking_date', '-time_start').first()
 
         if booking and booking.status in ['NEW', 'CONFIRMED']:
