@@ -86,10 +86,11 @@ def catalog_view(request):
             'weekend_rate': weekend_eve_t.price_per_hour if weekend_eve_t else Decimal('1800.00'),
         }
 
+        # Исправление BUG-04: точная фильтрация по максимальной цене
         if max_price:
             try:
                 limit = Decimal(max_price)
-                if card_info['day_rate'] > limit and card_info['eve_rate'] > limit:
+                if card_info['day_rate'] > limit:
                     continue
             except Exception:
                 pass
