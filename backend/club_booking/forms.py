@@ -231,14 +231,14 @@ class BookingWizardForm(forms.Form):
         if not resource:
             raise ValidationError({'resource_id': "Выбранный ресурс не существует в базе клуба."})
 
-        # --- ОСОБОЕ ТРЕБОВАНИЕ ВАРИАНТА 4: ЛИМИТ 6 ИГРОКОВ НА ДОРОЖКУ БОУЛИНГА ---
+        # --- ОСОБОЕ ТРЕБОВАНИЕ ВАРИАНТА 4: ЛИМИТ 6 ИГРОКОВ НА ДОРОЖКУ БОУЛИНГА (BUG-01) ---
         if resource.category.code == 'BOWLING':
-            if players_count and players_count > 6:
+            if players_count and int(players_count) > 6:
                 raise ValidationError({
                     'players_count': (
                         f"На одну дорожку боулинга допускается компания не более 6 человек "
                         f"(указано: {players_count} чел.). При превышении числа гостей система требует "
-                        f"добавить в бронь вторую дорожку."
+                        f"добавить в бронь вторую дорожку (требование FR-05)."
                     )
                 })
 
