@@ -4,6 +4,7 @@
 Студент: Верин Вадим Сергеевич, группа ИСдо-45.
 """
 
+import re
 import json
 from decimal import Decimal
 from datetime import datetime, date, timedelta, time
