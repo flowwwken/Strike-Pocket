@@ -1,0 +1,166 @@
+[
+  {
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+      "name": "HallOperators",
+      "permissions": []
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 2,
+    "fields": {
+      "name": "BarStaff",
+      "permissions": []
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 3,
+    "fields": {
+      "name": "ClubMembers",
+      "permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 101,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$test$eK1W3uLh0p6B9y8Z7x6C5v4B3n2M1Q==",
+      "last_login": "2026-11-23T12:00:00Z",
+      "is_superuser": true,
+      "username": "test_admin",
+      "first_name": "Администратор",
+      "last_name": "Тестовый",
+      "email": "test_admin@strikepocket.ru",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2026-11-01T08:00:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 102,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$test$operatorHashSaltValue==",
+      "last_login": "2026-11-23T12:00:00Z",
+      "is_superuser": false,
+      "username": "operator_hall",
+      "first_name": "Ольга",
+      "last_name": "Соколова",
+      "email": "operator@strikepocket.ru",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2026-11-05T08:00:00Z",
+      "groups": [
+        1
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 103,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$test$barManagerHashSaltValue==",
+      "last_login": "2026-11-23T12:00:00Z",
+      "is_superuser": false,
+      "username": "bar_manager",
+      "first_name": "Сергей",
+      "last_name": "Барменов",
+      "email": "bar@strikepocket.ru",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2026-11-05T08:00:00Z",
+      "groups": [
+        2
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 104,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$test$clientGoldHashSalt==",
+      "last_login": "2026-11-23T12:00:00Z",
+      "is_superuser": false,
+      "username": "client_gold",
+      "first_name": "Максим",
+      "last_name": "Алексеев",
+      "email": "m.alekseev@mail.ru",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-11-10T10:00:00Z",
+      "groups": [
+        3
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 105,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$test$clientSilverHashSalt==",
+      "last_login": "2026-11-23T12:00:00Z",
+      "is_superuser": false,
+      "username": "client_silver",
+      "first_name": "Елена",
+      "last_name": "Васильева",
+      "email": "elena.vas@yandex.ru",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-11-12T10:00:00Z",
+      "groups": [
+        3
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "club_booking.booking",
+    "pk": 901,
+    "fields": {
+      "booking_number": "SP-TEST-BOUND-1800",
+      "client": 1,
+      "resource": 1,
+      "booking_date": "2026-11-25",
+      "time_start": "17:00:00",
+      "time_end": "19:00:00",
+      "duration_hours": "2.00",
+      "players_count": 5,
+      "rental_cost": "2300.00",
+      "discount_amount": "230.00",
+      "total_cost": "2070.00",
+      "deposit_amount": "1000.00",
+      "status": "CONFIRMED",
+      "notes": "Тестовый кейс: пересечение границы тарифа 18:00 (1 час день + 1 час вечер)",
+      "created_at": "2026-11-23T14:00:00Z"
+    }
+  },
+  {
+    "model": "club_booking.booking",
+    "pk": 902,
+    "fields": {
+      "booking_number": "SP-TEST-CANCEL-LATE",
+      "client": 2,
+      "resource": 13,
+      "booking_date": "2026-11-24",
+      "time_start": "15:00:00",
+      "time_end": "17:00:00",
+      "duration_hours": "2.00",
+      "players_count": 4,
+      "rental_cost": "1500.00",
+      "discount_amount": "107.50",
+      "total_cost": "2042.50",
+      "deposit_amount": "1000.00",
+      "status": "PAID",
+      "notes": "Тестовый кейс: проверка правила 2 часов до начала сеанса для отмены",
+      "created_at": "2026-11-23T14:30:00Z"
+    }
+  }
+]
