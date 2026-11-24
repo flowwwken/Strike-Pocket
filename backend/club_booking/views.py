@@ -408,6 +408,16 @@ def api_calculate_price(request):
         if not (resource_id and booking_date and time_start and time_end):
             return JsonResponse({'error': 'Не переданы обязательные параметры.'}, status=400)
 
+        # Исправление BUG-05: валидация интервала времени в API до вызова сервисного слоя
+        t_s = parse_time_obj(time_start)
+        t_e = parse_time_obj(time_end)
+        s_m = t_s.hour * 60 + t_s.minute
+        e_m = t_e.hour * 60 + t_e.minute
+        if e_m == 0 and t_e == time(0, 0) and s_m > 0:
+            e_m = 1440
+        if e_m <= s_m:
+            return JsonResponse({'error': 'Время окончания игры должно быть позже времени начала.'}, status=400)
+
         resource = get_object_or_404(ClubResource, id=resource_id)
         calc = calculate_booking_cost(resource, booking_date, time_start, time_end, club_card)
 

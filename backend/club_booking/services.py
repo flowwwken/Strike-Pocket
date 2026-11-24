@@ -60,6 +60,10 @@ def calculate_booking_cost(resource, booking_date, time_start, time_end, club_ca
     start_min = t_start.hour * 60 + t_start.minute
     end_min = t_end.hour * 60 + t_end.minute
 
+    # Исправление BUG-05: обработка полуночи 00:00 как 24:00 (1440 мин) при вечернем бронировании
+    if end_min == 0 and t_end == time(0, 0) and start_min > 0:
+        end_min = 24 * 60
+
     if end_min <= start_min:
         raise ValidationError("Время окончания игры должно быть позже времени начала.")
 
