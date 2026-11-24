@@ -347,6 +347,29 @@ def staff_dashboard_view(request):
         .select_related('client', 'resource', 'resource__category')\
         .prefetch_related('bar_orders__bar_item', 'payments')
 
+    # Экспорт архивного CSV-отчета (исправление BUG-08)
+    if request.GET.get('export') == 'csv':
+        import csv
+        from django.http import HttpResponse
+        response = HttpResponse(content_type='text/csv; charset=utf-8-sig')
+        response['Content-Disposition'] = f'attachment; filename="bookings_{target_date.strftime("%Y%m%d")}.csv"'
+        writer = csv.writer(response, delimiter=';', quoting=csv.QUOTE_MINIMAL)
+        writer.writerow(['Номер бронирования', 'Ресурс', 'Клиент', 'Телефон', 'Время', 'Гости', 'Сумма', 'Статус', 'Примечание'])
+        for b in bookings:
+            notes_clean = (b.notes or '').replace('\r', ' ').replace('\n', ' ').strip()
+            writer.writerow([
+                b.booking_number,
+                str(b.resource),
+                f"{b.client.first_name} {b.client.last_name}",
+                b.client.phone,
+                f"{b.start_time.strftime('%H:%M')}-{b.end_time.strftime('%H:%M')}",
+                b.guests_count,
+                f"{b.total_cost:.2f}",
+                b.get_status_display(),
+                notes_clean
+            ])
+        return response
+
     # Сводные KPI дня
     kpi_total_revenue = bookings.filter(status__in=['CONFIRMED', 'IN_PROGRESS', 'COMPLETED']).aggregate(s=Sum('total_cost'))['s'] or Decimal('0.00')
     kpi_bookings_count = bookings.count()
